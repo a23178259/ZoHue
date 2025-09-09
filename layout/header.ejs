@@ -1,35 +1,44 @@
+<header>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+</header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom py-3">
-    <div class="container position-relative">
-
-        <!-- Logo - 永遠在左邊 -->
-        <a class="navbar-brand order-1 order-lg-1" href="#">
-            <img src="../assets/images/logo.svg" alt="logo" style="height: 40px;">
+    <div class="container d-flex align-items-center">
+        <!-- Logo -->
+        <a class="navbar-brand logo-picture" href="index.html">
+            <img src="../assets/images/logo.svg" alt="logo">
         </a>
 
-        <!-- 用戶資訊 - 桌面版在右邊，手機版置中 -->
-        <a href="user.html" class="text-decoration-none text-dark d-flex align-items-center
-                  order-3 order-lg-3 avatar-center">
-            <img src="../assets/images/avatar.png" class="user-img border rounded-circle me-2" alt="">
-            <span class="d-lg-inline">Mokumaru</span>
+        <!-- 手機版登入按鈕 -->
+        <a href="user.html" class="d-lg-none ms-auto me-2">
+            <button class="btn btn-secondaryL fw-semibold btn-mobile">登入/註冊</button>
         </a>
 
         <!-- 漢堡選單 -->
-        <button class="navbar-toggler border-0 order-2 order-lg-4 ms-auto d-lg-none" type="button" data-bs-toggle="collapse"
+        <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- 摺疊選單 - 桌面版在中間 -->
-        <div class="collapse navbar-collapse order-4 order-lg-2" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <!-- 摺疊選單 -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="#">服務方案</a>
+                    <a class="nav-link px-3" href="#">專案探索</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="#">關於職旅</a>
+                    <a class="nav-link px-3" href="#">關於我們</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="contact.html">聯絡我們</a>
+                    <a class="nav-link px-3" href="#">志工故事</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3" href="#">常見問題</a>
+                </li>
+                <!-- 桌面版登入按鈕 -->
+                <li class="nav-item d-none d-lg-block ms-5">
+                    <a href="user.html">
+                        <button class="btn btn-secondaryL fw-semibold">登入/註冊</button>
+                    </a>
                 </li>
             </ul>
         </div>

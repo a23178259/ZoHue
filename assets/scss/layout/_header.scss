@@ -1,13 +1,42 @@
-.user-img{
-  width: 44px;
-  height: 44px;
+.logo-picture {
+  margin-right: 632px;
 }
 
-@media (max-width: 767px) {
-  .avatar-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+/* 手機版樣式 */
+@media (max-width: 991px) {
+  .logo-picture {
+    margin-right: 0 !important;
+  }
+
+  /* 手機版按鈕縮小 */
+  .btn-mobile {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .navbar-collapse {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid #dee2e6;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* 桌面版樣式 */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .btn-mobile {
+    font-size: 16px;
+    padding: 8px 16px;
   }
 }

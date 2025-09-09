@@ -2,6 +2,12 @@
 @import "./utils/variables";
 @import "../../node_modules/bootstrap";
 
+// Font Awesome
+$fa-font-path: "../assets/webfonts";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+
 @import "./utils/utilities";
 @import "bootstrap/scss/utilities/api";
 

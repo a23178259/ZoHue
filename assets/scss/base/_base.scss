@@ -1,7 +1,13 @@
 /* 標籤的基本樣式 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   letter-spacing: 0.02em;
-  background-color: $natural-95;
+  // background-color: $natural-95;
 }
 
 img {
@@ -12,4 +18,25 @@ img {
 a {
   display: inline-block;
   color: inherit;
+}
+
+// 按鈕
+.btn-secondaryL {
+  border-radius: 100px;
+  padding: 16px 24px;
+  line-height: 19.2px;
+  background-color: $secondary-50;
+  color: $secondary-700;
+}
+
+.btn-secondaryM {
+  padding: 8px 16px;
+  background-color: $secondary-50;
+  color: $secondary-700;
+}
+
+.btn-secondaryL:hover,
+.btn-secondaryM:hover {
+  background-color: $secondary-700;
+  color: $white;
 }
