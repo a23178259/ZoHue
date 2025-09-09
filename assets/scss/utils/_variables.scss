@@ -6,30 +6,35 @@
 // Color system
 
 // scss-docs-start gray-color-variables
-/* 客製化 - 中性色 */
-$natural-95: #f0f3f5;
-$natural-90: #e0e5eb;
-$natural-85: #d1d9e1;
-$natural-75: #b2bfcc;
-$natural-60: #8599ad;
-$natural-50: #667f99;
-$natural-30: #3d4d5c;
-$natural-10: #141a1f;
-$black: $natural-10;
+
+/* 客製化顏色 */
+$natural-950: #121212;
+$natural-900: #3d3d3d;
+$natural-800: #454545;
+$natural-700: #4f4f4f;
+$natural-600: #5d5d5d;
+$natural-500: #6d6d6d;
+$natural-400: #888888;
+$natural-300: #b0b0b0;
+$natural-200: #d1d1d1;
+$natural-100: #e7e7e7;
+$natural-50: #f6f6f6;
+$black: $natural-950;
 $dark: $black;
-$white: #fcfcfd;
+$white: #ffffff;
 $light: $white;
+$link-color: #0498dd;
 
 // $white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+$gray-100: $natural-100;
+$gray-200: $natural-200;
+$gray-300: $natural-300;
+$gray-400: $natural-400;
+$gray-500: $natural-500;
+$gray-600: $natural-600;
+$gray-700: $natural-700;
+$gray-800: $natural-800;
+$gray-900: $natural-900;
 // $black: #000 !default;
 // scss-docs-end gray-color-variables
 
@@ -313,20 +318,38 @@ $cyans: (
 
 // scss-docs-start theme-color-variables
 /* 客製化 - 主色 */
-$primary-97: #f1f4fd;
-$primary-90: #d2d9f9;
-$primary-80: #a4b4f3;
-$primary-70: #778eee;
-$primary-60: #4a69e8;
-$primary-40: #1736b5;
-$primary-25: #0e2271;
-$primary: $primary-60;
+// Primary
+$primary-950: #3f170b;
+$primary-900: #753319;
+$primary-800: #913c1b;
+$primary-700: #b64d1d;
+$primary-600: #f06418;
+$primary-500: #ff8121;
+$primary-400: #ffa53f;
+$primary-300: #ffc27b;
+$primary-200: #fae6be;
+$primary-100: #faeeda;
+$primary-100: #faeeda;
+$primary-50: #fef7ee;
+$primary: $primary-600;
 /* 客製化 - 輔色 */
-$secondary-90: #d7f4ec;
-$secondary-70: #87dec5;
-$secondary-50: #36c99f;
-$secondary-35: #268c6f;
-$secondary: $secondary-50;
+// Secondary
+$secondary-950: #0b2817;
+$secondary-900: #1d4a20;
+$secondary-800: #22571d;
+$secondary-700: #348520;
+$secondary-600: #5db22b;
+$secondary-500: #85cf1f;
+$secondary-400: #ade838;
+$secondary-300: #d3f27c;
+$secondary-200: #e5f5ab;
+$secondary-100: #effbcf;
+$secondary-50: #f7fbea;
+$secondary: $secondary-500;
+/* 客製化 - 背景色 */
+// Background
+$background-01: #f9f5f1;
+$background-02: #f4ece5;
 
 // $primary: $blue !default;
 // $secondary: $gray-600 !default;
@@ -340,29 +363,46 @@ $dark: $gray-900 !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-  /* 客製化 - 顏色變數定義 */ "primary-97": $primary-97,
-  "primary-90": $primary-90,
-  "primary-80": $primary-80,
-  "primary-70": $primary-70,
-  "primary-60": $primary-60,
-  "primary-40": $primary-40,
-  "primary-25": $primary-25,
+  //客製化 - 顏色變數定義
+  "primary-950": $primary-950,
+  "primary-900": $primary-900,
+  "primary-800": $primary-800,
+  "primary-700": $primary-700,
+  "primary-600": $primary-600,
+  "primary-500": $primary-500,
+  "primary-400": $primary-400,
+  "primary-300": $primary-300,
+  "primary-200": $primary-200,
+  "primary-100": $primary-100,
+  "primary-50": $primary-50,
 
-  "secondary-90": $secondary-90,
-  "secondary-70": $secondary-70,
+  "secondary-950": $secondary-950,
+  "secondary-900": $secondary-900,
+  "secondary-800": $secondary-800,
+  "secondary-700": $secondary-700,
+  "secondary-600": $secondary-600,
+  "secondary-500": $secondary-500,
+  "secondary-400": $secondary-400,
+  "secondary-300": $secondary-300,
+  "secondary-200": $secondary-200,
+  "secondary-100": $secondary-100,
   "secondary-50": $secondary-50,
-  "secondary-35": $secondary-35,
 
-  "natural-95": $natural-95,
-  "natural-90": $natural-90,
-  "natural-85": $natural-85,
-  "natural-75": $natural-75,
-  "natural-60": $natural-60,
+  "natural-950": $natural-950,
+  "natural-900": $natural-900,
+  "natural-800": $natural-800,
+  "natural-700": $natural-700,
+  "natural-600": $natural-600,
+  "natural-500": $natural-500,
+  "natural-400": $natural-400,
+  "natural-300": $natural-300,
+  "natural-200": $natural-200,
+  "natural-100": $natural-100,
   "natural-50": $natural-50,
-  "natural-30": $natural-30,
-  "natural-10": $natural-10,
 
-  /////
+  "bg-01": $background-01,
+  "bg-02": $background-02,
+  ///
   "primary": $primary,
   "secondary": $secondary,
   "success": $success,
@@ -827,7 +867,7 @@ $table-striped-bg-factor: 0.05 !default;
 //   var(--#{$prefix}emphasis-color-rgb),
 //   $table-striped-bg-factor
 // ) !default;
-$table-striped-bg: $natural-85 !default;
+$table-striped-bg: $natural-600 !default;
 
 $table-active-color: $table-color !default;
 $table-active-bg-factor: 0.1 !default;
@@ -1283,9 +1323,9 @@ $nav-link-padding-x: 1rem !default;
 $nav-link-font-size: null !default;
 $nav-link-font-weight: null !default;
 // $nav-link-color: var(--#{$prefix}link-color) !default;
-$nav-link-color: $black !default;
+$nav-link-color: $natural-950 !default;
 // $nav-link-hover-color: var(--#{$prefix}link-hover-color) !default;
-$nav-link-hover-color: $natural-30 !default;
+$nav-link-hover-color: $natural-600 !default;
 $nav-link-transition: color 0.15s ease-in-out,
   background-color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
 $nav-link-disabled-color: var(--#{$prefix}secondary-color) !default;
@@ -1305,7 +1345,7 @@ $nav-pills-border-radius: var(--#{$prefix}border-radius) !default;
 // $nav-pills-link-active-color: $component-active-color !default;
 $nav-pills-link-active-color: $black !default;
 // $nav-pills-link-active-bg: $component-active-bg !default;
-$nav-pills-link-active-bg: $natural-90 !default;
+$nav-pills-link-active-bg: $natural-300 !default;
 
 $nav-underline-gap: 1rem !default;
 $nav-underline-border-width: 0.125rem !default;
@@ -1334,11 +1374,13 @@ $navbar-toggler-border-radius: $btn-border-radius !default;
 $navbar-toggler-focus-width: $btn-focus-width !default;
 $navbar-toggler-transition: box-shadow 0.15s ease-in-out !default;
 
-$navbar-light-color: rgba(var(--#{$prefix}emphasis-color-rgb), 0.65) !default;
-$navbar-light-hover-color: rgba(
-  var(--#{$prefix}emphasis-color-rgb),
-  0.8
-) !default;
+// $navbar-light-color: rgba(var(--#{$prefix}emphasis-color-rgb), 0.65) !default;
+$navbar-light-color: $natural-950 !default;
+// $navbar-light-hover-color: rgba(
+//   var(--#{$prefix}emphasis-color-rgb),
+//   0.8
+// ) !default;
+$navbar-light-hover-color: $natural-600 !default;
 $navbar-light-active-color: rgba(
   var(--#{$prefix}emphasis-color-rgb),
   1
