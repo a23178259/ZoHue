@@ -1,0 +1,668 @@
+/* 燈箱樣式 */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: white;
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  border: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #000;
+  }
+}
+
+/* 志工故事牆的樣式 */
+.story-wall {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Microsoft JhengHei", sans-serif;
+  background-color: white;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* 背景裝飾線條 */
+.bg-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bg-line {
+  position: absolute;
+  background-color: #e5e7eb;
+
+  &.bg-line-1 {
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  &.bg-line-2 {
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  &.bg-line-3 {
+    top: 0;
+    left: 25%;
+    width: 1px;
+    height: 100%;
+    background-color: #f3f4f6;
+  }
+
+  &.bg-line-4 {
+    top: 0;
+    right: 25%;
+    width: 1px;
+    height: 100%;
+    background-color: #f3f4f6;
+  }
+
+  &.bg-line-5 {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background-color: #f3f4f6;
+    transform: translateX(-50%);
+  }
+}
+
+/* 右側固定頁面指示器 */
+.page-indicators {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.indicator {
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &:hover .indicator-dot {
+    background-color: #6b7280;
+  }
+
+  &:hover .indicator-label {
+    opacity: 1;
+  }
+
+  &.active .indicator-dot {
+    background-color: #000000;
+    width: 0.75rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+  }
+}
+
+.indicator-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.indicator-label {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #6b7280;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+/* 主要容器 */
+.story-container {
+  position: relative;
+  max-width: 95rem;
+  margin: 0 auto;
+  padding: 3rem 6rem 3rem 4rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 頂部標題 */
+.storyheader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header-line {
+  height: 1px;
+  width: 4rem;
+  background-color: #9ca3af;
+}
+
+.header-title {
+  font-size: 0.875rem;
+  letter-spacing: 0.3em;
+  color: #6b7280;
+  font-weight: normal;
+}
+
+.header-subtitle {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  letter-spacing: 0.1em;
+}
+
+/* 主要內容區 */
+.content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 800px;
+  gap: 80px;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+/* 故事內容 */
+.story-content {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.6s ease;
+  width: 100%;
+
+  &.animating {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+}
+
+.chapter-title {
+  margin-bottom: 2rem;
+}
+
+.chapter-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.chapter-name {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #1f2937;
+}
+
+.chapter-subtitle {
+  font-size: 1.125rem;
+  color: #9ca3af;
+}
+
+.chapter-line {
+  height: 1px;
+  background-color: #d1d5db;
+  width: 100%;
+}
+
+.volunteer-info {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.volunteer-image {
+  font-size: 2.5rem;
+}
+
+.volunteer-name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #1f2937;
+}
+
+.volunteer-role {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.story-text {
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.quote-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d1d5db;
+  font-size: 1.5rem;
+  transform: rotate(180deg);
+}
+
+.story-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.story-quote {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.story-image {
+  width: 767px;
+  max-height: 470px;
+  object-fit: cover;
+  vertical-align: middle;
+  transition: opacity 0.3s ease;
+}
+
+/* 統計數據 */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  color: #6b7280;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #1f2937;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* 視覺元素 */
+.visual-content {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.animating {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.visual-frame {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.frame-outer {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #d1d5db;
+}
+
+.frame-inner {
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.frame-corner {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+
+  &.frame-corner-tl {
+    top: 0;
+    left: 0;
+    border-top: 2px solid #1f2937;
+    border-left: 2px solid #1f2937;
+  }
+
+  &.frame-corner-tr {
+    top: 0;
+    right: 0;
+    border-top: 2px solid #1f2937;
+    border-right: 2px solid #1f2937;
+  }
+
+  &.frame-corner-bl {
+    bottom: 0;
+    left: 0;
+    border-bottom: 2px solid #1f2937;
+    border-left: 2px solid #1f2937;
+  }
+
+  &.frame-corner-br {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid #1f2937;
+    border-right: 2px solid #1f2937;
+  }
+}
+
+.frame-line-h {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #f3f4f6;
+}
+
+.frame-line-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: #f3f4f6;
+}
+
+.visual-center {
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.visual-emoji {
+  font-size: 7.5rem;
+  margin-bottom: 1.5rem;
+  filter: grayscale(100%);
+}
+
+.visual-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.visual-label-line {
+  height: 1px;
+  width: 2rem;
+  background-color: #9ca3af;
+}
+
+.visual-label-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+}
+
+/* 底部導航控制區 */
+.navigation-area {
+  margin-top: 2rem;
+}
+
+/* 滾動提示 */
+.scroll-hint {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.scroll-hint-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: #9ca3af;
+  animation: bounce 2s infinite;
+}
+
+.scroll-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 1rem;
+  background-color: #9ca3af;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+/* 底部導航 */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-button {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #f9fafb;
+    border-color: #000000;
+  }
+}
+
+.nav-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6b7280;
+}
+
+.page-counter {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.page-current {
+  font-weight: bold;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.page-separator {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.page-total {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* 底部裝飾 */
+.footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-line {
+  height: 1px;
+  width: 3rem;
+  background-color: #d1d5db;
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  letter-spacing: 0.1em;
+}
+
+/* 載入動畫樣式 */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.image-loading .loading-text {
+  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .visual-frame {
+    width: 600px;
+    height: 375px;
+  }
+}
+
+@media (max-width: 640px) {
+  .story-container {
+    padding-right: 4rem;
+  }
+
+  .page-indicators {
+    right: 1rem;
+  }
+
+  .chapter-name {
+    font-size: 2rem;
+  }
+
+  .visual-frame {
+    width: 400px;
+    height: 250px;
+  }
+}

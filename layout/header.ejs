@@ -1,5 +1,5 @@
 <header>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom py-3">
     <div class="container d-flex align-items-center">
@@ -29,7 +29,8 @@
                     <a class="nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#">關於我們</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#">志工故事</a>
+                    <a class="nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#"
+                        onclick="openLightbox()">志工故事</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#">常見問題</a>
@@ -44,3 +45,4 @@
         </div>
     </div>
 </nav>
+<%- include('volunteerStories') %>
