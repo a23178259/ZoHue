@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: $natural-900;
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -17,22 +17,13 @@
   }
 }
 
-.lightbox-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: white;
-  overflow: hidden;
-}
-
 .close-button {
   position: absolute;
   top: 20px;
   right: 30px;
   font-size: 2rem;
   font-weight: bold;
-  color: #666;
-  cursor: pointer;
+  color: $natural-500;
   z-index: 1001;
   width: 40px;
   height: 40px;
@@ -46,7 +37,7 @@
 
   &:hover {
     background: rgba(255, 255, 255, 1);
-    color: #000;
+    color: $dark;
   }
 }
 
@@ -64,7 +55,7 @@
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Microsoft JhengHei", sans-serif;
-  background-color: white;
+  background-color: $light;
   overflow: hidden;
   height: 100vh;
 }
@@ -78,7 +69,7 @@
 
 .bg-line {
   position: absolute;
-  background-color: #e5e7eb;
+  background-color: $natural-100;
 
   &.bg-line-1 {
     top: 0;
@@ -213,7 +204,7 @@
 .header-title {
   font-size: 0.875rem;
   letter-spacing: 0.3em;
-  color: #6b7280;
+  color: $natural-700;
   font-weight: normal;
 }
 
@@ -515,7 +506,7 @@
 .scroll-line {
   width: 1px;
   height: 1rem;
-  background-color: #9ca3af;
+  background-color: $natural-300;
 }
 
 @keyframes bounce {
@@ -541,8 +532,7 @@
   width: 3rem;
   height: 3rem;
   border: 1px solid #d1d5db;
-  background: white;
-  cursor: pointer;
+  background: $light;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -550,14 +540,14 @@
 
   &:hover {
     background-color: #f9fafb;
-    border-color: #000000;
+    border-color: $dark;
   }
 }
 
 .nav-icon {
   width: 1.25rem;
   height: 1.25rem;
-  color: #6b7280;
+  color: $natural-500;
 }
 
 .page-counter {
@@ -574,13 +564,9 @@
   font-size: 0.875rem;
 }
 
-.page-separator {
-  color: #9ca3af;
-  font-size: 0.875rem;
-}
-
+.page-separator,
 .page-total {
-  color: #9ca3af;
+  color: $natural-400;
   font-size: 0.875rem;
 }
 
@@ -601,12 +587,12 @@
 .footer-line {
   height: 1px;
   width: 3rem;
-  background-color: #d1d5db;
+  background-color: $natural-300;
 }
 
 .footer-text {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: $natural-700;
   letter-spacing: 0.1em;
 }
 
@@ -614,8 +600,8 @@
 .loading-spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid #f3f3f3;
-  border-top: 2px solid #333;
+  border: 2px solid $primary-100;
+  border-top: 2px solid $natural-900;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -630,39 +616,178 @@
 }
 
 .image-loading .loading-text {
-  color: #666;
+  color: $natural-700;
   font-size: 12px;
   font-weight: 500;
 }
 
-/* 響應式設計 */
-@media (max-width: 1024px) {
+/* RWD */
+@media (max-width: 1200px) {
+  //   隱藏副標
+  .header-subtitle {
+    display: none;
+  }
+
+  .story-container {
+    padding: 1rem 1rem 1rem 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* 主內容區上下排列 */
   .content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 0;
+    align-items: stretch;
+  }
+
+  /* 圖片區在上方 */
+  .visual-content {
+    order: 1;
+    position: relative;
+  }
+
+  /* 6. 故事內容在下方 */
+  .story-content {
+    order: 2;
+    width: 100%;
   }
 
   .visual-frame {
-    width: 600px;
-    height: 375px;
-  }
-}
-
-@media (max-width: 640px) {
-  .story-container {
-    padding-right: 4rem;
+    width: 100%;
+    height: 250px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
-  .page-indicators {
-    right: 1rem;
+  .story-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  /* 底部導航 */
+  .navigation-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  /* 導航區域縮小並橫向排列 */
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+
+  .nav-button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4px;
+  }
+
+  .nav-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .page-counter {
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+  }
+
+  /* 隱藏底部裝飾文字 */
+  .storyfooter {
+    display: none;
   }
 
   .chapter-name {
     font-size: 2rem;
   }
 
-  .visual-frame {
-    width: 400px;
-    height: 250px;
+  .story-paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
   }
+
+  .volunteer-name {
+    font-size: 1.1rem;
+  }
+
+  .volunteer-role {
+    font-size: 0.8rem;
+  }
+
+  /* 統計數據調整 */
+  .stats {
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .navigation {
+    margin-bottom: 3rem;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: none;
+}
+
+/* 進場動畫 */
+.lightbox.active .lightbox-content {
+  animation: zoomIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 離場動畫（加上 closing 狀態） */
+.lightbox.closing .lightbox-content {
+  animation: zoomOut 0.3s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }

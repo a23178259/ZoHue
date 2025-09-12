@@ -15,7 +15,7 @@
             </div>
 
             <!-- 右側固定頁面指示器 -->
-            <div class="page-indicators" id="pageIndicators">
+            <div class="page-indicators d-none d-md-flex" id="pageIndicators">
                 <!-- 動態生成 -->
             </div>
 
@@ -130,7 +130,7 @@
                 <!-- 底部導航控制區 -->
                 <div class="navigation-area">
                     <!-- 滾動提示 -->
-                    <div class="scroll-hint" id="scrollHint">
+                    <div class="scroll-hint d-none d-md-flex" id="scrollHint">
                         <div class="scroll-hint-content">
                             <p class="scroll-text">SCROLL</p>
                             <div class="scroll-line"></div>
@@ -161,7 +161,7 @@
                     </div>
 
                     <!-- 底部裝飾 -->
-                    <div class="footer">
+                    <div class="storyfooter">
                         <div class="footer-decoration">
                             <div class="footer-line"></div>
                             <p class="footer-text">愛心無界 · 教育無限</p>
@@ -259,7 +259,9 @@
     let touchStartY = 0;
     let elements = {};
 
-    // 燈箱控制 - 供外部調用
+    // 燈箱控制 - 外部調用
+    
+    // 開啟燈箱
     function openLightbox() {
         const lightbox = document.getElementById('lightbox');
         if (!lightbox) return;
@@ -274,15 +276,25 @@
             window.storyWallInitialized = true;
         }
     }
-
+    // 關閉燈箱
     function closeLightbox() {
         const lightbox = document.getElementById('lightbox');
         if (!lightbox) return;
 
+        // 1. 加入 .closing 狀態
+        lightbox.classList.add('closing');
+        // 2. 移除 active（開始縮小動畫）
         lightbox.classList.remove('active');
-        setTimeout(() => {
-            lightbox.style.display = 'none';
-        }, 300);
+        // 3. 監聽動畫完畢後才隱藏
+        const lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) {
+            lightboxContent.addEventListener('animationend', function handler() {
+                lightbox.style.display = 'none';
+                lightbox.classList.remove('closing');
+                // 移除監聽，避免重複
+                lightboxContent.removeEventListener('animationend', handler);
+            });
+        }
     }
 
     // 初始化DOM元素
