@@ -14,24 +14,20 @@
     padding: 6px 12px;
   }
 
-  .navbar-collapse {
+  .navbarList {
     margin-top: 1rem;
     padding: 1rem 0;
-    border-top: 1px solid #dee2e6;
+    border-top: 1px solid $natural-100;
   }
 
-  .navbar-nav {
-    text-align: center;
-  }
-
-  .navbar-nav .nav-link {
+  .navbar-nav .navbarList-link {
     padding: 0.5rem 1rem;
   }
 }
 
 /* 桌面版樣式 */
 @media (min-width: 992px) {
-  .navbar-collapse {
+  .navbarList {
     flex-grow: 0;
   }
 

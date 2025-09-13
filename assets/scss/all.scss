@@ -15,13 +15,13 @@ $fa-font-path: "../assets/webfonts";
 
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
+@import "./layout/volunteerStories.scss";
 
 @import "./pages/index.scss";
 @import "./pages/user.scss";
 @import "./pages/privacy.scss";
 @import "./pages/userAgreement.scss";
 @import "./pages/contact.scss";
-@import "./pages/_volunteerStories.scss";
 
 .text-sm {
   font-size: 14px;
