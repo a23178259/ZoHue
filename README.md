@@ -48,7 +48,7 @@
 ### 圖庫 Icon
 
 - fontawesome：https://fontawesome.com/?o=r
-- fontawesome → 已使用 npm 全域安裝
+- fontawesome → 已使用 npm 全域安裝，可直接到官網複製class使用
 - tabler：https://tabler.io/icons
 - tabler → 使用 CDN 引入
 - icon 庫：https://icon-sets.iconify.design/
