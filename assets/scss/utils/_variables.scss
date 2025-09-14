@@ -512,11 +512,13 @@ $spacers: (
   // 3: $spacer,
   // 4: $spacer * 1.5,
   // 5: $spacer * 3,
-  /* 客製化 - 間距變數定義 */ 0: 0,
+  //客製化 - 間距變數定義
+  0: 0,
   1: $spacer * 0.25,
   2: $spacer * 0.5,
   3: $spacer * 0.75,
   4: $spacer,
+  "xl": $spacer * 1.25,
   5: $spacer * 1.5,
   6: $spacer * 3,
   7: $spacer * 5
@@ -762,6 +764,7 @@ $font-sizes: (
   4: $h4-font-size,
   5: $h5-font-size,
   6: $h6-font-size,
+  "lg": $font-size-lg,
 ) !default;
 // scss-docs-end font-sizes
 
