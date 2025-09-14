@@ -8,8 +8,10 @@
 - privacy.html → 隱私權政策
 - userAgreement.html → 用戶條款
 
-### 常用Bootstrap 類別
-#### margin、padding間距
+### 常用 Bootstrap 類別
+
+#### margin、padding 間距
+
 ```
 -2：8px
 -3：12px
@@ -23,10 +25,25 @@
 上下：py、my
 左右：px、mx
 ```
+
 #### 顏色
+
 - natural、primary、secondary
 - 文字顏色：text-XXXX-300
 - 背景顏色：bg-XXXX-300
+- 外框顏色：border-XXXX-300
+- 固定背景色：background-01、background-02(變數) → bg-bg-01、bg-bg-02(class)
+
+#### 字體大小
+
+- fs-1：48px → 對應 h1
+- fs-2：32px → 對應 h2
+- fs-3：28px → 對應 h3
+- fs-4：24px → 對應 h4
+- fs-lg：20px
+- fs-5：18px → 對應 h5
+- fs-6：16px → 對應 h6
+- sm：14px
 
 ### 圖庫 Icon
 
@@ -34,7 +51,7 @@
 - fontawesome → 已使用 npm 全域安裝
 - tabler：https://tabler.io/icons
 - tabler → 使用 CDN 引入
-- icon庫：https://icon-sets.iconify.design/
+- icon 庫：https://icon-sets.iconify.design/
 - Google Material Design Icons：https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_drop_up:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3
 
 ### Node.js 版本
