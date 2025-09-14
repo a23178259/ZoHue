@@ -8,6 +8,9 @@
 - privacy.html → 隱私權政策
 - userAgreement.html → 用戶條款
 
+### 位置
+- 圖片：assets/images → 以SVG格式儲存，可自由調整大小，不會壓縮圖片品質
+
 ### 常用 Bootstrap 類別
 
 #### margin、padding 間距
