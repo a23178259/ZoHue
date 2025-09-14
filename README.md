@@ -34,6 +34,8 @@
 - 背景顏色：bg-XXXX-300
 - 外框顏色：border-XXXX-300
 - 固定背景色：background-01、background-02(變數) → bg-bg-01、bg-bg-02(class)
+- 黑色：dark、black
+- 白色：white、light
 
 #### 字體大小
 
@@ -45,6 +47,20 @@
 - fs-5：18px → 對應 h5
 - fs-6：16px → 對應 h6
 - sm：14px
+
+#### 圓角
+- rounded-0：無圓角
+- rounded-sm：12px
+- rounded：16px(Bootstrap預設)
+- rounded-lg：24px
+- rounded-xl：16px
+- rounded-xxl：32px
+- rounded-pill：膠囊型圓角
+- rounded-circle：圓形圓角
+- rounded-top：只針對上方兩圓角
+- rounded-start：只有左方兩圓角
+- rounded-end：只針對右方兩圓角
+- rounded-bottom：只針對下方兩圓角
 
 ### 圖庫 Icon
 
