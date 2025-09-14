@@ -9,7 +9,7 @@
 - userAgreement.html → 用戶條款
 
 ### 常用Bootstrap 類別
-- margin、padding間距
+#### margin、padding間距
 ```
 -2：8px
 -3：12px
@@ -23,7 +23,10 @@
 上下：py、my
 左右：px、mx
 ```
-
+#### 顏色
+- natural、primary、secondary
+- 文字顏色：text-XXXX-300
+- 背景顏色：bg-XXXX-300
 
 ### 圖庫 Icon
 
