@@ -1,6 +1,6 @@
-# 網頁切版直播班專題：ZeHue
+# 網頁切版直播班專題：ZoHue
 
-## 專案頁面
+### 專案頁面
 
 - index.html → 首頁
 - about.html → 關於我們
@@ -8,19 +8,38 @@
 - privacy.html → 隱私權政策
 - userAgreement.html → 用戶條款
 
-## 圖庫 Icon
+### 常用Bootstrap 類別
+- margin、padding間距
+```
+-2：8px
+-3：12px
+-4：16px
+-5：24px
+-6：48px
+上：mt、pt
+下：mb、pb
+左：ms、ps
+右：me、pe
+上下：py、my
+左右：px、mx
+```
+
+
+### 圖庫 Icon
 
 - fontawesome：https://fontawesome.com/?o=r
 - fontawesome → 已使用 npm 全域安裝
 - tabler：https://tabler.io/icons
 - tabler → 使用 CDN 引入
+- icon庫：https://icon-sets.iconify.design/
+- Google Material Design Icons：https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_drop_up:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3
 
-## Node.js 版本
+### Node.js 版本
 
 - 專案的 Node.js 版本需為 v18 以上
 - 查看自己版本指令：`node -v`
 
-## 指令列表
+### 指令列表
 
 - `npm install` - 初次下載該範例專案後，需要使用 npm install 來安裝套件
 - `npm run dev` - 執行開發模式
@@ -29,7 +48,7 @@
 - `npm run build` - 執行編譯模式（不會開啟瀏覽器）
 - `npm ru deploy` - 自動化部署
 
-## 資料夾結構
+### 資料夾結構
 
 - assets # 靜態資源放置處
 
