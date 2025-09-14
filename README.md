@@ -60,7 +60,7 @@
 - rounded-pill：膠囊型圓角
 - rounded-circle：圓形圓角
 - rounded-top：只針對上方兩圓角
-- rounded-start：只有左方兩圓角
+- rounded-start：只針對左方兩圓角
 - rounded-end：只針對右方兩圓角
 - rounded-bottom：只針對下方兩圓角
 
