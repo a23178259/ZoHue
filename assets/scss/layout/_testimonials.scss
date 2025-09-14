@@ -17,16 +17,6 @@ $shadow-color: rgba(0, 0, 0, 0.1);
   margin: 0;
 }
 
-.testimonial-title {
-  text-align: center;
-  font-size: 48px;
-  font-weight: 800;
-  color: $title-color;
-  margin: 40px 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
-}
-
 .testimonial-slider {
   flex: 1;
   width: 100%;
@@ -235,11 +225,6 @@ $shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-  .testimonial-title {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-
   .testimonial-card {
     padding: 18px;
   }
