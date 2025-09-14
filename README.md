@@ -8,8 +8,6 @@
 - privacy.html → 隱私權政策
 - userAgreement.html → 用戶條款
 
-> 圖片：assets/images → 以SVG格式儲存，可自由調整大小，不會壓縮圖片品質
-
 ### 常用 Bootstrap 類別
 
 #### margin、padding 間距
@@ -93,13 +91,14 @@
 
 - assets # 靜態資源放置處
 
-  - images # 圖片放置處
+  - images # 圖片放置處 → assets/images，以SVG格式儲存，可自由調整大小，不會壓縮圖片品質
   - scss # SCSS 的樣式放置處
 
 - layout # ejs 模板放置處
 - pages # 頁面放置處
 
 - JavaScript 程式碼可寫在 main.js 檔案
+- ejs模板若有JavaScript，可直接寫在下方
 
 ## 注意事項
 
