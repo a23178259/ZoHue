@@ -34,7 +34,7 @@
 - 背景顏色：bg-XXXX-300
 - 外框顏色：border-XXXX-300
 - 固定背景色：background-01、background-02(變數) → bg-bg-01、bg-bg-02(class)
-- 黑色：dark、black
+- 黑色：black、dark
 - 白色：white、light
 
 #### 字體大小
