@@ -1,0 +1,126 @@
+.banner-container {
+  position: relative;
+  max-width: 1076px;
+  height: 316px;
+  background-image: url("/assets/images/Property1Default.svg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 40px;
+  margin: 80px auto;
+}
+
+.illustration-1 {
+  position: absolute;
+  top: 40px;
+  left: 418px;
+  width: 240px;
+  height: 160px;
+  background-image: url("/assets/images/Variant6.svg");
+  background-size: cover;
+}
+
+.illustration-2 {
+  position: absolute;
+  top: 92px;
+  right: 338px;
+  min-width: 120px;
+  height: 120px;
+  background-image: url("/assets/images/Variant06.svg");
+  background-size: cover;
+  transform: scaleX(-1);
+}
+
+.button-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%; /* 水平居中 */
+  transform: translateX(-50%);
+}
+
+// 手機RWD
+@media (max-width: 768px) {
+  .illustration-1 {
+    top: 24px;
+    left: 85.5px;
+    bottom: 16px;
+    max-width: 180px;
+    height: 120px;
+  }
+
+  .illustration-2 {
+    top: 72px;
+    right: 32px;
+    min-width: 80px;
+    height: 80px;
+  }
+
+  .banner-container {
+    background-image: url("/assets/images/Property2Default.svg");
+    border-radius: 32px;
+    max-width: 351px;
+    height: 236px;
+    padding: 24px;
+  }
+
+  .button-container {
+    bottom: 24px;
+  }
+}
+
+// 平板版 RWD (768px - 992px)
+@media (min-width: 769px) and (max-width: 992px) {
+  .banner-container {
+    max-width: 720px;
+    height: 280px;
+    padding: 32px;
+    margin: 60px auto;
+  }
+
+  .illustration-1 {
+    top: 32px;
+    left: 280px;
+    width: 200px;
+    height: 140px;
+  }
+
+  .illustration-2 {
+    top: 80px;
+    right: 165px;
+    min-width: 100px;
+    height: 100px;
+  }
+
+  .button-container {
+    bottom: 32px;
+  }
+}
+
+// 大平板到小桌面 (990px - 1333px)
+@media (min-width: 990px) and (max-width: 1333px) {
+  .banner-container {
+    max-width: 900px;
+    height: 300px;
+    padding: 36px;
+    margin: 70px auto;
+  }
+
+  .illustration-1 {
+    top: 36px;
+    left: 350px;
+    width: 220px;
+    height: 150px;
+  }
+
+  .illustration-2 {
+    top: 88px;
+    right: 250px;
+    min-width: 110px;
+    height: 110px;
+  }
+
+  .button-container {
+    bottom: 36px;
+  }
+}
