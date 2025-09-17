@@ -125,18 +125,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
 }
 
-.user-details {
-  h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 2px;
-  }
+.divider-text {
+  display: inline-block;
 }
 
-// 用戶姓名和評分的容器（僅學員卡片使用）
+// 用戶姓名和評分的容器
 .user-name-rating {
   display: flex;
   align-items: center;
@@ -221,7 +216,6 @@
 
 .testimonial-date {
   font-size: 12px;
-  margin-top: 8px;
 
   .student-card &,
   .volunteer-card & {
@@ -259,5 +253,10 @@
   .quote-text {
     font-size: 14px;
     line-height: 21px;
+  }
+
+  .avatar {
+    width: 61px;
+    height: 61px;
   }
 }
