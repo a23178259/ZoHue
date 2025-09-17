@@ -66,7 +66,16 @@
     left: 100%;
   }
   to {
-    left: calc((var(--width) + 50px) * -1);
+    left: calc((var(--width) + 24px) * -1);
+  }
+}
+
+@keyframes autoRunMobile {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc(320px * -1);
   }
 }
 
@@ -141,11 +150,6 @@
     top: 15px;
     left: 15px;
     font-size: 12px;
-
-    .star {
-      color: $yellow;
-      font-size: 14px;
-    }
   }
 
   // 學員卡片
@@ -166,7 +170,7 @@
 }
 
 .quote-text {
-  line-height: 1.6;
+  line-height: 24px;
   background: $card-bg;
   border: 2px solid;
   border-radius: 24px;
@@ -229,20 +233,31 @@
 }
 
 @media (max-width: 768px) {
-  .testimonial-card {
-    padding: 18px;
+  .image-container {
+    margin-top: 40px;
+    max-width: 180px;
+    height: auto;
+  }
+  .small-image {
+    max-width: 80px;
+    height: auto;
+    top: 73%;
+    right: 60%;
+    transform: translate(-8px, -50%);
   }
 
   .testimonial-list {
+    max-width: 320px;
     height: 300px;
+    margin-bottom: 40px;
   }
 
   .testimonial-item {
-    height: 300px;
+    padding: 16px;
   }
 
   .quote-text {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 21px;
   }
 }
