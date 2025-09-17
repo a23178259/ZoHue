@@ -34,7 +34,7 @@
 - 文字顏色：text-XXXX-300
 - 背景顏色：bg-XXXX-300
 - 外框顏色：border-XXXX-300
-> ▲ XXXX 代換 natural、primary、secondary
+  > ▲ XXXX 代換 natural、primary、secondary
 - 固定背景色：background-01、background-02(變數) → bg-bg-01、bg-bg-02(class)
 - 黑色：black、dark
 - 白色：white、light
@@ -51,9 +51,10 @@
 - sm：14px
 
 #### 圓角
+
 - rounded-0：無圓角
 - rounded-sm：12px
-- rounded：16px(Bootstrap預設)
+- rounded：16px(Bootstrap 預設)
 - rounded-lg：24px
 - rounded-xl：16px
 - rounded-xxl：32px
@@ -64,10 +65,26 @@
 - rounded-end：只針對右方兩圓角
 - rounded-bottom：只針對下方兩圓角
 
+#### 隱藏元素
+
+- d-none：在所有螢幕尺寸下都隱藏
+- d-none d-sm-block：在超小型螢幕上隱藏，但在小型 (sm) 及更大的螢幕上顯示
+- d-md-none：在中型 (md) 及更大的螢幕上隱藏
+- d-none d-lg-block：在大型 (lg) 及更大的螢幕上顯示，但在小於 lg 的螢幕上隱藏
+
+```
+斷點尺寸：
+1.sm (small): ≥576px
+2.md (medium): ≥768px
+3.lg (large): ≥992px
+4.xl (extra large): ≥1200px
+5.xxl (extra extra large): ≥1400px
+```
+
 ### 圖庫 Icon
 
 - fontawesome：https://fontawesome.com/?o=r
-- fontawesome → 已使用 npm 全域安裝，可直接到官網複製class使用
+- fontawesome → 已使用 npm 全域安裝，可直接到官網複製 class 使用
 - tabler：https://tabler.io/icons
 - tabler → 使用 CDN 引入
 - icon 庫：https://icon-sets.iconify.design/
@@ -91,14 +108,14 @@
 
 - assets # 靜態資源放置處
 
-  - images # 圖片放置處 → assets/images，以SVG格式儲存，可自由調整大小，不會壓縮圖片品質
+  - images # 圖片放置處 → assets/images，以 SVG 格式儲存，可自由調整大小，不會壓縮圖片品質
   - scss # SCSS 的樣式放置處
 
 - layout # ejs 模板放置處
 - pages # 頁面放置處
 
 - JavaScript 程式碼可寫在 main.js 檔案
-- ejs模板若有JavaScript，可直接寫在下方
+- ejs 模板若有 JavaScript，可直接寫在下方
 
 ## 注意事項
 
