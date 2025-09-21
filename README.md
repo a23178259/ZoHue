@@ -19,7 +19,9 @@
 -4：16px
 -xl：20px
 -5：24px
+-2xl：40px
 -6：48px
+-7：80px
 上：mt、pt
 下：mb、pb
 左：ms、ps
