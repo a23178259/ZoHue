@@ -26,8 +26,8 @@
 下：mb、pb
 左：ms、ps
 右：me、pe
-上下：py、my
-左右：px、mx
+上下：my、py
+左右：mx、px
 ```
 
 #### 顏色
