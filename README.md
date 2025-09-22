@@ -44,20 +44,19 @@
 
 #### 邊框
 
+##### 添加邊框
 - border：四邊框
 - border-top：上方邊框
 - border-bottom：下方邊框
 - border-left：左方邊框
 - border-right：右方邊框
-
-
+##### 移除邊框
 - border-0：移除所有邊框
 - border-top-0：上方無邊框
 - border-bottom-0：下方無邊框
 - border-left-0：左方無邊框
 - border-right-0：右方無邊框
-
-
+##### 邊框寬度
 - border-1：1px 的邊框
 - border-2：2px 的邊框
 - border-3：3px 的邊框
