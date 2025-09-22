@@ -55,13 +55,13 @@
 
 #### 字體寬度
 
--fw-lighter：lighter(比父元素更窄)
--fw-light：300px
--fw-normal：400px(預設)
--fw-medium：500px
--fw-semibold：600px
--fw-bold：700px
--fw-bolder：bolder(比父元素更粗)
+- fw-lighter：lighter(比父元素更窄)
+- fw-light：300px
+- fw-normal：400px(預設)
+- fw-medium：500px
+- fw-semibold：600px
+- fw-bold：700px
+- fw-bolder：bolder(比父元素更粗)
 
 #### 圓角
 
