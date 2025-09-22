@@ -71,12 +71,14 @@
 - rounded-lg：24px
 - rounded-xl：16px
 - rounded-xxl：32px
+- rounded-6: 40px
 - rounded-pill：膠囊型圓角
 - rounded-circle：圓形圓角
 - rounded-top：只針對上方兩圓角
 - rounded-start：只針對左方兩圓角
 - rounded-end：只針對右方兩圓角
 - rounded-bottom：只針對下方兩圓角
+
 
 #### 字體大小
 
@@ -98,6 +100,11 @@
 - fw-semibold：600px
 - fw-bold：700px
 - fw-bolder：bolder(比父元素更粗)
+
+#### button
+- btn-py: 16px
+- btn-px: 24px
+- radius: 100px
 
 #### 隱藏元素
 

@@ -13,6 +13,8 @@ $fa-font-path: "../assets/webfonts";
 
 @import "./base/base.scss";
 
+@import "./components/buttons";
+
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
 @import "./layout/volunteerStories.scss";
