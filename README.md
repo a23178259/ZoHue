@@ -42,6 +42,41 @@
 - 黑色：black、dark
 - 白色：white、light
 
+#### 邊框
+
+- border：四邊框
+- border-top：上方邊框
+- border-bottom：下方邊框
+- border-left：左方邊框
+- border-right：右方邊框
+
+- border-0：移除所有邊框
+- border-top-0：上方無邊框
+- border-bottom-0：下方無邊框
+- border-left-0：左方無邊框
+- border-right-0：右方無邊框
+
+- border-1：1px 的邊框
+- border-2：2px 的邊框
+- border-3：3px 的邊框
+- border-4：4px 的邊框
+- border-5：5px 的邊框
+
+#### 圓角
+
+- rounded-0：無圓角
+- rounded-sm：12px
+- rounded：16px(Bootstrap 預設)
+- rounded-lg：24px
+- rounded-xl：16px
+- rounded-xxl：32px
+- rounded-pill：膠囊型圓角
+- rounded-circle：圓形圓角
+- rounded-top：只針對上方兩圓角
+- rounded-start：只針對左方兩圓角
+- rounded-end：只針對右方兩圓角
+- rounded-bottom：只針對下方兩圓角
+
 #### 字體大小
 
 - fs-1：48px → 對應 h1
@@ -62,21 +97,6 @@
 - fw-semibold：600px
 - fw-bold：700px
 - fw-bolder：bolder(比父元素更粗)
-
-#### 圓角
-
-- rounded-0：無圓角
-- rounded-sm：12px
-- rounded：16px(Bootstrap 預設)
-- rounded-lg：24px
-- rounded-xl：16px
-- rounded-xxl：32px
-- rounded-pill：膠囊型圓角
-- rounded-circle：圓形圓角
-- rounded-top：只針對上方兩圓角
-- rounded-start：只針對左方兩圓角
-- rounded-end：只針對右方兩圓角
-- rounded-bottom：只針對下方兩圓角
 
 #### 隱藏元素
 
