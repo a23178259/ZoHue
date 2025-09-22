@@ -3,12 +3,12 @@
     font-size: 14px;
   }
 
-  /* 🔥 手機版 footer 容器設為相對定位 */
+  /* 手機版 footer 容器設為相對定位 */
   footer.container-fluid {
     position: relative;
   }
 
-  /* 🔥 手機版背景圖片調整 */
+  /* 手機版背景圖片調整 */
   .Exclude.d-block.d-md-none {
     position: absolute;
     top: 0;
@@ -31,14 +31,14 @@
     z-index: 3;
   }
 
-  /* 🔥 平台區塊獨立一行 */
+  /* 平台區塊獨立一行 */
   .col-lg-3.col-md-6.col-6:nth-child(1) {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     margin-bottom: 20px;
   }
 
-  /* 🔥 志工、提案方區塊並排 */
+  /* 志工、提案方區塊並排 */
   .col-lg-3.col-md-6.col-6:nth-child(2),
   .col-lg-3.col-md-6.col-6:nth-child(3) {
     flex: 0 0 50% !important;
@@ -46,11 +46,10 @@
     margin-bottom: 20px;
   }
 
-  /* 🔥 立即追蹤區塊獨立一行 */
+  /* 立即追蹤區塊獨立一行 */
   .col-lg-3.col-md-6.col-6:nth-child(4) {
     flex: 0 0 100% !important;
     max-width: 100% !important;
-    // margin-bottom: 24px;
   }
 
   .custom-border {
@@ -58,13 +57,18 @@
     padding-bottom: 1rem;
   }
 
-  /* 🔥 平台和立即追蹤區塊的線條延伸到容器邊緣 */
+  /* 平台和立即追蹤區塊的線條延伸到容器邊緣 */
   .col-lg-3.col-md-6.col-6:nth-child(1) .custom-border,
   .col-lg-3.col-md-6.col-6:nth-child(4) .custom-border {
     padding: 0px 16px;
     padding-bottom: 16px;
     width: 100%;
   }
+}
+
+/* 阻止 margin collapse */
+footer {
+  overflow: hidden;
 }
 
 .footer-columns {

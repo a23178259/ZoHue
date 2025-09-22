@@ -5,10 +5,10 @@
   box-sizing: border-box;
 }
 
-body {
-  letter-spacing: 0.02em;
-  // background-color: $natural-95;
-}
+// body {
+//   letter-spacing: 0.02em;
+//   background-color: $natural-95;
+// }
 
 img {
   max-width: 100%;
@@ -34,9 +34,13 @@ a {
   background-color: $secondary-50;
   color: $secondary-700;
 }
-
+// 綠色按鈕hover
 .btn-secondaryL:hover,
 .btn-secondaryM:hover {
   background-color: $secondary-700;
   color: $white;
+}
+// 橘色按鈕hover
+.btn-primaryL:hover {
+  background-color: $primary-400 !important;
 }

@@ -1,0 +1,262 @@
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.testimonial-slider {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.image-container {
+  position: relative;
+  max-width: 240px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.sliderimg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.small-image {
+  position: absolute;
+  max-width: 120px;
+  height: auto;
+  top: 70%;
+  left: 90%;
+  transform: translate(-16px, -50%);
+}
+
+.testimonial-list {
+  display: flex;
+  width: 100%;
+  min-width: calc(var(--width) * var(--quantity));
+  position: relative;
+  height: 450px;
+  margin-bottom: 80px;
+}
+
+.testimonial-item {
+  padding: 32px;
+  width: var(--width);
+  height: 354px;
+  position: absolute;
+  left: 100%;
+  animation: autoRun 15s linear infinite;
+  transition: all 0.3s ease;
+  animation-delay: calc(
+    (15s / var(--quantity)) * (var(--position) - 1) - 15s
+  ) !important;
+}
+
+@keyframes autoRun {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc((var(--width) + 24px) * -1);
+  }
+}
+
+@keyframes autoRunMobile {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc(320px * -1);
+  }
+}
+
+.testimonial-slider:hover .testimonial-item {
+  animation-play-state: paused !important;
+  filter: blur(8px);
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+}
+
+.testimonial-item:hover {
+  filter: blur(0) !important;
+  transform: scale(1.05) !important;
+  z-index: 10;
+  transition: all 0.4s ease;
+}
+
+.testimonial-card {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.card-type {
+  position: absolute;
+  top: 23px;
+  right: 15px;
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-text {
+  display: inline-block;
+}
+
+// 用戶姓名和評分的容器
+.user-name-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.satisfaction {
+  // 志工卡片
+  .volunteer-card & {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 12px;
+  }
+
+  // 學員卡片
+  .student-card & {
+    font-size: 12px;
+
+    .star {
+      color: $yellow;
+      font-size: 14px;
+    }
+  }
+}
+
+.testimonial-content {
+  flex: 1;
+  //   margin-bottom: 15px;
+  position: relative;
+}
+
+.quote-text {
+  line-height: 24px;
+  background: $card-bg;
+  border: 2px solid;
+  border-radius: 24px;
+  margin-top: 10px;
+  position: relative;
+  padding: 16px 20px;
+
+  &.quote-primary {
+    border-color: $primary-300;
+    &::before {
+      border-bottom-color: $primary-300;
+    }
+  }
+
+  &.quote-secondary {
+    border-color: $secondary-300;
+    &::before {
+      border-bottom-color: $secondary-300;
+    }
+  }
+
+  // 氣泡框的小三角形外層邊框
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 27px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid;
+  }
+
+  // 內部白色三角形
+  &::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 29px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $card-bg;
+  }
+}
+
+.testimonial-date {
+  font-size: 12px;
+
+  .student-card &,
+  .volunteer-card & {
+    position: absolute;
+    top: 53px;
+    right: 15px;
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    margin-top: 40px;
+    max-width: 180px;
+    height: auto;
+  }
+  .small-image {
+    max-width: 80px;
+    height: auto;
+    top: 73%;
+    right: 60%;
+    transform: translate(-8px, -50%);
+  }
+
+  .testimonial-list {
+    max-width: 320px;
+    height: 300px;
+    margin-bottom: 40px;
+  }
+
+  .testimonial-item {
+    padding: 16px;
+  }
+
+  .quote-text {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .avatar {
+    width: 61px;
+    height: 61px;
+  }
+}
