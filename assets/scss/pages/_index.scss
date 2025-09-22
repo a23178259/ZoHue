@@ -1,3 +1,22 @@
 .index-title {
   font-size: 100px;
 }
+.pink-wave{
+  background-image: url("/assets/images/pinkwave.svg");
+  background-size: 100%;
+}
+.tab-item{
+  color: $natural-300;
+  line-height: 24px;
+  .tab-icon {
+    display: none;
+    text-align: center;
+  }
+  &.active{
+    color: $natural-800;
+    .tab-icon{display: block;}
+  }
+  :hover{
+    color: $natural-800;
+  }
+}
