@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <title>index</title>
+  <script type="module" crossorigin src="/ZoHue/assets/main-CSLZXGsV.js"></script>
+  <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-BvCYuanL.css">
+</head>
+
+<body>
+  <header>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+</header>
+<nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
+    <div class="container d-flex align-items-center">
+        <!-- Logo -->
+        <a class="navbar-brand logo-picture" href="index.html">
+            <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo">
+        </a>
+
+        <!-- 手機版登入按鈕 -->
+        <a href="#" class="d-lg-none ms-auto me-2">
+            <button class="btn btn-secondaryL fw-semibold btn-mobile">登入/註冊</button>
+        </a>
+
+        <!-- 漢堡選單 -->
+        <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- 摺疊選單 -->
+        <div class="collapse navbar-collapse navbarList" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#">專案探索</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#">關於我們</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#"
+                        onclick="openLightbox()">志工故事</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#">常見問題</a>
+                </li>
+                <!-- 桌面版登入按鈕 -->
+                <li class="nav-item d-none d-lg-block ms-5">
+                    <a href="#">
+                        <button class="btn btn-secondaryL fw-semibold">登入/註冊</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 燈箱 -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="close-button" onclick="closeLightbox()">&times;</button>
+
+        <!-- 志工故事牆內容 -->
+        <div class="story-wall">
+            <!-- 背景裝飾線條 -->
+            <div class="bg-lines">
+                <div class="bg-line bg-line-1"></div>
+                <div class="bg-line bg-line-2"></div>
+                <div class="bg-line bg-line-3"></div>
+                <div class="bg-line bg-line-4"></div>
+                <div class="bg-line bg-line-5"></div>
+            </div>
+
+            <!-- 右側固定頁面指示器 -->
+            <div class="page-indicators d-none d-md-flex" id="pageIndicators">
+                <!-- 動態生成 -->
+            </div>
+
+            <div class="story-container" id="container">
+                <!-- 頂部標題 -->
+                <header class="storyheader">
+                    <div class="header-decoration">
+                        <div class="header-line"></div>
+                        <h1 class="header-title">志工故事牆</h1>
+                        <div class="header-line"></div>
+                    </div>
+                    <p class="header-subtitle">VOLUNTEER STORIES</p>
+                </header>
+
+                <!-- 主要內容區 -->
+                <div class="content">
+                    <!-- 左側故事內容 -->
+                    <div class="story-content" id="storyContent">
+                        <!-- 章節標題 -->
+                        <div class="chapter-title">
+                            <div class="chapter-header">
+                                <h2 class="chapter-name" id="chapterName"></h2>
+                                <span class="chapter-subtitle" id="chapterSubtitle"></span>
+                            </div>
+                            <div class="chapter-line"></div>
+                        </div>
+
+                        <!-- 志工資訊 -->
+                        <div class="volunteer-info">
+                            <div class="volunteer-image" id="volunteerImage"></div>
+                            <div>
+                                <h3 class="volunteer-name" id="volunteerName"></h3>
+                                <p class="volunteer-role" id="volunteerRole"></p>
+                            </div>
+                        </div>
+
+                        <!-- 故事內容 -->
+                        <div class="story-text">
+                            <div class="quote-icon">"</div>
+                            <p class="story-paragraph" id="storyParagraph"></p>
+                            <p class="story-quote" id="storyQuote"></p>
+                        </div>
+
+                        <!-- 統計數據 -->
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statStudents"></p>
+                                <p class="stat-label">位學生</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statHours"></p>
+                                <p class="stat-label">教學時數</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statYears"></p>
+                                <p class="stat-label">年資歷</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側圖片框架 -->
+                    <div class="visual-content" id="visualContent">
+                        <div class="visual-frame">
+                            <!-- 外框 -->
+                            <div class="frame-outer"></div>
+                            <!-- 內框 -->
+                            <div class="frame-inner"></div>
+                            <!-- 角落裝飾 -->
+                            <div class="frame-corner frame-corner-tl"></div>
+                            <div class="frame-corner frame-corner-tr"></div>
+                            <div class="frame-corner frame-corner-bl"></div>
+                            <div class="frame-corner frame-corner-br"></div>
+
+                            <!-- 中心內容 -->
+                            <div class="visual-center">
+                                <img src="" alt="Story Image" id="storyImage" class="story-image">
+                                <div class="visual-label">
+                                </div>
+                            </div>
+
+                            <!-- 裝飾線條 -->
+                            <div class="frame-line-h"></div>
+                            <div class="frame-line-v"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部導航控制區 -->
+                <div class="navigation-area">
+                    <!-- 滾動提示 -->
+                    <div class="scroll-hint d-none d-md-flex" id="scrollHint">
+                        <div class="scroll-hint-content">
+                            <p class="scroll-text">SCROLL</p>
+                            <div class="scroll-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- 底部導航 -->
+                    <div class="navigation">
+                        <button class="nav-button" id="prevButton" aria-label="Previous story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="page-counter">
+                            <span class="page-current" id="pageCurrent">1</span>
+                            <span class="page-separator">/</span>
+                            <span class="page-total" id="pageTotal">6</span>
+                        </div>
+
+                        <button class="nav-button" id="nextButton" aria-label="Next story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 底部裝飾 -->
+                    <div class="storyfooter">
+                        <div class="footer-decoration">
+                            <div class="footer-line"></div>
+                            <p class="footer-text">愛心無界 · 教育無限</p>
+                            <div class="footer-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 志工故事數據
+    const stories = [
+        {
+            id: 1,
+            title: "初心",
+            subtitle: "はじめ",
+            volunteer: "林美玲",
+            role: "英語教學志工",
+            story: "第一次踏進偏鄉小學，看見孩子們渴望學習的眼神，我知道這就是我想做的事。",
+            quote: "教育不是填滿水桶，而是點燃火焰。",
+            image: "🌸",
+            imageUrl: "https://picsum.photos/id/180/767/470",
+            stats: { students: 32, hours: 128, years: 2 },
+        },
+        {
+            id: 2,
+            title: "成長",
+            subtitle: "せいちょう",
+            volunteer: "陳志明",
+            role: "程式設計導師",
+            story: "從一個害羞的工程師，到能夠站在講台上分享知識，這段旅程改變了我。",
+            quote: "在教學中，我們不只是老師，更是永遠的學生。",
+            image: "🌿",
+            imageUrl: "https://picsum.photos/id/160/767/470",
+            stats: { students: 45, hours: 256, years: 3 },
+        },
+        {
+            id: 3,
+            title: "感動",
+            subtitle: "かんどう",
+            volunteer: "王雅琪",
+            role: "美術創作老師",
+            story: "當學生第一次完成作品時的笑容，是我繼續前進的最大動力。",
+            quote: "藝術讓孩子看見世界的美好，也看見自己的可能。",
+            image: "🎨",
+            imageUrl: "https://picsum.photos/id/184/767/470",
+            stats: { students: 28, hours: 96, years: 1 },
+        },
+        {
+            id: 4,
+            title: "堅持",
+            subtitle: "けんじ",
+            volunteer: "李建華",
+            role: "數學輔導老師",
+            story: "即使遇到挫折，看到學生進步的那一刻，所有的努力都值得了。",
+            quote: "堅持不是因為看到希望才堅持，而是堅持了才看到希望。",
+            image: "💪",
+            imageUrl: "https://picsum.photos/id/188/767/470",
+            stats: { students: 38, hours: 180, years: 4 },
+        },
+        {
+            id: 5,
+            title: "希望",
+            subtitle: "きぼう",
+            volunteer: "張淑芬",
+            role: "閱讀推廣志工",
+            story: "每一本書都是一扇窗，讓孩子們看見更廣闊的世界。",
+            quote: "閱讀是給孩子最好的禮物，知識是他們飛翔的翅膀。",
+            image: "📚",
+            imageUrl: "https://picsum.photos/id/24/767/470",
+            stats: { students: 52, hours: 320, years: 5 },
+        },
+        {
+            id: 6,
+            title: "傳承",
+            subtitle: "でんしょう",
+            volunteer: "劉永祥",
+            role: "資深志工導師",
+            story: "看著新志工們成長，就像看見自己當年的模樣，這份愛會一直傳下去。",
+            quote: "最好的傳承不是給予，而是啟發他人也成為給予者。",
+            image: "🌟",
+            imageUrl: "https://picsum.photos/id/177/767/470",
+            stats: { students: 120, hours: 500, years: 8 },
+        },
+    ];
+
+    // 故事牆變數
+    let currentSection = 0;
+    let isAnimating = false;
+    let isScrolling = false;
+    let lastScrollTime = 0;
+    let touchStartY = 0;
+    let elements = {};
+
+    // 燈箱控制 - 外部調用
+    
+    // 開啟燈箱
+    function openLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox) return;
+
+        lightbox.style.display = 'flex';
+        setTimeout(() => {
+            lightbox.classList.add('active');
+        }, 10);
+
+        if (!window.storyWallInitialized) {
+            initStoryWall();
+            window.storyWallInitialized = true;
+        }
+    }
+    // 關閉燈箱
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox) return;
+
+        // 1. 加入 .closing 狀態
+        lightbox.classList.add('closing');
+        // 2. 移除 active（開始縮小動畫）
+        lightbox.classList.remove('active');
+        // 3. 監聽動畫完畢後才隱藏
+        const lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) {
+            lightboxContent.addEventListener('animationend', function handler() {
+                lightbox.style.display = 'none';
+                lightbox.classList.remove('closing');
+                // 移除監聽，避免重複
+                lightboxContent.removeEventListener('animationend', handler);
+            });
+        }
+    }
+
+    // 初始化DOM元素
+    function initElements() {
+        elements = {
+            chapterName: document.querySelector("#chapterName"),
+            chapterSubtitle: document.querySelector("#chapterSubtitle"),
+            volunteerImage: document.querySelector("#volunteerImage"),
+            volunteerName: document.querySelector("#volunteerName"),
+            volunteerRole: document.querySelector("#volunteerRole"),
+            storyParagraph: document.querySelector("#storyParagraph"),
+            storyQuote: document.querySelector("#storyQuote"),
+            statStudents: document.querySelector("#statStudents"),
+            statHours: document.querySelector("#statHours"),
+            statYears: document.querySelector("#statYears"),
+            pageCurrent: document.querySelector("#pageCurrent"),
+            pageTotal: document.querySelector("#pageTotal"),
+            scrollHint: document.querySelector("#scrollHint"),
+            storyContent: document.querySelector("#storyContent"),
+            visualContent: document.querySelector("#visualContent"),
+            pageIndicators: document.querySelector("#pageIndicators"),
+            prevButton: document.querySelector("#prevButton"),
+            nextButton: document.querySelector("#nextButton"),
+            container: document.querySelector("#container"),
+        };
+    }
+
+    function preloadImages() {
+        stories.forEach((story) => {
+            const img = new Image();
+            img.src = story.imageUrl;
+        });
+    }
+
+    function initStoryWall() {
+        initElements();
+        createPageIndicators();
+        preloadImages();
+        updateContent();
+        bindEvents();
+        if (elements.pageTotal) {
+            elements.pageTotal.textContent = stories.length;
+        }
+    }
+
+    function createPageIndicators() {
+        if (!elements.pageIndicators) return;
+
+        elements.pageIndicators.innerHTML = "";
+        stories.forEach((story, index) => {
+            const indicator = document.createElement("button");
+            indicator.className = "indicator";
+            indicator.setAttribute("aria-label", `Go to story ${index + 1}`);
+            indicator.innerHTML = `
+            <div class="indicator-dot"></div>
+            <span class="indicator-label">${story.title}</span>
+        `;
+            indicator.addEventListener("click", () => handleSectionChange(index));
+            elements.pageIndicators.appendChild(indicator);
+        });
+    }
+
+    function updateContent() {
+        const story = stories[currentSection];
+
+        if (elements.chapterName) elements.chapterName.textContent = story.title;
+        if (elements.chapterSubtitle) elements.chapterSubtitle.textContent = story.subtitle;
+        if (elements.volunteerImage) elements.volunteerImage.textContent = story.image;
+        if (elements.volunteerName) elements.volunteerName.textContent = story.volunteer;
+        if (elements.volunteerRole) elements.volunteerRole.textContent = story.role;
+        if (elements.storyParagraph) elements.storyParagraph.textContent = story.story;
+        if (elements.storyQuote) elements.storyQuote.textContent = `— ${story.quote}`;
+        if (elements.statStudents) elements.statStudents.textContent = story.stats.students;
+        if (elements.statHours) elements.statHours.textContent = story.stats.hours;
+        if (elements.statYears) elements.statYears.textContent = story.stats.years;
+        if (elements.pageCurrent) elements.pageCurrent.textContent = currentSection + 1;
+
+        const storyImage = document.querySelector("#storyImage");
+        if (storyImage && story.imageUrl) {
+            storyImage.style.opacity = "0.3";
+
+            let loadingElement = document.querySelector(".image-loading");
+            if (!loadingElement) {
+                loadingElement = document.createElement("div");
+                loadingElement.className = "image-loading";
+                loadingElement.innerHTML = `
+            <div class="loading-spinner"></div>
+            <div class="loading-text">載入中...</div>
+        `;
+                loadingElement.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        `;
+
+                storyImage.parentElement.style.position = "relative";
+                storyImage.parentElement.appendChild(loadingElement);
+            }
+            loadingElement.style.display = "flex";
+
+            const tempImg = new Image();
+            tempImg.onload = function () {
+                storyImage.src = this.src;
+                storyImage.style.opacity = "1";
+                loadingElement.style.display = "none";
+            };
+            tempImg.onerror = function () {
+                storyImage.style.opacity = "1";
+                loadingElement.querySelector(".loading-text").textContent = "載入失敗";
+                loadingElement.querySelector(".loading-spinner").style.display = "none";
+                setTimeout(() => {
+                    loadingElement.style.display = "none";
+                }, 2000);
+            };
+            tempImg.src = story.imageUrl;
+            storyImage.alt = `${story.title} - ${story.volunteer}`;
+        }
+
+        updatePageIndicators();
+
+        if (elements.scrollHint) {
+            if (currentSection === 0) {
+                elements.scrollHint.classList.remove("hidden");
+            } else {
+                elements.scrollHint.classList.add("hidden");
+            }
+        }
+    }
+
+    function updatePageIndicators() {
+        if (!elements.pageIndicators) return;
+
+        const indicators = elements.pageIndicators.querySelectorAll(".indicator");
+        indicators.forEach((indicator, index) => {
+            if (index === currentSection) {
+                indicator.classList.add("active");
+            } else {
+                indicator.classList.remove("active");
+            }
+        });
+    }
+
+    function handleSectionChange(index) {
+        if (isAnimating || isScrolling) return;
+
+        const newIndex = Math.max(0, Math.min(stories.length - 1, index));
+
+        if (newIndex === currentSection) return;
+
+        isAnimating = true;
+
+        if (elements.storyContent) elements.storyContent.classList.add("animating");
+        if (elements.visualContent) elements.visualContent.classList.add("animating");
+
+        setTimeout(() => {
+            currentSection = newIndex;
+            updateContent();
+
+            setTimeout(() => {
+                if (elements.storyContent) elements.storyContent.classList.remove("animating");
+                if (elements.visualContent) elements.visualContent.classList.remove("animating");
+                isAnimating = false;
+            }, 100);
+        }, 300);
+    }
+
+    function handlePrev() {
+        const newIndex = currentSection === 0 ? stories.length - 1 : currentSection - 1;
+        handleSectionChange(newIndex);
+    }
+
+    function handleNext() {
+        const newIndex = currentSection === stories.length - 1 ? 0 : currentSection + 1;
+        handleSectionChange(newIndex);
+    }
+
+    function handleWheel(e) {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const now = Date.now();
+        if (now - lastScrollTime < 500) return;
+
+        if (isScrolling || isAnimating) return;
+
+        lastScrollTime = now;
+
+        if (e.deltaY > 0) {
+            handleNext();
+        } else {
+            handlePrev();
+        }
+    }
+
+    function handleKeydown(e) {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+
+        if (isAnimating || isScrolling) return;
+
+        switch (e.key) {
+            case "ArrowLeft":
+            case "ArrowUp":
+                e.preventDefault();
+                handlePrev();
+                break;
+            case "ArrowRight":
+            case "ArrowDown":
+                e.preventDefault();
+                handleNext();
+                break;
+            case "Escape":
+                e.preventDefault();
+                closeLightbox();
+                break;
+        }
+    }
+
+    function handleTouchStart(e) {
+        touchStartY = e.touches[0].clientY;
+    }
+
+    function handleTouchEnd(e) {
+        if (isAnimating || isScrolling) return;
+
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                handleNext();
+            } else {
+                handlePrev();
+            }
+        }
+    }
+
+    function bindEvents() {
+        if (elements.prevButton) elements.prevButton.addEventListener("click", handlePrev);
+        if (elements.nextButton) elements.nextButton.addEventListener("click", handleNext);
+
+        window.addEventListener("wheel", handleWheel, { passive: false });
+        document.addEventListener("wheel", handleWheel, { passive: false });
+        if (elements.container) {
+            elements.container.addEventListener("wheel", handleWheel, { passive: false });
+        }
+
+        document.addEventListener("keydown", handleKeydown);
+
+        if (elements.container) {
+            elements.container.addEventListener("touchstart", handleTouchStart, { passive: true });
+            elements.container.addEventListener("touchend", handleTouchEnd, { passive: true });
+        }
+
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox) {
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+        }
+    }
+
+    // 將函數暴露到全域，供header調用
+    window.openLightbox = openLightbox;
+    window.closeLightbox = closeLightbox;
+</script>
+
+<section class="container my-7">
+<div class="row">
+<div class="col-10 m-auto">
+<div class="border border-secondary-500 rounded-6 py-2xl">
+
+
+  <div class="d-flex justify-content-center mb-lg-2xl mb-xxl">
+    <img src="/ZoHue/assets/changing-world-fp1nUgun.svg" alt="changing-world">
+    <!-- <img src="/assets/images/world.png" alt="world" class="h-100"> -->
+</div>
+
+<div class="row mb-lg-2xl mb-xxl mx-lg-2xl mx-5">
+    <div class="col text-center">
+      <h4 class="fs-lg fs-lg-4 fw-semibold mb-2 mb-lg-4">專案完成率</h4>
+      <h3 class="display-4 fw-bold text-secondary-600">80%</h3>
+    </div>
+    <div class="col text-center">
+      <h4 class="fs-lg fs-lg-4 fw-semibold mb-2 mb-lg-4">成功專案</h4>
+      <h3 class="display-4 fw-bold text-secondary-600">400+</h3>
+    </div>
+    <div class="col text-center">
+      <h4 class="fs-lg fs-lg-4 fw-semibold mb-2 mb-lg-4">志工參與</h4>
+      <h3 class="display-4 fw-bold text-secondary-600">20k+</h3>      
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+<button type="button" class="btn btn-primary">立即參與專案</button>
+</div>
+  </div>
+
+</div>
+</div>
+</div>
+</section>
+    <div class="testimonial-container bg-bg-01">
+    <div class="image-container">
+        <img src="/ZoHue/assets/Variant5-Cv88b0VO.svg" alt="" class="sliderimg">
+        <img src="/ZoHue/assets/Variant05-UITzZwwp.svg" alt="" class="small-image">
+    </div>
+
+    <div class="testimonial-slider" style="--width: 416px; --quantity: 12;">
+        <div class="testimonial-list">
+            <!-- 志工心得卡片 1 -->
+            <div class="testimonial-item" style="--position: 1">
+                <div class="testimonial-card text-white volunteer-card">
+                    <div class="card-type py-1 px-2 small bg-secondary-200 text-secondary-800 volunteer-badge">志工心得
+                    </div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-secondary-800 bg-secondary-100 fs-lg fs-md-3 fw-semibold">陳</h3>
+                        <div class="user-details">
+                            <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">陳美玲</h5>
+                            <div class="divider-text small mt-md-2 mt-1">
+                                <span class="pe-3 text-secondary-600 border-end border-natural-300">教學志工</span>
+                                <span class="ps-3 text-secondary-600">2年</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-secondary text-natural-700">
+                            能夠參與這個計畫真的很有意義！看到學員們從零基礎到能夠獨立完成專案，那種成就感是無法言喻的。每次上課都能感受到學員們的學習熱忱，也讓我重新思考教學的意義。透過志工服務，我不僅幫助了他人，也讓自己的人生更加充實有意義，也收穫更多快樂。
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 7 月</div>
+                </div>
+            </div>
+
+            <!-- 學員見證卡片 1 -->
+            <div class="testimonial-item" style="--position: 2">
+                <div class="testimonial-card text-white student-card">
+                    <div class="card-type py-1 px-2 small bg-primary-200 text-primary-800 student-badge">學員見證</div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-primary-800 bg-primary-100 fs-lg fs-md-3 fw-semibold">李</h3>
+                        <div class="user-details">
+                            <div class="user-name-rating">
+                                <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">李志華</h5>
+                                <div class="satisfaction">
+                                    <span class="star d-none d-lg-block">★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="small mt-md-2 mt-1 text-primary-600">網頁設計班</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-primary border-primary-300 text-natural-700">
+                            從完全不懂程式到現在能夠設計網站，真的很感謝導師的耐心教導。課程內容循序漸進，老師會針對每個學員的程度調整教學方式。現在我已經在網頁設計公司工作了，薪水比之前的工作好很多，生活品質也大幅提升，未來也會繼續努力學習進步，讓自己變得更加專業！
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 6 月</div>
+                </div>
+            </div>
+
+            <!-- 志工心得卡片 2 -->
+            <div class="testimonial-item" style="--position: 3">
+                <div class="testimonial-card text-white volunteer-card">
+                    <div class="card-type py-1 px-2 small bg-secondary-200 text-secondary-800 volunteer-badge">志工心得
+                    </div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-secondary-800 bg-secondary-100 fs-lg fs-md-3 fw-semibold">王</h3>
+                        <div class="user-details">
+                            <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">王建中</h5>
+                            <div class="divider-text small mt-md-2 mt-1">
+                                <span class="pe-3 text-secondary-600 border-end border-natural-300">技術志工</span>
+                                <span class="ps-3 text-secondary-600">1年</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-secondary text-natural-700">
+                            協助建置線上學習平台的過程中，看到學員們的學習熱忱真的很感動。技術不只是工具，更是改變生活的力量。能夠運用自己的專業技能幫助需要的人，這種成就感比任何薪水都來得珍貴。志工服務讓我找到了人生的另一個價值，也讓我更加堅定地走在這條道路上。
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 8 月</div>
+                </div>
+            </div>
+
+            <!-- 學員見證卡片 2 -->
+            <div class="testimonial-item" style="--position: 4">
+                <div class="testimonial-card text-white student-card">
+                    <div class="card-type py-1 px-2 small bg-primary-200 text-primary-800 student-badge">學員見證</div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-primary-800 bg-primary-100 fs-lg fs-md-3 fw-semibold">張</h3>
+                        <div class="user-details">
+                            <div class="user-name-rating">
+                                <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">張雅雯</h5>
+                                <div class="satisfaction">
+                                    <span class="star d-none d-lg-block">★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="small mt-md-2 mt-1 text-primary-600">數位行銷班</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-primary text-natural-700">
+                            課程讓我從家庭主婦轉身成為數位行銷專員！老師不只教技術操作，更重要的是教我們如何思考市場策略和消費者心理。從完全不懂網路行銷到現在能夠獨立執行廣告投放，這個轉變連我自己都覺得不可思議。現在我有了穩定的工作和收入，重新找回了自信！
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 5 月</div>
+                </div>
+            </div>
+
+            <!-- 志工心得卡片 3 -->
+            <div class="testimonial-item" style="--position: 5">
+                <div class="testimonial-card text-white volunteer-card">
+                    <div class="card-type py-1 px-2 small bg-secondary-200 text-secondary-800 volunteer-badge">志工心得
+                    </div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-secondary-800 bg-secondary-100 fs-lg fs-md-3 fw-semibold">林</h3>
+                        <div class="user-details">
+                            <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">林佳穎</h5>
+                            <div class="divider-text small mt-md-2 mt-1">
+                                <span class="pe-3 text-secondary-600 border-end border-natural-300">課程助教</span>
+                                <span class="ps-3 text-secondary-600">3年</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-secondary text-natural-700">
+                            三年來陪伴了超過100位學員，每個人的轉變都讓我很驕傲。看到他們從迷茫困頓到重新燃起希望，從技能零基礎到成為專業工作者，這個過程讓我深深感受到教育和陪伴的力量。志工服務豐富了我的生命，也讓我學會了同理心和耐心，並持續激發我的熱忱與責任感。
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 7 月</div>
+                </div>
+            </div>
+
+            <!-- 學員見證卡片 3 -->
+            <div class="testimonial-item" style="--position: 6">
+                <div class="testimonial-card text-white student-card">
+                    <div class="card-type py-1 px-2 small bg-primary-200 text-primary-800 student-badge">學員見證</div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-primary-800 bg-primary-100 fs-lg fs-md-3 fw-semibold">劉</h3>
+                        <div class="user-details">
+                            <div class="user-name-rating">
+                                <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">劉建禕</h5>
+                                <div class="satisfaction">
+                                    <span class="star d-none d-lg-block">★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="small mt-md-2 mt-1 text-primary-600">烘焙創業班</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-primary text-natural-700">
+                            從學習烘焙技術到現在開了自己的小店，真的是人生的轉捩點！老師不只教烘焙技術，連食品安全、成本控制、店面經營都有詳細指導。從第一次做出成功的麵包到現在每天都有穩定的客人上門，這個過程充滿挑戰但也很有成就感。現在每天做著自己喜歡的事情，真的很幸福！
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 4 月</div>
+                </div>
+            </div>
+
+            <!-- 志工心得卡片 4 -->
+            <div class="testimonial-item" style="--position: 7">
+                <div class="testimonial-card text-white volunteer-card">
+                    <div class="card-type py-1 px-2 small bg-secondary-200 text-secondary-800 volunteer-badge">志工心得
+                    </div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-secondary-800 bg-secondary-100 fs-lg fs-md-3 fw-semibold">黃</h3>
+                        <div class="user-details">
+                            <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">黃淑芬</h5>
+                            <div class="divider-text small mt-md-2 mt-1">
+                                <span class="pe-3 text-secondary-600 border-end border-natural-300">輔導志工</span>
+                                <span class="ps-3 text-secondary-600">2年</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-secondary text-natural-700">
+                            陪伴學員面對轉職挑戰，提供心理支持和職涯規劃建議，看到他們重新找到人生方向真的很感動。每個人的背景和困難都不同，需要不同的陪伴方式。有時候一句鼓勵的話語，就能成為他們前進的動力。我也從中學到很多，收穫比付出還要多，也期待他們繼續發光發熱。
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 6 月</div>
+                </div>
+            </div>
+
+            <!-- 學員見證卡片 4 -->
+            <div class="testimonial-item" style="--position: 8">
+                <div class="testimonial-card text-white student-card">
+                    <div class="card-type py-1 px-2 small bg-primary-200 text-primary-800 student-badge">學員見證</div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-primary-800 bg-primary-100 fs-lg fs-md-3 fw-semibold">吳</h3>
+                        <div class="user-details">
+                            <div class="user-name-rating">
+                                <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">吳明翰</h5>
+                                <div class="satisfaction">
+                                    <span class="star d-none d-lg-block">★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="small mt-md-2 mt-1 text-primary-600">程式設計班</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-primary text-natural-700">
+                            零基礎學程式設計，說不緊張是騙人的，但老師非常有耐心，會重複講解直到我們都理解為止。從HTML、CSS到JavaScript，每個階段都有實作練習。最難忘的是完成第一個網站專案時的興奮感！現在我在軟體公司當前端工程師，薪水比之前多了一倍，家人都為我感到驕傲！
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 3 月</div>
+                </div>
+            </div>
+
+            <!-- 志工心得卡片 5 -->
+            <div class="testimonial-item" style="--position: 9">
+                <div class="testimonial-card text-white volunteer-card">
+                    <div class="card-type py-1 px-2 small bg-secondary-200 text-secondary-800 volunteer-badge">志工心得
+                    </div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-secondary-800 bg-secondary-100 fs-lg fs-md-3 fw-semibold">許</h3>
+                        <div class="user-details">
+                            <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">許志強</h5>
+                            <div class="divider-text small mt-md-2 mt-1">
+                                <span class="pe-3 text-secondary-600 border-end border-natural-300">設備維護</span>
+                                <span class="ps-3 text-secondary-600">1年</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-secondary text-natural-700">
+                            負責教室設備維護和技術支援，雖然不直接教學，但能支援整個學習環境讓我覺得很有價值。看到老舊的電腦經過維修又能正常運作，學員們能順利上課，那種成就感很特別。每個螺絲釘都有它的價值，我就是那個默默支撐整個系統運作的螺絲釘，也因此感到無比驕傲。
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 8 月</div>
+                </div>
+            </div>
+
+            <!-- 學員見證卡片 5 -->
+            <div class="testimonial-item" style="--position: 10">
+                <div class="testimonial-card text-white student-card">
+                    <div class="card-type py-1 px-2 small bg-primary-200 text-primary-800 student-badge">學員見證</div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-primary-800 bg-primary-100 fs-lg fs-md-3 fw-semibold">趙</h3>
+                        <div class="user-details">
+                            <div class="user-name-rating">
+                                <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">趙美惠</h5>
+                                <div class="satisfaction">
+                                    <span class="star d-none d-lg-block">★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="small mt-md-2 mt-1 text-primary-600">美髮技能班</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-primary text-natural-700">
+                            考取了美髮乙級證照，現在在知名沙龍工作，感謝老師的專業指導和耐心教學！從基礎的洗剪吹到進階的燙染技術，每個細節都講解得很仔細。最重要的是學會了如何與客人溝通，了解他們的需求。現在我有了穩定的收入和專業技能，對未來充滿信心，也更有力量！
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 5 月</div>
+                </div>
+            </div>
+
+            <!-- 志工心得卡片 6 -->
+            <div class="testimonial-item" style="--position: 11">
+                <div class="testimonial-card text-white volunteer-card">
+                    <div class="card-type py-1 px-2 small bg-secondary-200 text-secondary-800 volunteer-badge">志工心得
+                    </div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-secondary-800 bg-secondary-100 fs-lg fs-md-3 fw-semibold">周</h3>
+                        <div class="user-details">
+                            <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">周雅婷</h5>
+                            <div class="divider-text small mt-md-2 mt-1">
+                                <span class="pe-3 text-secondary-600 border-end border-natural-300">行政志工</span>
+                                <span class="ps-3 text-secondary-600">2年</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-secondary text-natural-700">
+                            處理學員報名、課程安排等行政工作，雖然繁瑣但很重要。每當接到學員感謝的電話，或是看到他們順利完成課程找到工作，那種喜悅是無法言喻的。行政工作看似簡單，但每個細節都攸關學員的學習體驗。能夠為這個有意義的計畫貢獻心力，我感到很開心和驕傲。
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 7 月</div>
+                </div>
+            </div>
+
+            <!-- 學員見證卡片 6 -->
+            <div class="testimonial-item" style="--position: 12">
+                <div class="testimonial-card text-white student-card">
+                    <div class="card-type py-1 px-2 small bg-primary-200 text-primary-800 student-badge">學員見證</div>
+                    <div class="user-info">
+                        <h3 class="avatar p-4 me-4 text-primary-800 bg-primary-100 fs-lg fs-md-3 fw-semibold">鄭</h3>
+                        <div class="user-details">
+                            <div class="user-name-rating">
+                                <h5 class="text-natural-950 fw-semibold fs-6 fs-md-lg">鄭宇軒</h5>
+                                <div class="satisfaction">
+                                    <span class="star d-none d-lg-block">★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="small mt-md-2 mt-1 text-primary-600">攝影技能班</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="quote-text quote-primary text-natural-700">
+                            學會攝影和後製技術後，開始接婚攝案子，現在是自由攝影師，工作彈性收入也不錯！從相機基本操作到構圖美學，從Lightroom到Photoshop，每個環節都學得扎實。第一次拍攝婚禮時緊張到手抖，但看到新人滿意的笑容，所有努力都值得了。現在我用鏡頭記錄人們最美好的時刻！
+                        </div>
+                    </div>
+                    <div class="testimonial-date mt-md-2 mt-1 text-natural-700">2024 年 2 月</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>      <div class="success-cases-wapper">
+    <div class="success-cases-container bg-bg-01">
+        <!-- 標題圖片 -->
+        <div class="success-image">
+            <img src="/ZoHue/assets/Variant4-Bij6NI_T.svg" alt="成功專案實績" class="success-img">
+            <img src="/ZoHue/assets/Variant04-CqFJoQe8.svg" alt="獎盃圖標" class="successSmall-image">
+        </div>
+        <!-- 成功案例卡片 -->
+        <div class="success-cases-cardsbox">
+            <!-- 卡片 1: 平面設計師 -->
+            <div class="success-cases-card">
+                <div class="success-cases-card-inner">
+                    <div class="success-cases-job-title text-primary-700">提案者：平面設計 × 陳志明 老師</div>
+                    <div class="card-headerImgArea">
+                        <img src="/ZoHue/assets/successImg1-BlazvfHJ.svg" alt="successImg1" class="card-headerImg">
+                    </div>
+
+                    <div class="success-cases-card-body my-5">
+                        <h4 class="success-cases-name natural-950">陪伴學生完成第一份設計作品</h4>
+                        <div class="success-cases-skill-tags">
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>UIUX設計</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>網頁設計</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>介面設計</span>
+                            </a>
+                        </div>
+                        <div class="success-cases-bio text-natural-700">
+                            這次有志工手把手教學，協助經濟弱勢學生從零學會Adobe平面設計，結合實務專案讓幫他們建立作品集，後來有幾位真的順利接案了，超感動！
+                        </div>
+                    </div>
+                    <div class="border-top border-natural-300 divider mb-5"></div>
+                    <div class="success-cases-card-footer">
+                        <div class="success-cases-stats">
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">3位</h5>
+                                <span class="small text-natural-700">技能志工數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">12位</h5>
+                                <span class="small text-natural-700">學員人數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">32H</h5>
+                                <span class="small text-natural-700">教學時數</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 卡片 2: 程式設計師 -->
+            <div class="success-cases-card">
+                <div class="success-cases-card-inner">
+                    <div class="success-cases-job-title text-primary-700">提案者：前端開發 × 李美華 老師</div>
+                    <div class="card-headerImgArea">
+                        <img src="/ZoHue/assets/successImg2-Bjb289LL.svg" alt="successImg2" class="card-headerImg">
+                    </div>
+                    <div class="success-cases-card-body my-5">
+                        <h4 class="success-cases-name natural-950">帶領學員踏入程式開發領域</h4>
+                        <div class="success-cases-skill-tags">
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>React開發</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>JavaScript</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>前端架構</span>
+                            </a>
+                        </div>
+                        <div class="success-cases-bio text-natural-700">
+                            我自己也是從零基礎轉職工程師的，深知這條路不容易。
+                            所以想幫助更多人跨入程式領域，提案開設前端課程。
+                            用最實務的方式教學，每個學員都要完成自己的網站專案。
+                            看到他們從害怕寫程式到現在能獨當一面，真的很有成就感！
+                        </div>
+                    </div>
+                    <div class="border-top border-natural-300 divider mb-5"></div>
+                    <div class="success-cases-card-footer">
+                        <div class="success-cases-stats">
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">5位</h5>
+                                <span class="small text-natural-700">技能志工數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">92%</h5>
+                                <span class="small text-natural-700">學員轉職率</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">48H</h5>
+                                <span class="small text-natural-700">教學時數</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 卡片 3: 數位行銷 -->
+            <div class="success-cases-card">
+                <div class="success-cases-card-inner">
+                    <div class="success-cases-job-title text-primary-700">提案者：數位行銷 × 王建國 老師</div>
+                    <div class="card-headerImgArea">
+                        <img src="/ZoHue/assets/successImg3-2SJyLiJ0.svg" alt="successImg3" class="card-headerImg">
+                    </div>
+                    <div class="success-cases-card-body my-5">
+                        <h4 class="success-cases-name natural-950">協助餐飲店學會數位行銷</h4>
+                        <div class="success-cases-skill-tags">
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>Google Ads</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>Facebook廣告</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>社群經營</span>
+                            </a>
+                        </div>
+                        <div class="success-cases-bio text-natural-700">
+                            現在是數位時代，但很多小店家不懂網路行銷，所以我提案教大家數位行銷技能。
+                            從基礎的Facebook廣告到Google Ads，讓大家能為自己的事業打拼。
+                            有學員學會後幫家裡的小吃店做行銷，業績成長三倍，超有成就感！
+                        </div>
+                    </div>
+                    <div class="border-top border-natural-300 divider mb-5"></div>
+                    <div class="success-cases-card-footer">
+                        <div class="success-cases-stats">
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">4位</h5>
+                                <span class="small text-natural-700">技能志工數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">15位</h5>
+                                <span class="small text-natural-700">學員人數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">56H</h5>
+                                <span class="small text-natural-700">教學時數</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 卡片 4: 餐飲技能 -->
+            <div class="success-cases-card">
+                <div class="success-cases-card-inner">
+                    <div class="success-cases-job-title text-primary-700">提案者：烘焙主廚 × 張雅芳 老師</div>
+                    <div class="card-headerImgArea">
+                        <img src="/ZoHue/assets/successImg4-BRzca_1M.svg" alt="successImg4" class="card-headerImg">
+                    </div>
+                    <div class="success-cases-card-body my-5">
+                        <h4 class="success-cases-name natural-950">培養烘焙人才成功創業</h4>
+                        <div class="success-cases-skill-tags">
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>烘焙技術</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>食品安全</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>創業輔導</span>
+                            </a>
+                        </div>
+                        <div class="success-cases-bio text-natural-700">
+                            烘焙是我的專業也是熱情，希望能傳授這項技能幫助更多人自立。
+                            我提案開設烘焙創業班，除了教技術還包括成本控制、店面經營。
+                            最開心的是有三位學員現在都開了自己的烘焙坊，每次經過都會進去買個麵包聊聊近況！
+                        </div>
+                    </div>
+                    <div class="border-top border-natural-300 divider mb-5"></div>
+                    <div class="success-cases-card-footer">
+                        <div class="success-cases-stats">
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">6位</h5>
+                                <span class="small text-natural-700">技能志工數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">65%</h5>
+                                <span class="small text-natural-700">創業率</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">100H</h5>
+                                <span class="small text-natural-700">教學時數</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 卡片 5: 美容美髮 -->
+            <div class="success-cases-card">
+                <div class="success-cases-card-inner">
+                    <div class="success-cases-job-title text-primary-700">提案者：美髮設計師 × 林慧君 老師</div>
+                    <div class="card-headerImgArea">
+                        <img src="/ZoHue/assets/successImg5-DchBjVcy.svg" alt="successImg5" class="card-headerImg">
+                    </div>
+                    <div class="success-cases-card-body my-5">
+                        <h4 class="success-cases-name natural-950">免費教學助人一技之長</h4>
+                        <div class="success-cases-skill-tags">
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>美髮設計</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>技能檢定</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>證照輔導</span>
+                            </a>
+                        </div>
+                        <div class="success-cases-bio text-natural-700">
+                            美髮是一技之長，可以讓人有穩定收入和自信。
+                            我看到許多人想學但負擔不起學費，所以提案免費教學。
+                            從基礎剪髮到考取證照，全程陪伴。
+                            現在有位學員在知名沙龍當設計師，她說這個課程改變了她的人生！
+                        </div>
+                    </div>
+                    <div class="border-top border-natural-300 divider mb-5"></div>
+                    <div class="success-cases-card-footer">
+                        <div class="success-cases-stats">
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">5位</h5>
+                                <span class="small text-natural-700">技能志工數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">75%</h5>
+                                <span class="small text-natural-700">考照率</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">120H</h5>
+                                <span class="small text-natural-700">教學時數</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 卡片 6: 攝影影像 -->
+            <div class="success-cases-card">
+                <div class="success-cases-card-inner">
+                    <div class="success-cases-job-title text-primary-700">提案者：商業攝影師 × 劉宇翔 老師</div>
+                    <div class="card-headerImgArea">
+                        <img src="/ZoHue/assets/successImg6-D-Op2w63.svg" alt="successImg6" class="card-headerImg">
+                    </div>
+                    <div class="success-cases-card-body my-5">
+                        <h4 class="success-cases-name natural-950">分享攝影技能記錄美好</h4>
+                        <div class="success-cases-skill-tags">
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>商業攝影</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>影像剪輯</span>
+                            </a>
+                            <a href="#" class="success-cases-skill-tag">
+                                <span>後製技術</span>
+                            </a>
+                        </div>
+                        <div class="success-cases-bio text-natural-700">
+                            攝影讓我記錄了許多美好時刻，也想讓更多人擁有這項技能。
+                            我提案開設攝影課程，從相機操作到後製修圖，培養大家的攝影眼。
+                            有學員現在專門拍婚禮，他說每次看到新人滿意的笑容，就想起當初學攝影的初衷！
+                        </div>
+                    </div>
+                    <div class="border-top border-natural-300 divider mb-5"></div>
+                    <div class="success-cases-card-footer">
+                        <div class="success-cases-stats">
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">3位</h5>
+                                <span class="small text-natural-700">技能志工數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">10位</h5>
+                                <span class="small text-natural-700">學員人數</span>
+                            </div>
+                            <div class="success-cases-stat">
+                                <h5 class="fs-lg text-secondary-700 fw-semibold">48H</h5>
+                                <span class="small text-natural-700">教學時數</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
+
+<script>
+    const lenis = new Lenis({
+        duration: 1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        autoRaf: true
+    });
+
+    const successScrollbox = {
+        wapper: document.querySelector(".success-cases-wapper"),
+        cardsbox: document.querySelector(".success-cases-cardsbox"),
+        distance: 0,
+        if_leave: false,
+        init() {
+            this.resize();
+            window.addEventListener("resize", this.resize.bind(this));
+            this.create_scrolltrigger();
+        },
+        create_scrolltrigger() {
+            // 計算 header 的高度
+            const navbar = document.querySelector('.navbar');
+            const headerHeight = navbar ? navbar.offsetHeight : 80; // 如果找不到 navbar 就用預設值 80px
+
+            ScrollTrigger.create({
+                trigger: this.wapper,
+                start: `top ${headerHeight}px`, // 區塊頂部碰到 header 底部時開始
+                end: "bottom bottom",
+                onUpdate: (self) => {
+                    this.cardsbox.style.transform = `translateX(-${self.progress * this.distance
+                        }px)`;
+                },
+                onLeave: () => {
+                    this.if_leave = true;
+                    console.log(this.if_leave);
+                },
+                onEnterBack: () => {
+                    this.if_leave = false;
+                    console.log(this.if_leave);
+                }
+            });
+        },
+        resize() {
+            this.distance = this.cardsbox.offsetWidth - innerWidth;
+            this.wapper.style.height = `${this.distance}px`;
+            if (this.if_leave)
+                this.cardsbox.style.transform = `translateX(-${this.distance}px)`;
+        }
+    };
+
+    // 確保DOM載入完成後再初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            successScrollbox.init();
+        });
+    } else {
+        successScrollbox.init();
+    }
+</script>        <div class="container-fluid py80-px422 bg-bg-01">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="banner-container">
+                <!-- 插畫圖片1 -->
+                <div class="illustration-1"></div>
+
+                <!-- 插畫圖片2 -->
+                <div class="illustration-2"></div>
+
+                <!-- 立即註冊按鈕 -->
+                <div class="button-container">
+                    <a href="#">
+                        <button class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold">立即註冊</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>          <footer class="container-fluid">
+    <img src="/ZoHue/assets/Exclude-CI-SP6fK.svg" alt="Exclude" class="Exclude d-none d-md-block">
+    <img src="/ZoHue/assets/Exclude-small-DhFM4DXZ.svg" alt="Exclude" class="Exclude d-block d-md-none">
+    <div class="container mx-312">
+        <div class="row footer-columns">
+            <!-- Logo 區塊，佔據一定寬度 -->
+            <div class="col-lg-2 col-md-12 mb-4">
+                <a href="index.html">
+                    <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="col-lg-10 col-md-12">
+                <div class="row align-items-start">
+                    <!-- 平台區塊 -->
+                    <div class="col-lg-3 col-md-6 col-6 platform">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">平台</h6>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">關於我們</a>
+                                <a href="userAgreement.html"
+                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">使用條款</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="privacy.html"
+                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">隱私權政策</a>
+                                <a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">聯絡我們</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 志工區塊 -->
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">志工</h6>
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4 fs-7">專案列表</a>
+                            </li>
+                            <li class=""><a href="#" onclick="openLightbox()"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">志工故事</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 提案方區塊 -->
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">提案方</h6>
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">感謝牆</a>
+                            </li>
+                            <li class=""><a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">成功案例</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 立即追蹤區塊 -->
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">立即追蹤</h6>
+                        <div class="d-flex gap-4 py-2 px-4">
+                            <a href="#"
+                                class="text-primary-500 bg-primary-50 icon-radius d-flex justify-content-center align-items-center p-2">
+                                <i class="fa-brands fa-facebook fa-lg"></i>
+                            </a>
+                            <a href="#"
+                                class="text-primary-500 bg-primary-50 icon-radius d-flex justify-content-center align-items-center p-2">
+                                <i class="ti ti-brand-instagram-filled"></i>
+                            </a>
+                            <a href="#"
+                                class="text-primary-500 bg-primary-50 icon-radius d-flex justify-content-center align-items-center p-2">
+                                <i class="fa-brands fa-line fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 版權聲明 -->
+        <div class="row mb-6">
+            <div class="col-12 text-center">
+                <small class="text-natural-500 bg-natural-50 d-inline-block border-radius py-2 px-4">
+                    Copyright© SparkFund., LTD. All Rights Reserved
+                </small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- 燈箱 -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="close-button" onclick="closeLightbox()">&times;</button>
+
+        <!-- 志工故事牆內容 -->
+        <div class="story-wall">
+            <!-- 背景裝飾線條 -->
+            <div class="bg-lines">
+                <div class="bg-line bg-line-1"></div>
+                <div class="bg-line bg-line-2"></div>
+                <div class="bg-line bg-line-3"></div>
+                <div class="bg-line bg-line-4"></div>
+                <div class="bg-line bg-line-5"></div>
+            </div>
+
+            <!-- 右側固定頁面指示器 -->
+            <div class="page-indicators d-none d-md-flex" id="pageIndicators">
+                <!-- 動態生成 -->
+            </div>
+
+            <div class="story-container" id="container">
+                <!-- 頂部標題 -->
+                <header class="storyheader">
+                    <div class="header-decoration">
+                        <div class="header-line"></div>
+                        <h1 class="header-title">志工故事牆</h1>
+                        <div class="header-line"></div>
+                    </div>
+                    <p class="header-subtitle">VOLUNTEER STORIES</p>
+                </header>
+
+                <!-- 主要內容區 -->
+                <div class="content">
+                    <!-- 左側故事內容 -->
+                    <div class="story-content" id="storyContent">
+                        <!-- 章節標題 -->
+                        <div class="chapter-title">
+                            <div class="chapter-header">
+                                <h2 class="chapter-name" id="chapterName"></h2>
+                                <span class="chapter-subtitle" id="chapterSubtitle"></span>
+                            </div>
+                            <div class="chapter-line"></div>
+                        </div>
+
+                        <!-- 志工資訊 -->
+                        <div class="volunteer-info">
+                            <div class="volunteer-image" id="volunteerImage"></div>
+                            <div>
+                                <h3 class="volunteer-name" id="volunteerName"></h3>
+                                <p class="volunteer-role" id="volunteerRole"></p>
+                            </div>
+                        </div>
+
+                        <!-- 故事內容 -->
+                        <div class="story-text">
+                            <div class="quote-icon">"</div>
+                            <p class="story-paragraph" id="storyParagraph"></p>
+                            <p class="story-quote" id="storyQuote"></p>
+                        </div>
+
+                        <!-- 統計數據 -->
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statStudents"></p>
+                                <p class="stat-label">位學生</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statHours"></p>
+                                <p class="stat-label">教學時數</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statYears"></p>
+                                <p class="stat-label">年資歷</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側圖片框架 -->
+                    <div class="visual-content" id="visualContent">
+                        <div class="visual-frame">
+                            <!-- 外框 -->
+                            <div class="frame-outer"></div>
+                            <!-- 內框 -->
+                            <div class="frame-inner"></div>
+                            <!-- 角落裝飾 -->
+                            <div class="frame-corner frame-corner-tl"></div>
+                            <div class="frame-corner frame-corner-tr"></div>
+                            <div class="frame-corner frame-corner-bl"></div>
+                            <div class="frame-corner frame-corner-br"></div>
+
+                            <!-- 中心內容 -->
+                            <div class="visual-center">
+                                <img src="" alt="Story Image" id="storyImage" class="story-image">
+                                <div class="visual-label">
+                                </div>
+                            </div>
+
+                            <!-- 裝飾線條 -->
+                            <div class="frame-line-h"></div>
+                            <div class="frame-line-v"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部導航控制區 -->
+                <div class="navigation-area">
+                    <!-- 滾動提示 -->
+                    <div class="scroll-hint d-none d-md-flex" id="scrollHint">
+                        <div class="scroll-hint-content">
+                            <p class="scroll-text">SCROLL</p>
+                            <div class="scroll-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- 底部導航 -->
+                    <div class="navigation">
+                        <button class="nav-button" id="prevButton" aria-label="Previous story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="page-counter">
+                            <span class="page-current" id="pageCurrent">1</span>
+                            <span class="page-separator">/</span>
+                            <span class="page-total" id="pageTotal">6</span>
+                        </div>
+
+                        <button class="nav-button" id="nextButton" aria-label="Next story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 底部裝飾 -->
+                    <div class="storyfooter">
+                        <div class="footer-decoration">
+                            <div class="footer-line"></div>
+                            <p class="footer-text">愛心無界 · 教育無限</p>
+                            <div class="footer-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 志工故事數據
+    const stories = [
+        {
+            id: 1,
+            title: "初心",
+            subtitle: "はじめ",
+            volunteer: "林美玲",
+            role: "英語教學志工",
+            story: "第一次踏進偏鄉小學，看見孩子們渴望學習的眼神，我知道這就是我想做的事。",
+            quote: "教育不是填滿水桶，而是點燃火焰。",
+            image: "🌸",
+            imageUrl: "https://picsum.photos/id/180/767/470",
+            stats: { students: 32, hours: 128, years: 2 },
+        },
+        {
+            id: 2,
+            title: "成長",
+            subtitle: "せいちょう",
+            volunteer: "陳志明",
+            role: "程式設計導師",
+            story: "從一個害羞的工程師，到能夠站在講台上分享知識，這段旅程改變了我。",
+            quote: "在教學中，我們不只是老師，更是永遠的學生。",
+            image: "🌿",
+            imageUrl: "https://picsum.photos/id/160/767/470",
+            stats: { students: 45, hours: 256, years: 3 },
+        },
+        {
+            id: 3,
+            title: "感動",
+            subtitle: "かんどう",
+            volunteer: "王雅琪",
+            role: "美術創作老師",
+            story: "當學生第一次完成作品時的笑容，是我繼續前進的最大動力。",
+            quote: "藝術讓孩子看見世界的美好，也看見自己的可能。",
+            image: "🎨",
+            imageUrl: "https://picsum.photos/id/184/767/470",
+            stats: { students: 28, hours: 96, years: 1 },
+        },
+        {
+            id: 4,
+            title: "堅持",
+            subtitle: "けんじ",
+            volunteer: "李建華",
+            role: "數學輔導老師",
+            story: "即使遇到挫折，看到學生進步的那一刻，所有的努力都值得了。",
+            quote: "堅持不是因為看到希望才堅持，而是堅持了才看到希望。",
+            image: "💪",
+            imageUrl: "https://picsum.photos/id/188/767/470",
+            stats: { students: 38, hours: 180, years: 4 },
+        },
+        {
+            id: 5,
+            title: "希望",
+            subtitle: "きぼう",
+            volunteer: "張淑芬",
+            role: "閱讀推廣志工",
+            story: "每一本書都是一扇窗，讓孩子們看見更廣闊的世界。",
+            quote: "閱讀是給孩子最好的禮物，知識是他們飛翔的翅膀。",
+            image: "📚",
+            imageUrl: "https://picsum.photos/id/24/767/470",
+            stats: { students: 52, hours: 320, years: 5 },
+        },
+        {
+            id: 6,
+            title: "傳承",
+            subtitle: "でんしょう",
+            volunteer: "劉永祥",
+            role: "資深志工導師",
+            story: "看著新志工們成長，就像看見自己當年的模樣，這份愛會一直傳下去。",
+            quote: "最好的傳承不是給予，而是啟發他人也成為給予者。",
+            image: "🌟",
+            imageUrl: "https://picsum.photos/id/177/767/470",
+            stats: { students: 120, hours: 500, years: 8 },
+        },
+    ];
+
+    // 故事牆變數
+    let currentSection = 0;
+    let isAnimating = false;
+    let isScrolling = false;
+    let lastScrollTime = 0;
+    let touchStartY = 0;
+    let elements = {};
+
+    // 燈箱控制 - 外部調用
+    
+    // 開啟燈箱
+    function openLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox) return;
+
+        lightbox.style.display = 'flex';
+        setTimeout(() => {
+            lightbox.classList.add('active');
+        }, 10);
+
+        if (!window.storyWallInitialized) {
+            initStoryWall();
+            window.storyWallInitialized = true;
+        }
+    }
+    // 關閉燈箱
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox) return;
+
+        // 1. 加入 .closing 狀態
+        lightbox.classList.add('closing');
+        // 2. 移除 active（開始縮小動畫）
+        lightbox.classList.remove('active');
+        // 3. 監聽動畫完畢後才隱藏
+        const lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) {
+            lightboxContent.addEventListener('animationend', function handler() {
+                lightbox.style.display = 'none';
+                lightbox.classList.remove('closing');
+                // 移除監聽，避免重複
+                lightboxContent.removeEventListener('animationend', handler);
+            });
+        }
+    }
+
+    // 初始化DOM元素
+    function initElements() {
+        elements = {
+            chapterName: document.querySelector("#chapterName"),
+            chapterSubtitle: document.querySelector("#chapterSubtitle"),
+            volunteerImage: document.querySelector("#volunteerImage"),
+            volunteerName: document.querySelector("#volunteerName"),
+            volunteerRole: document.querySelector("#volunteerRole"),
+            storyParagraph: document.querySelector("#storyParagraph"),
+            storyQuote: document.querySelector("#storyQuote"),
+            statStudents: document.querySelector("#statStudents"),
+            statHours: document.querySelector("#statHours"),
+            statYears: document.querySelector("#statYears"),
+            pageCurrent: document.querySelector("#pageCurrent"),
+            pageTotal: document.querySelector("#pageTotal"),
+            scrollHint: document.querySelector("#scrollHint"),
+            storyContent: document.querySelector("#storyContent"),
+            visualContent: document.querySelector("#visualContent"),
+            pageIndicators: document.querySelector("#pageIndicators"),
+            prevButton: document.querySelector("#prevButton"),
+            nextButton: document.querySelector("#nextButton"),
+            container: document.querySelector("#container"),
+        };
+    }
+
+    function preloadImages() {
+        stories.forEach((story) => {
+            const img = new Image();
+            img.src = story.imageUrl;
+        });
+    }
+
+    function initStoryWall() {
+        initElements();
+        createPageIndicators();
+        preloadImages();
+        updateContent();
+        bindEvents();
+        if (elements.pageTotal) {
+            elements.pageTotal.textContent = stories.length;
+        }
+    }
+
+    function createPageIndicators() {
+        if (!elements.pageIndicators) return;
+
+        elements.pageIndicators.innerHTML = "";
+        stories.forEach((story, index) => {
+            const indicator = document.createElement("button");
+            indicator.className = "indicator";
+            indicator.setAttribute("aria-label", `Go to story ${index + 1}`);
+            indicator.innerHTML = `
+            <div class="indicator-dot"></div>
+            <span class="indicator-label">${story.title}</span>
+        `;
+            indicator.addEventListener("click", () => handleSectionChange(index));
+            elements.pageIndicators.appendChild(indicator);
+        });
+    }
+
+    function updateContent() {
+        const story = stories[currentSection];
+
+        if (elements.chapterName) elements.chapterName.textContent = story.title;
+        if (elements.chapterSubtitle) elements.chapterSubtitle.textContent = story.subtitle;
+        if (elements.volunteerImage) elements.volunteerImage.textContent = story.image;
+        if (elements.volunteerName) elements.volunteerName.textContent = story.volunteer;
+        if (elements.volunteerRole) elements.volunteerRole.textContent = story.role;
+        if (elements.storyParagraph) elements.storyParagraph.textContent = story.story;
+        if (elements.storyQuote) elements.storyQuote.textContent = `— ${story.quote}`;
+        if (elements.statStudents) elements.statStudents.textContent = story.stats.students;
+        if (elements.statHours) elements.statHours.textContent = story.stats.hours;
+        if (elements.statYears) elements.statYears.textContent = story.stats.years;
+        if (elements.pageCurrent) elements.pageCurrent.textContent = currentSection + 1;
+
+        const storyImage = document.querySelector("#storyImage");
+        if (storyImage && story.imageUrl) {
+            storyImage.style.opacity = "0.3";
+
+            let loadingElement = document.querySelector(".image-loading");
+            if (!loadingElement) {
+                loadingElement = document.createElement("div");
+                loadingElement.className = "image-loading";
+                loadingElement.innerHTML = `
+            <div class="loading-spinner"></div>
+            <div class="loading-text">載入中...</div>
+        `;
+                loadingElement.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        `;
+
+                storyImage.parentElement.style.position = "relative";
+                storyImage.parentElement.appendChild(loadingElement);
+            }
+            loadingElement.style.display = "flex";
+
+            const tempImg = new Image();
+            tempImg.onload = function () {
+                storyImage.src = this.src;
+                storyImage.style.opacity = "1";
+                loadingElement.style.display = "none";
+            };
+            tempImg.onerror = function () {
+                storyImage.style.opacity = "1";
+                loadingElement.querySelector(".loading-text").textContent = "載入失敗";
+                loadingElement.querySelector(".loading-spinner").style.display = "none";
+                setTimeout(() => {
+                    loadingElement.style.display = "none";
+                }, 2000);
+            };
+            tempImg.src = story.imageUrl;
+            storyImage.alt = `${story.title} - ${story.volunteer}`;
+        }
+
+        updatePageIndicators();
+
+        if (elements.scrollHint) {
+            if (currentSection === 0) {
+                elements.scrollHint.classList.remove("hidden");
+            } else {
+                elements.scrollHint.classList.add("hidden");
+            }
+        }
+    }
+
+    function updatePageIndicators() {
+        if (!elements.pageIndicators) return;
+
+        const indicators = elements.pageIndicators.querySelectorAll(".indicator");
+        indicators.forEach((indicator, index) => {
+            if (index === currentSection) {
+                indicator.classList.add("active");
+            } else {
+                indicator.classList.remove("active");
+            }
+        });
+    }
+
+    function handleSectionChange(index) {
+        if (isAnimating || isScrolling) return;
+
+        const newIndex = Math.max(0, Math.min(stories.length - 1, index));
+
+        if (newIndex === currentSection) return;
+
+        isAnimating = true;
+
+        if (elements.storyContent) elements.storyContent.classList.add("animating");
+        if (elements.visualContent) elements.visualContent.classList.add("animating");
+
+        setTimeout(() => {
+            currentSection = newIndex;
+            updateContent();
+
+            setTimeout(() => {
+                if (elements.storyContent) elements.storyContent.classList.remove("animating");
+                if (elements.visualContent) elements.visualContent.classList.remove("animating");
+                isAnimating = false;
+            }, 100);
+        }, 300);
+    }
+
+    function handlePrev() {
+        const newIndex = currentSection === 0 ? stories.length - 1 : currentSection - 1;
+        handleSectionChange(newIndex);
+    }
+
+    function handleNext() {
+        const newIndex = currentSection === stories.length - 1 ? 0 : currentSection + 1;
+        handleSectionChange(newIndex);
+    }
+
+    function handleWheel(e) {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const now = Date.now();
+        if (now - lastScrollTime < 500) return;
+
+        if (isScrolling || isAnimating) return;
+
+        lastScrollTime = now;
+
+        if (e.deltaY > 0) {
+            handleNext();
+        } else {
+            handlePrev();
+        }
+    }
+
+    function handleKeydown(e) {
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+
+        if (isAnimating || isScrolling) return;
+
+        switch (e.key) {
+            case "ArrowLeft":
+            case "ArrowUp":
+                e.preventDefault();
+                handlePrev();
+                break;
+            case "ArrowRight":
+            case "ArrowDown":
+                e.preventDefault();
+                handleNext();
+                break;
+            case "Escape":
+                e.preventDefault();
+                closeLightbox();
+                break;
+        }
+    }
+
+    function handleTouchStart(e) {
+        touchStartY = e.touches[0].clientY;
+    }
+
+    function handleTouchEnd(e) {
+        if (isAnimating || isScrolling) return;
+
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                handleNext();
+            } else {
+                handlePrev();
+            }
+        }
+    }
+
+    function bindEvents() {
+        if (elements.prevButton) elements.prevButton.addEventListener("click", handlePrev);
+        if (elements.nextButton) elements.nextButton.addEventListener("click", handleNext);
+
+        window.addEventListener("wheel", handleWheel, { passive: false });
+        document.addEventListener("wheel", handleWheel, { passive: false });
+        if (elements.container) {
+            elements.container.addEventListener("wheel", handleWheel, { passive: false });
+        }
+
+        document.addEventListener("keydown", handleKeydown);
+
+        if (elements.container) {
+            elements.container.addEventListener("touchstart", handleTouchStart, { passive: true });
+            elements.container.addEventListener("touchend", handleTouchEnd, { passive: true });
+        }
+
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox) {
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+        }
+    }
+
+    // 將函數暴露到全域，供header調用
+    window.openLightbox = openLightbox;
+    window.closeLightbox = closeLightbox;
+</script>
+</body>
+
+</html>
