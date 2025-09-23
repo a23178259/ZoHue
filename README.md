@@ -10,7 +10,7 @@
 
 ### 常用 Bootstrap 類別
 
-#### Components(固定class)
+#### 組件(固定class)
 
 ##### 橘底白字按鈕(含hover效果)
 - btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold
