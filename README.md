@@ -171,9 +171,7 @@
 
 vite 專案執行開發模式 `npm run dev` 後即會自動監聽，不需要使用 `Live Sass Compiler` 的 `Watch SCSS` 功能
 
-##
-
-部署 gh-pages 流程說明
+## 部署 gh-pages 流程說明
 
 ### Windows 版本
 
