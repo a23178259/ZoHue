@@ -71,7 +71,7 @@
 
 .success-cases-card-inner:hover {
   transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* 氣泡框提案者標籤 */
@@ -124,6 +124,7 @@
   overflow: hidden;
 }
 
+// 卡片內容
 .success-cases-card-body {
   flex: 1;
   margin-left: 32px;
