@@ -45,7 +45,7 @@
   margin-left: 300px;
 }
 
-/* 卡片容器樣式 - 調整為新尺寸 */
+/* 卡片容器樣式 */
 .success-cases-card {
   justify-content: center;
   align-items: center;
@@ -134,19 +134,8 @@
   gap: 16px;
 }
 
-.success-cases-name {
-  font-weight: 600;
-  line-height: 28.8px;
-}
-
 .success-cases-bio {
-  line-height: 24px;
   text-align: left;
-}
-
-.divider {
-  margin-right: 32px;
-  margin-left: 32px;
 }
 
 .success-cases-card-footer {
@@ -157,7 +146,6 @@
 .success-cases-stats {
   display: flex;
   justify-content: space-between;
-  text-align: left;
 }
 
 .success-cases-stat {
@@ -175,32 +163,14 @@
 }
 
 .success-cases-skill-tag {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 15px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .success-cases-skill-tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-/* 不同tag顏色變化 */
-.success-cases-skill-tag:nth-child(1) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.success-cases-skill-tag:nth-child(2) {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.success-cases-skill-tag:nth-child(3) {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 12px #34852063;
 }
 
 /* 載入動畫 */
