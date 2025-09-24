@@ -17,7 +17,7 @@
   display: flex;
 }
 
-/* 標題圖片樣式 */
+// 標題圖片樣式
 .success-image {
   position: absolute;
   top: 2rem;
@@ -25,31 +25,33 @@
   transform: translateX(-50%);
   z-index: 10;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+  max-width: 1296px;
 }
-
 .success-img {
-  width: 240px;
+  width: 100%;
+  height: auto;
+  display: block;
 }
-
 .successSmall-image {
-  width: 120px;
+  position: absolute;
+  max-width: 120px;
+  height: auto;
+  top: 70%;
+  left: 100%;
+  transform: translate(-40px, -50%);
 }
 
+// 卡片區塊
 .success-cases-cardsbox {
   padding-top: 120px;
   margin-top: 80px;
   display: flex;
 }
-
+// 第一張卡片左邊的距離
 .success-cases-cardsbox .success-cases-card:first-child {
   margin-left: 300px;
 }
-
-/* 卡片容器樣式 */
+// 卡片容器樣式
 .success-cases-card {
   justify-content: center;
   align-items: center;
@@ -58,8 +60,7 @@
   padding: 32px;
   display: flex;
 }
-
-/* 綠色邊框設計 */
+// 綠色邊框
 .success-cases-card-inner {
   position: relative;
   width: 416px;
@@ -72,13 +73,12 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+// 綠色邊框hover效果
 .success-cases-card-inner:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.08);
 }
-
-/* 氣泡框提案者標籤 */
+// 氣泡框提案者標籤
 .success-cases-job-title {
   background: $white;
   padding: 8px 20px;
@@ -90,8 +90,7 @@
   text-align: center;
   text-decoration: none;
 }
-
-/* 氣泡框的小三角形外層邊框 */
+// 氣泡框的小三角形外層邊框
 .success-cases-job-title::before {
   content: "";
   position: absolute;
@@ -103,8 +102,7 @@
   border-right: 10px solid transparent;
   border-top: 10px solid $primary-300;
 }
-
-/* 內部白色三角形 */
+// 內部白色三角形
 .success-cases-job-title::after {
   content: "";
   position: absolute;
@@ -116,9 +114,7 @@
   border-right: 8px solid transparent;
   border-top: 8px solid $white;
 }
-
-/* 圖片區域 */
-
+// 圖片區域
 .card-headerImgArea {
   margin: 0 auto;
 }
@@ -127,7 +123,6 @@
   flex-shrink: 0;
   overflow: hidden;
 }
-
 // 卡片內容
 .success-cases-card-body {
   flex: 1;
