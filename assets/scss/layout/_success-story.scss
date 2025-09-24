@@ -10,7 +10,7 @@
 .success-cases-container {
   position: sticky;
   top: 0;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -20,7 +20,7 @@
 // 標題圖片樣式
 .success-image {
   position: absolute;
-  top: 2rem;
+  // top: 2rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -187,4 +187,54 @@
 
 .success-cases-card-inner {
   animation: slideUp 0.6s ease-out;
+}
+
+@media (max-width: 768px) {
+  .success-cases-card-inner {
+    width: 360px;
+  }
+  .success-img {
+    max-width: 180px;
+  }
+  .successSmall-image {
+    max-width: 80px;
+    top: 70%;
+    transform: translate(-25px, -50%);
+  }
+
+  /* 氣泡框 */
+  .success-cases-job-title {
+    min-width: 288px;
+    margin: 24px auto 16px auto;
+    font-size: 14px;
+  }
+
+  /* 調整小三角形位置，讓它在氣泡框中央 */
+  .success-cases-job-title::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .success-cases-job-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .success-cases-card {
+    margin-right: 100px;
+  }
+
+  .card-headerImg {
+    max-width: 288px;
+  }
+
+  .success-cases-bio,
+  .success-cases-skill-tag {
+    font-size: 14px;
+  }
+
+  .success-cases-cardsbox {
+    padding: 0;
+    // margin-bottom: 10px;
+  }
 }
