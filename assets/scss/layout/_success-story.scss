@@ -1,3 +1,7 @@
+* {
+  scroll-behavior: smooth;
+}
+
 .success-cases-wapper {
   position: relative;
   width: 100%;
@@ -13,7 +17,7 @@
   display: flex;
 }
 
-/* 標題圖片樣式 */
+// 標題圖片樣式
 .success-image {
   position: absolute;
   top: 2rem;
@@ -21,31 +25,33 @@
   transform: translateX(-50%);
   z-index: 10;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+  max-width: 1296px;
 }
-
 .success-img {
-  width: 240px;
+  width: 100%;
+  height: auto;
+  display: block;
 }
-
 .successSmall-image {
-  width: 120px;
+  position: absolute;
+  max-width: 120px;
+  height: auto;
+  top: 70%;
+  left: 100%;
+  transform: translate(-40px, -50%);
 }
 
+// 卡片區塊
 .success-cases-cardsbox {
   padding-top: 120px;
-  margin-top: 60px;
+  margin-top: 80px;
   display: flex;
 }
-
+// 第一張卡片左邊的距離
 .success-cases-cardsbox .success-cases-card:first-child {
   margin-left: 300px;
 }
-
-/* 卡片容器樣式 - 調整為新尺寸 */
+// 卡片容器樣式
 .success-cases-card {
   justify-content: center;
   align-items: center;
@@ -54,8 +60,7 @@
   padding: 32px;
   display: flex;
 }
-
-/* 綠色邊框設計 */
+// 綠色邊框
 .success-cases-card-inner {
   position: relative;
   width: 416px;
@@ -65,16 +70,15 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+// 綠色邊框hover效果
 .success-cases-card-inner:hover {
   transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.08);
 }
-
-/* 氣泡框提案者標籤 */
+// 氣泡框提案者標籤
 .success-cases-job-title {
   background: $white;
   padding: 8px 20px;
@@ -86,8 +90,7 @@
   text-align: center;
   text-decoration: none;
 }
-
-/* 氣泡框的小三角形外層邊框 */
+// 氣泡框的小三角形外層邊框
 .success-cases-job-title::before {
   content: "";
   position: absolute;
@@ -99,8 +102,7 @@
   border-right: 10px solid transparent;
   border-top: 10px solid $primary-300;
 }
-
-/* 內部白色三角形 */
+// 內部白色三角形
 .success-cases-job-title::after {
   content: "";
   position: absolute;
@@ -112,9 +114,7 @@
   border-right: 8px solid transparent;
   border-top: 8px solid $white;
 }
-
-/* 圖片區域 */
-
+// 圖片區域
 .card-headerImgArea {
   margin: 0 auto;
 }
@@ -123,7 +123,7 @@
   flex-shrink: 0;
   overflow: hidden;
 }
-
+// 卡片內容
 .success-cases-card-body {
   flex: 1;
   margin-left: 32px;
@@ -134,19 +134,8 @@
   gap: 16px;
 }
 
-.success-cases-name {
-  font-weight: 600;
-  line-height: 28.8px;
-}
-
 .success-cases-bio {
-  line-height: 24px;
   text-align: left;
-}
-
-.divider {
-  margin-right: 32px;
-  margin-left: 32px;
 }
 
 .success-cases-card-footer {
@@ -157,7 +146,6 @@
 .success-cases-stats {
   display: flex;
   justify-content: space-between;
-  text-align: left;
 }
 
 .success-cases-stat {
@@ -175,32 +163,14 @@
 }
 
 .success-cases-skill-tag {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 15px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .success-cases-skill-tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-/* 不同tag顏色變化 */
-.success-cases-skill-tag:nth-child(1) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.success-cases-skill-tag:nth-child(2) {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.success-cases-skill-tag:nth-child(3) {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 12px #34852063;
 }
 
 /* 載入動畫 */

@@ -1,6 +1,6 @@
 # 網頁切版直播班專題：ZoHue
 
-### 專案頁面
+## 專案頁面
 
 - index.html → 首頁
 - about.html → 關於我們
@@ -8,9 +8,14 @@
 - privacy.html → 隱私權政策
 - userAgreement.html → 用戶條款
 
-### 常用 Bootstrap 類別
+## 常用 Bootstrap 類別
 
-#### margin、padding 間距
+### 組件(固定class)
+
+#### 橘底白字按鈕(含hover效果)
+- btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold
+
+### margin、padding 間距
 
 ```
 -1：4px
@@ -31,7 +36,7 @@
 左右：mx、px
 ```
 
-#### 顏色
+### 顏色
 
 - natural、primary、secondary
 - 文字顏色：text-XXXX-300
@@ -42,28 +47,28 @@
 - 黑色：black、dark
 - 白色：white、light
 
-#### 邊框
+### 邊框
 
-##### 添加邊框
+#### 添加邊框
 - border：四邊框
 - border-top：上方邊框
 - border-bottom：下方邊框
 - border-left：左方邊框
 - border-right：右方邊框
-##### 移除邊框
+#### 移除邊框
 - border-0：移除所有邊框
 - border-top-0：上方無邊框
 - border-bottom-0：下方無邊框
 - border-left-0：左方無邊框
 - border-right-0：右方無邊框
-##### 邊框寬度
+#### 邊框寬度
 - border-1：1px 的邊框
 - border-2：2px 的邊框
 - border-3：3px 的邊框
 - border-4：4px 的邊框
 - border-5：5px 的邊框
 
-#### 圓角
+### 圓角
 
 - rounded-0：無圓角
 - rounded-sm：12px
@@ -79,8 +84,7 @@
 - rounded-end：只針對右方兩圓角
 - rounded-bottom：只針對下方兩圓角
 
-
-#### 字體大小
+### 字體大小
 
 - fs-1：48px → 對應 h1
 - fs-2：32px → 對應 h2
@@ -91,7 +95,7 @@
 - fs-6：16px → 對應 h6
 - sm：14px
 
-#### 字體寬度
+### 字體寬度
 
 - fw-lighter：lighter(比父元素更窄)
 - fw-light：300px
@@ -101,12 +105,12 @@
 - fw-bold：700px
 - fw-bolder：bolder(比父元素更粗)
 
-#### button
+### button
 - btn-py: 16px
 - btn-px: 24px
 - radius: 100px
 
-#### 隱藏元素
+### 隱藏元素
 
 - d-none：在所有螢幕尺寸下都隱藏
 - d-none d-sm-block：在超小型螢幕上隱藏，但在小型 (sm) 及更大的螢幕上顯示
@@ -122,21 +126,21 @@
 5.xxl (extra extra large): ≥1400px
 ```
 
-### 圖庫 Icon
+## 圖庫 Icon
 
 - fontawesome：https://fontawesome.com/?o=r
 - fontawesome → 已使用 npm 全域安裝，可直接到官網複製 class 使用
 - tabler：https://tabler.io/icons
-- tabler → 使用 CDN 引入
+- tabler → 使用 CDN 引入，已在header.ejs引入
 - icon 庫：https://icon-sets.iconify.design/
 - Google Material Design Icons：https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_drop_up:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3
 
-### Node.js 版本
+## Node.js 版本
 
 - 專案的 Node.js 版本需為 v18 以上
 - 查看自己版本指令：`node -v`
 
-### 指令列表
+## 指令列表
 
 - `npm install` - 初次下載該範例專案後，需要使用 npm install 來安裝套件
 - `npm run dev` - 執行開發模式
@@ -145,7 +149,7 @@
 - `npm run build` - 執行編譯模式（不會開啟瀏覽器）
 - `npm ru deploy` - 自動化部署
 
-### 資料夾結構
+## 資料夾結構
 
 - assets # 靜態資源放置處
 
