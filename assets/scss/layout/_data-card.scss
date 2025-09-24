@@ -1,0 +1,35 @@
+/** @format */
+
+.start-60 {
+    left: calc(50% + 135px);
+}
+
+.start-90 {
+    left: calc(100% - 60px);
+}
+
+.top-25 {
+    top: 30%;
+}
+
+@media (max-width: 768px) {
+    .md-w180 {
+        width: 180px;
+    }
+
+    .fw-md-semibold {
+        font-weight: 600;
+    }
+
+    .md-w80 {
+        width: 80px;
+    }
+
+    .start-60 {
+        left: calc(50% + 100px);
+    }
+
+    .top-25 {
+        top: 25%;
+    }
+}

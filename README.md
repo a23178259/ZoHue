@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # 網頁切版直播班專題：ZoHue
 
 ## 專案頁面
@@ -13,6 +15,7 @@
 ### 組件(固定class)
 
 #### 橘底白字按鈕(含hover效果)
+
 - btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold
 
 ### margin、padding 間距
@@ -27,6 +30,7 @@
 -xxl:32px
 -2xl：40px
 -6：48px
+-3xl：56px
 -7：80px
 上：mt、pt
 下：mb、pb
@@ -42,7 +46,7 @@
 - 文字顏色：text-XXXX-300
 - 背景顏色：bg-XXXX-300
 - 外框顏色：border-XXXX-300
-  > ▲ XXXX 代換 natural、primary、secondary
+    > ▲ XXXX 代換 natural、primary、secondary
 - 固定背景色：background-01、background-02(變數) → bg-bg-01、bg-bg-02(class)
 - 黑色：black、dark
 - 白色：white、light
@@ -50,18 +54,23 @@
 ### 邊框
 
 #### 添加邊框
+
 - border：四邊框
 - border-top：上方邊框
 - border-bottom：下方邊框
 - border-left：左方邊框
 - border-right：右方邊框
+
 #### 移除邊框
+
 - border-0：移除所有邊框
 - border-top-0：上方無邊框
 - border-bottom-0：下方無邊框
 - border-left-0：左方無邊框
 - border-right-0：右方無邊框
+
 #### 邊框寬度
+
 - border-1：1px 的邊框
 - border-2：2px 的邊框
 - border-3：3px 的邊框
@@ -94,6 +103,8 @@
 - fs-5：18px → 對應 h5
 - fs-6：16px → 對應 h6
 - sm：14px
+- fs-xl: 40px
+- fs-2xl: 56px
 
 ### 字體寬度
 
@@ -106,6 +117,7 @@
 - fw-bolder：bolder(比父元素更粗)
 
 ### button
+
 - btn-py: 16px
 - btn-px: 24px
 - radius: 100px
@@ -144,17 +156,16 @@
 
 - `npm install` - 初次下載該範例專案後，需要使用 npm install 來安裝套件
 - `npm run dev` - 執行開發模式
-  - 若沒有自動開啟瀏覽器，可嘗試手動在瀏覽器上輸入
-    `http://localhost:5173/<專案名稱>/pages/index.html`
+    - 若沒有自動開啟瀏覽器，可嘗試手動在瀏覽器上輸入
+      `http://localhost:5173/<專案名稱>/pages/index.html`
 - `npm run build` - 執行編譯模式（不會開啟瀏覽器）
 - `npm ru deploy` - 自動化部署
 
 ## 資料夾結構
 
 - assets # 靜態資源放置處
-
-  - images # 圖片放置處 → assets/images，以 SVG 格式儲存，可自由調整大小，不會壓縮圖片品質
-  - scss # SCSS 的樣式放置處
+    - images # 圖片放置處 → assets/images，以 SVG 格式儲存，可自由調整大小，不會壓縮圖片品質
+    - scss # SCSS 的樣式放置處
 
 - layout # ejs 模板放置處
 - pages # 頁面放置處
