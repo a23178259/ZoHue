@@ -1,3 +1,5 @@
+/** @format */
+
 @import "../../node_modules/bootstrap/scss/functions";
 @import "./utils/variables";
 @import "../../node_modules/bootstrap";
@@ -21,6 +23,7 @@ $fa-font-path: "../assets/webfonts";
 @import "./layout/testimonials.scss";
 @import "./layout/cta.scss";
 @import "./layout/_success-story.scss";
+@import "./layout/_data-card.scss";
 
 @import "./pages/index.scss";
 @import "./pages/user.scss";
