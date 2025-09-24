@@ -1,3 +1,7 @@
+* {
+  scroll-behavior: smooth;
+}
+
 .success-cases-wapper {
   position: relative;
   width: 100%;
@@ -37,7 +41,7 @@
 
 .success-cases-cardsbox {
   padding-top: 120px;
-  margin-top: 60px;
+  margin-top: 80px;
   display: flex;
 }
 
@@ -65,13 +69,13 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .success-cases-card-inner:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* 氣泡框提案者標籤 */
