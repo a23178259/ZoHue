@@ -39,36 +39,6 @@
   transform: translateX(-50%);
 }
 
-// 小螢幕手機版 (450px以下)
-@media (max-width: 450px) {
-  .illustration-1 {
-    top: 24px;
-    left: 20px; // 大幅往左移，避開小人區域
-    max-width: 160px;
-    height: 110px;
-  }
-
-  .illustration-2 {
-    top: 72px;
-    right: 32px; // 保持原本的位置
-    min-width: 80px;
-    height: 80px;
-  }
-
-  .banner-container {
-    margin: 40px auto;
-    background-image: url("/assets/images/Property2Default.svg");
-    border-radius: 32px;
-    max-width: 351px;
-    height: 236px;
-    padding: 24px;
-  }
-
-  .button-container {
-    bottom: 24px;
-  }
-}
-
 // 手機RWD
 @media (max-width: 768px) {
   .illustration-1 {
