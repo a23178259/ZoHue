@@ -39,6 +39,35 @@
   transform: translateX(-50%);
 }
 
+@media (max-width: 450px) {
+  .illustration-2 {
+    top: 72px;
+    right: 16px; // 往右移一點，避免擋到文字
+    min-width: 70px; // 稍微縮小一點
+    height: 70px;
+  }
+
+  .illustration-1 {
+    top: 24px;
+    left: 70px; // 稍微調整位置
+    max-width: 160px; // 稍微縮小避免太擁擠
+    height: 110px;
+  }
+
+  .banner-container {
+    margin: 40px auto;
+    background-image: url("/assets/images/Property2Default.svg");
+    border-radius: 32px;
+    max-width: 320px; // 稍微縮小容器寶度
+    height: 236px;
+    padding: 20px; // 減少padding
+  }
+
+  .button-container {
+    bottom: 20px;
+  }
+}
+
 // 手機RWD
 @media (max-width: 768px) {
   .illustration-1 {
