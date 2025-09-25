@@ -39,32 +39,34 @@
   transform: translateX(-50%);
 }
 
+// 小螢幕手機版 (450px以下)
 @media (max-width: 450px) {
   .illustration-2 {
-    top: 72px;
-    right: 16px; // 往右移一點，避免擋到文字
-    min-width: 70px; // 稍微縮小一點
-    height: 70px;
+    top: 20px; // 往上移
+    right: 8px; // 緊貼右邊
+    min-width: 60px; // 再縮小一點
+    height: 60px;
+    z-index: 1; // 確保層級
   }
-
+  
   .illustration-1 {
     top: 24px;
-    left: 70px; // 稍微調整位置
-    max-width: 160px; // 稍微縮小避免太擁擠
-    height: 110px;
+    left: 40px; // 往左移更多，給文字留空間
+    max-width: 140px; // 再縮小一點
+    height: 100px;
   }
-
+  
   .banner-container {
     margin: 40px auto;
     background-image: url("/assets/images/Property2Default.svg");
     border-radius: 32px;
-    max-width: 320px; // 稍微縮小容器寶度
+    max-width: 320px;
     height: 236px;
-    padding: 20px; // 減少padding
+    padding: 16px; // 更小的padding
   }
-
+  
   .button-container {
-    bottom: 20px;
+    bottom: 16px;
   }
 }
 
