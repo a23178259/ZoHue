@@ -39,6 +39,31 @@
   transform: translateX(-50%);
 }
 
+// 小螢幕手機版 (450px以下)
+@media (max-width: 450px) {
+  .illustration-1 {
+    top: 24px;
+    left: 50px !important;
+  }
+
+  .illustration-2 {
+    top: 72px;
+    right: 10px !important;
+  }
+
+  .banner-container {
+    margin: 40px auto;
+    border-radius: 32px;
+    max-width: 351px;
+    height: 236px;
+    padding: 24px;
+  }
+
+  .button-container {
+    bottom: 24px;
+  }
+}
+
 // 手機RWD
 @media (max-width: 768px) {
   .illustration-1 {
