@@ -189,7 +189,7 @@
 
 @media (max-width: 768px) {
   .success-cases-card-inner {
-    width: 360px;
+    width: 340px;
   }
   .success-img {
     max-width: 180px;
@@ -222,6 +222,10 @@
     margin-right: 100px;
   }
 
+  .success-cases-card-body {
+    gap: 12px;
+  }
+
   .card-headerImg {
     max-width: 288px;
   }
@@ -229,6 +233,10 @@
   .success-cases-bio,
   .success-cases-skill-tag {
     font-size: 14px;
+  }
+
+  .fs-12 {
+    font-size: 12px;
   }
 
   .success-cases-cardsbox {
