@@ -68,7 +68,7 @@ body.mobile-menu-open {
   overflow: hidden;
 }
 
-// 手機版下拉菜單
+// 手機版下拉菜單 
 .mobile-dropdown-menu {
   position: fixed;
   top: 80px;
@@ -82,6 +82,7 @@ body.mobile-menu-open {
   transition: max-height 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   &.show {
     max-height: calc(100vh - 80px);
@@ -91,7 +92,6 @@ body.mobile-menu-open {
     list-style: none;
     padding: 24px 0 0 0;
     margin: 0;
-    flex: 1;
 
     li {
       margin: 0;
@@ -111,8 +111,7 @@ body.mobile-menu-open {
   }
 
   .mobile-menu-footer {
-    margin-top: auto;
-    padding: 2rem 1.5rem;
+    flex-shrink: 0;
 
     .btn {
       width: 100%;
