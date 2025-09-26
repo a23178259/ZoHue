@@ -50,6 +50,7 @@
 - 固定背景色：background-01、background-02(變數) → bg-bg-01、bg-bg-02(class)
 - 黑色：black、dark
 - 白色：white、light
+- 剩下的顏色變數沒有改，可依照需求自行調整顏色，變數名稱可參考 Bootstrap 官方文件：https://bootstrap5.hexschool.com/docs/5.1/customize/color/
 
 ### 邊框
 
