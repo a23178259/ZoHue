@@ -7,7 +7,7 @@
 
         <!-- 手機版登入按鈕 -->
         <a href="#" class="d-lg-none ms-auto me-2">
-            <button class="btn btn-secondaryL fw-semibold btn-mobile">登入/註冊</button>
+            <button class="btn btn-secondaryL fw-semibold btn-mobile" onclick="openLoginModal()">登入/註冊</button>
         </a>
 
         <!-- 漢堡選單  -->
@@ -37,7 +37,7 @@
                 <!-- 桌面版登入按鈕 -->
                 <li class="nav-item d-none d-lg-block ms-5">
                     <a href="#">
-                        <button class="btn btn-secondaryL fw-semibold">登入/註冊</button>
+                        <button class="btn btn-secondaryL fw-semibold" onclick="openLoginModal()">登入/註冊</button>
                     </a>
                 </li>
             </ul>
@@ -48,110 +48,114 @@
 <!-- 手機版下拉菜單  -->
 <div class="mobile-dropdown-menu d-lg-none" id="mobileDropdown">
     <ul class="mobile-menu-links pb-4 text-center">
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary"
+        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">專案探索</a></li>
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary"
+        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">關於我們</a></li>
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary"
+        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown(); openLightbox()">志工故事</a></li>
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary"
+        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">常見問題</a></li>
     </ul>
 
     <div class="mobile-menu-footer py-4 px-5 mx-3">
-        <button class="btn btn-secondaryL fw-semibold rounded-pill" onclick="closeMobileDropdown()">登入/註冊</button>
+        <button class="btn btn-secondaryL fw-semibold rounded-pill"
+            onclick="closeMobileDropdown(); openLoginModal()">登入/註冊</button>
     </div>
 </div>
 
 <%- include('volunteerStories') %>
+    <%- include('login') %>
 
-    <script>
-        // 修改你的 toggleMobileDropdown 函數
-        function toggleMobileDropdown() {
-            const dropdown = document.querySelector('#mobileDropdown');
-            const icon = document.querySelector('#hamburgerIcon');
-            const body = document.body;
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-            dropdown.classList.toggle('show');
+        <script>
+            // 修改你的 toggleMobileDropdown 函數
+            function toggleMobileDropdown() {
+                const dropdown = document.querySelector('#mobileDropdown');
+                const icon = document.querySelector('#hamburgerIcon');
+                const body = document.body;
 
-            // 切換圖標和動畫
-            if (dropdown.classList.contains('show')) {
-                // 菜單打開 - 變成 X
-                icon.className = 'fa-solid fa-xmark text-natural-700 hamburger-icon active';
-                // 隱藏滾動條
-                body.classList.add('mobile-menu-open');
+                dropdown.classList.toggle('show');
 
-                // 嘗試進入全屏模式隱藏系統導航欄
-                requestFullscreen();
+                // 切換圖標和動畫
+                if (dropdown.classList.contains('show')) {
+                    // 菜單打開 - 變成 X
+                    icon.className = 'fa-solid fa-xmark text-natural-700 hamburger-icon active';
+                    // 隱藏滾動條
+                    body.classList.add('mobile-menu-open');
 
-            } else {
-                // 菜單關閉 - 變回漢堡包
+                    // 嘗試進入全屏模式隱藏系統導航欄
+                    requestFullscreen();
+
+                } else {
+                    // 菜單關閉 - 變回漢堡包
+                    icon.className = 'fa-solid fa-bars text-natural-700 hamburger-icon';
+                    // 顯示滾動條
+                    body.classList.remove('mobile-menu-open');
+
+                    // 退出全螢幕模式
+                    exitFullscreen();
+                }
+            }
+
+            function closeMobileDropdown() {
+                const dropdown = document.querySelector('#mobileDropdown');
+                const icon = document.querySelector('#hamburgerIcon');
+                const body = document.body;
+
+                dropdown.classList.remove('show');
+                // 重置圖標為漢堡包
                 icon.className = 'fa-solid fa-bars text-natural-700 hamburger-icon';
                 // 顯示滾動條
                 body.classList.remove('mobile-menu-open');
 
-                // 退出全螢幕模式
+                // 退出全屏模式
                 exitFullscreen();
             }
-        }
 
-        function closeMobileDropdown() {
-            const dropdown = document.querySelector('#mobileDropdown');
-            const icon = document.querySelector('#hamburgerIcon');
-            const body = document.body;
+            // 全螢幕相關函數
+            function requestFullscreen() {
+                const elem = document.documentElement;
 
-            dropdown.classList.remove('show');
-            // 重置圖標為漢堡包
-            icon.className = 'fa-solid fa-bars text-natural-700 hamburger-icon';
-            // 顯示滾動條
-            body.classList.remove('mobile-menu-open');
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
 
-            // 退出全屏模式
-            exitFullscreen();
-        }
-
-        // 全螢幕相關函數
-        function requestFullscreen() {
-            const elem = document.documentElement;
-
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) { /* Safari */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE11 */
-                elem.msRequestFullscreen();
-            }
-
-            // 針對移動設備的額外處理
-            if (screen.orientation && screen.orientation.lock) {
-                screen.orientation.lock('portrait').catch(() => {
-                });
-            }
-        }
-
-        function exitFullscreen() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) { /* Safari */
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { /* IE11 */
-                document.msExitFullscreen();
-            }
-        }
-
-        // 監聽全屏變化事件
-        document.addEventListener('fullscreenchange', handleFullscreenChange);
-        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-        document.addEventListener('msfullscreenchange', handleFullscreenChange);
-
-        function handleFullscreenChange() {
-            const dropdown = document.querySelector('#mobileDropdown');
-
-            // 如果不是全屏狀態且菜單是開著的，就關閉菜單
-            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                if (dropdown.classList.contains('show')) {
-                    closeMobileDropdown();
+                // 針對移動設備的額外處理
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock('portrait').catch(() => {
+                    });
                 }
             }
-        }
-    </script>
+
+            function exitFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+
+            // 監聽全屏變化事件
+            document.addEventListener('fullscreenchange', handleFullscreenChange);
+            document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+            document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+            function handleFullscreenChange() {
+                const dropdown = document.querySelector('#mobileDropdown');
+
+                // 如果不是全屏狀態且菜單是開著的，就關閉菜單
+                if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                    if (dropdown.classList.contains('show')) {
+                        closeMobileDropdown();
+                    }
+                }
+            }
+        </script>

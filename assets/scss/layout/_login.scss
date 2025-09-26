@@ -1,0 +1,219 @@
+// 登入模態框樣式
+.login-modal-content {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  .modal-header {
+    .btn-close {
+      border: none;
+      background: none;
+      font-size: 1.2rem;
+      padding: 0.5rem;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 0 2rem 2rem 2rem;
+  }
+}
+
+// Logo 樣式
+.login-logo {
+  height: 60px;
+  width: auto;
+}
+
+// 切換標籤樣式
+.login-nav-pills {
+  background-color: $natural-50;
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+
+  .nav-link {
+    border-radius: 0.5rem;
+    color: $natural-600;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s ease;
+    border: none;
+
+    &:hover {
+      color: $natural-800;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &.active {
+      background-color: white;
+      color: $natural-950;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// 表單樣式
+.login-form {
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: $natural-950;
+  }
+
+  .login-input {
+    border: 1px solid $natural-200;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+
+    &:focus {
+      border-color: #8bc34a;
+      box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.1);
+    }
+
+    &::placeholder {
+      color: $natural-400;
+    }
+  }
+
+  // 密碼切換按鈕
+  .password-toggle {
+    border: none;
+    color: $natural-500;
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $natural-700;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  // 記住我和忘記密碼
+  .form-check-input {
+    border: 1px solid $natural-300;
+
+    &:checked {
+      background-color: #8bc34a;
+      border-color: #8bc34a;
+    }
+
+    &:focus {
+      border-color: #8bc34a;
+      box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, 0.25);
+    }
+  }
+
+  .form-check-label {
+    font-size: 0.9rem;
+  }
+}
+
+// 提交按鈕
+.login-submit-btn {
+  background-color: #8bc34a;
+  border-color: #8bc34a;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #7cb342;
+    border-color: #7cb342;
+    transform: translateY(-1px);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.25);
+  }
+}
+
+// 社群登入按鈕
+.social-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid $natural-200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $natural-600;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $natural-50;
+    border-color: $natural-300;
+    color: $natural-800;
+    transform: translateY(-2px);
+  }
+
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+// 連結樣式
+.link-primary {
+  color: #8bc34a;
+  font-size: 0.9rem;
+
+  &:hover {
+    color: #7cb342;
+  }
+}
+
+// 響應式設計
+@media (max-width: 576px) {
+  .login-modal-content {
+    margin: 0.5rem;
+    border-radius: 0.75rem;
+
+    .modal-body {
+      padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+  }
+
+  .login-logo {
+    height: 50px;
+  }
+
+  .login-nav-pills {
+    .nav-link {
+      padding: 0.625rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .social-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+}
+
+// 模態框動畫
+.modal.fade .modal-dialog {
+  transform: scale(0.9);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+}

@@ -1,0 +1,221 @@
+<!-- 登入註冊模態框 -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content login-modal-content">
+            <!-- 模態框頭部 -->
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- 模態框內容 -->
+            <div class="modal-body px-4 pb-4">
+                <!-- Logo -->
+                <div class="text-center mb-4">
+                    <img src="../assets/images/logo.svg" alt="ZoHue Logo" class="login-logo">
+                </div>
+
+                <!-- 切換按鈕 -->
+                <ul class="nav nav-pills nav-justified mb-4 login-nav-pills" id="loginTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="login-tab" data-bs-toggle="pill"
+                            data-bs-target="#login-panel" type="button" role="tab" aria-controls="login-panel"
+                            aria-selected="true">
+                            登入
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="register-tab" data-bs-toggle="pill"
+                            data-bs-target="#register-panel" type="button" role="tab" aria-controls="register-panel"
+                            aria-selected="false">
+                            註冊
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- 內容區域 -->
+                <div class="tab-content" id="loginTabsContent">
+                    <!-- 登入表單 -->
+                    <div class="tab-pane fade show active" id="login-panel" role="tabpanel" aria-labelledby="login-tab">
+                        <form id="loginForm" class="login-form">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label text-natural-950">電子郵件</label>
+                                <input type="email" class="form-control login-input" id="loginEmail" name="email"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label text-natural-950">密碼</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control login-input" id="loginPassword"
+                                        name="password" required>
+                                    <button type="button"
+                                        class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
+                                        onclick="togglePassword('loginPassword')">
+                                        <i class="fa-solid fa-eye" id="loginPasswordIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3 d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label text-natural-700" for="rememberMe">
+                                        記住我
+                                    </label>
+                                </div>
+                                <a href="#" class="text-decoration-none link-primary">忘記密碼？</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary login-submit-btn w-100 mb-3">登入</button>
+                        </form>
+
+                        <!-- 社群登入 -->
+                        <div class="text-center">
+                            <p class="text-natural-500 mb-3">或使用社群帳號登入</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-outline-secondary social-btn">
+                                    <i class="fab fa-google"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary social-btn">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary social-btn">
+                                    <i class="fab fa-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 註冊表單 -->
+                    <div class="tab-pane fade" id="register-panel" role="tabpanel" aria-labelledby="register-tab">
+                        <form id="registerForm" class="login-form">
+                            <div class="mb-3">
+                                <label for="registerName" class="form-label text-natural-950">姓名</label>
+                                <input type="text" class="form-control login-input" id="registerName" name="name"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerEmail" class="form-label text-natural-950">電子郵件</label>
+                                <input type="email" class="form-control login-input" id="registerEmail" name="email"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerPassword" class="form-label text-natural-950">密碼</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control login-input" id="registerPassword"
+                                        name="password" required>
+                                    <button type="button"
+                                        class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
+                                        onclick="togglePassword('registerPassword')">
+                                        <i class="fa-solid fa-eye" id="registerPasswordIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label text-natural-950">確認密碼</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control login-input" id="confirmPassword"
+                                        name="confirmPassword" required>
+                                    <button type="button"
+                                        class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
+                                        onclick="togglePassword('confirmPassword')">
+                                        <i class="fa-solid fa-eye" id="confirmPasswordIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                    <label class="form-check-label text-natural-700" for="agreeTerms">
+                                        我同意 <a href="#" class="text-decoration-none link-primary">服務條款</a> 和 <a href="#"
+                                            class="text-decoration-none link-primary">隱私政策</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary login-submit-btn w-100 mb-3">註冊</button>
+                        </form>
+
+                        <!-- 社群註冊 -->
+                        <div class="text-center">
+                            <p class="text-natural-500 mb-3">或使用社群帳號註冊</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-outline-secondary social-btn">
+                                    <i class="fab fa-google"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary social-btn">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary social-btn">
+                                    <i class="fab fa-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript 函數 -->
+<script>
+    // 打開登入模態框的函數（你要放到header.ejs的按鈕onclick中）
+    function openLoginModal() {
+        const modal = new bootstrap.Modal(document.getElementById('loginModal'));
+        modal.show();
+    }
+
+    // 切換密碼顯示/隱藏
+    function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        const icon = document.getElementById(inputId + 'Icon');
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+
+    // 表單提交處理
+    document.addEventListener('DOMContentLoaded', function () {
+        // 登入表單
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            // 這裡加入你的登入邏輯
+            console.log('登入表單數據:', Object.fromEntries(formData));
+
+            // 示例：發送到後端
+            // fetch('/api/login', {
+            //     method: 'POST',
+            //     body: formData
+            // });
+        });
+
+        // 註冊表單
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+
+            // 密碼確認檢查
+            if (password !== confirmPassword) {
+                alert('密碼和確認密碼不一致');
+                return;
+            }
+
+            // 這裡加入你的註冊邏輯
+            console.log('註冊表單數據:', Object.fromEntries(formData));
+
+            // 示例：發送到後端
+            // fetch('/api/register', {
+            //     method: 'POST',
+            //     body: formData
+            // });
+        });
+    });
+</script>
