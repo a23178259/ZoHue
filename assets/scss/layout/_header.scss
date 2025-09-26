@@ -68,13 +68,15 @@ body.mobile-menu-open {
   overflow: hidden;
 }
 
-// 手機版下拉菜單 
+// 手機版下拉菜單
 .mobile-dropdown-menu {
   position: fixed;
   top: 80px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(
+    100vh - 80px - env(safe-area-inset-bottom, 0px)
+  ); // 減去系統導航欄高度
   background-color: $white;
   z-index: 999;
   max-height: 0;
@@ -82,10 +84,12 @@ body.mobile-menu-open {
   transition: max-height 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; // 在連結和按鈕之間分布空間
 
   &.show {
-    max-height: calc(100vh - 80px);
+    max-height: calc(
+      100vh - 80px - env(safe-area-inset-bottom, 0px)
+    ); // 同樣減去導航欄高度
   }
 
   .mobile-menu-links {
@@ -111,8 +115,9 @@ body.mobile-menu-open {
   }
 
   .mobile-menu-footer {
-    padding: 1.5rem 1.5rem 4rem 1.5rem;
-    flex-shrink: 0;
+    padding: 1.5rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom, 20px))
+      1.5rem; // 底部自動適應安全區域
+    flex-shrink: 0; // 確保footer不會被壓縮
 
     .btn {
       width: 100%;
