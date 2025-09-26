@@ -90,7 +90,7 @@
                 // 顯示滾動條
                 body.classList.remove('mobile-menu-open');
 
-                // 退出全屏模式
+                // 退出全螢幕模式
                 exitFullscreen();
             }
         }
@@ -110,7 +110,7 @@
             exitFullscreen();
         }
 
-        // 全屏相關函數
+        // 全螢幕相關函數
         function requestFullscreen() {
             const elem = document.documentElement;
 
@@ -125,7 +125,6 @@
             // 針對移動設備的額外處理
             if (screen.orientation && screen.orientation.lock) {
                 screen.orientation.lock('portrait').catch(() => {
-                    // 忽略錯誤
                 });
             }
         }
