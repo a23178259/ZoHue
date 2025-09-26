@@ -1,10 +1,3 @@
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-</head>
-
 <nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
     <div class="container d-flex align-items-center">
         <!-- Logo -->
@@ -73,35 +66,7 @@
 <%- include('volunteerStories') %>
 
     <script>
-        // 計算滾動條寬度
-        function getScrollbarWidth() {
-            // 創建一個臨時元素來測量滾動條寬度
-            const outer = document.createElement('div');
-            outer.style.visibility = 'hidden';
-            outer.style.overflow = 'scroll';
-            outer.style.msOverflowStyle = 'scrollbar';
-            document.body.appendChild(outer);
-
-            const inner = document.createElement('div');
-            outer.appendChild(inner);
-
-            const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
-            outer.parentNode.removeChild(outer);
-
-            return scrollbarWidth;
-        }
-
-        // 設置滾動條寬度 CSS 變量
-        function setScrollbarWidth() {
-            const scrollbarWidth = getScrollbarWidth();
-            document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-        }
-
-        // 頁面載入時設置滾動條寬度
-        document.addEventListener('DOMContentLoaded', function () {
-            setScrollbarWidth();
-        });
-
+        // 修改你的 toggleMobileDropdown 函數
         function toggleMobileDropdown() {
             const dropdown = document.querySelector('#mobileDropdown');
             const icon = document.querySelector('#hamburgerIcon');
@@ -115,11 +80,18 @@
                 icon.className = 'fa-solid fa-xmark text-natural-700 hamburger-icon active';
                 // 隱藏滾動條
                 body.classList.add('mobile-menu-open');
+
+                // 嘗試進入全屏模式隱藏系統導航欄
+                requestFullscreen();
+
             } else {
                 // 菜單關閉 - 變回漢堡包
                 icon.className = 'fa-solid fa-bars text-natural-700 hamburger-icon';
                 // 顯示滾動條
                 body.classList.remove('mobile-menu-open');
+
+                // 退出全屏模式
+                exitFullscreen();
             }
         }
 
@@ -133,27 +105,54 @@
             icon.className = 'fa-solid fa-bars text-natural-700 hamburger-icon';
             // 顯示滾動條
             body.classList.remove('mobile-menu-open');
+
+            // 退出全屏模式
+            exitFullscreen();
         }
 
-        // 點擊頁面其他地方關閉菜單
-        document.addEventListener('click', function (event) {
-            const dropdown = document.querySelector('#mobileDropdown');
-            const toggleButton = document.querySelector('.navbar-toggler');
+        // 全屏相關函數
+        function requestFullscreen() {
+            const elem = document.documentElement;
 
-            if (!dropdown.contains(event.target) && !toggleButton.contains(event.target)) {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+
+            // 針對移動設備的額外處理
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('portrait').catch(() => {
+                    // 忽略錯誤
+                });
+            }
+        }
+
+        function exitFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+        }
+
+        // 監聽全屏變化事件
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+        function handleFullscreenChange() {
+            const dropdown = document.querySelector('#mobileDropdown');
+
+            // 如果不是全屏狀態且菜單是開著的，就關閉菜單
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
                 if (dropdown.classList.contains('show')) {
                     closeMobileDropdown();
                 }
             }
-        });
-
-        // 處理視窗大小變化
-        window.addEventListener('resize', function () {
-            // 如果變回桌面版，確保移除 mobile-menu-open class
-            if (window.innerWidth >= 992) {
-                document.body.classList.remove('mobile-menu-open');
-            }
-            // 重新計算滾動條寬度
-            setScrollbarWidth();
-        });
+        }
     </script>
