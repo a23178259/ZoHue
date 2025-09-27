@@ -1,7 +1,7 @@
 body.modal-open-custom {
   overflow: hidden;
 }
-/* 確保模態框在最上層 */
+
 .modal {
   z-index: 1055 !important;
 }
@@ -11,7 +11,7 @@ body.modal-open-custom {
 }
 
 .modal-content {
-  background-color: white !important;
+  background-color: $white !important;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4) !important;
   z-index: 1060 !important;
   position: relative;
@@ -20,7 +20,7 @@ body.modal-open-custom {
 .modal * {
   filter: none !important;
 }
-//* 登入模態框樣式*
+// 登入模態框樣式
 .login-modal-content {
   border: none;
   border-radius: 1rem;
@@ -49,15 +49,12 @@ body.modal-open-custom {
 }
 // 切換標籤樣式
 .login-nav-pills {
-  background-color: $natural-50;
   border-radius: 0.75rem;
   padding: 0.25rem;
   display: flex;
   gap: 4px;
   .nav-link {
     border-radius: 0.5rem;
-    color: $natural-600;
-    font-weight: 500;
     padding: 0.75rem 1.5rem;
     transition: all 0.2s ease;
     border: none;
@@ -75,27 +72,24 @@ body.modal-open-custom {
 // 表單樣式
 .login-form {
   .form-label {
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: $natural-950;
+    letter-spacing: 0.1rem;
   }
   .login-input {
-    border: 1px solid $natural-200;
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
     font-size: 0.95rem;
     transition: all 0.2s ease;
     &:focus {
-      border-color: #8bc34a;
+      border-color: $secondary-500;
       box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.1);
     }
     &::placeholder {
       color: $natural-400;
+      letter-spacing: 0.1rem;
     }
   }
-  //* 密碼切換按鈕*
+  // 密碼切換按鈕
   .password-toggle {
-    border: none;
     color: $natural-500;
     padding: 0;
     width: 2.5rem;
@@ -112,13 +106,14 @@ body.modal-open-custom {
   }
   // 記住我和忘記密碼
   .form-check-input {
+    cursor: pointer;
     border: 1px solid $natural-300;
     &:checked {
-      background-color: #8bc34a;
-      border-color: #8bc34a;
+      background-color: $secondary-500;
+      border-color: $secondary-500;
     }
     &:focus {
-      border-color: #8bc34a;
+      border-color: $secondary-500;
       box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, 0.25);
     }
   }
@@ -126,7 +121,7 @@ body.modal-open-custom {
     font-size: 0.9rem;
   }
 }
-//* 社群登入按鈕*
+// 社群登入按鈕
 .social-btn {
   max-width: 3rem;
   max-height: 3rem;

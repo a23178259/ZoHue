@@ -18,16 +18,16 @@
                 </div>
 
                 <!-- 切換按鈕 -->
-                <ul class="nav nav-pills nav-justified mb-4 login-nav-pills" id="loginTabs" role="tablist">
+                <ul class="nav nav-pills nav-justified mb-4 login-nav-pills bg-natural-100" id="loginTabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="login-tab" data-bs-toggle="pill"
+                        <button class="nav-link fw-medium active" id="login-tab" data-bs-toggle="pill"
                             data-bs-target="#login-panel" type="button" role="tab" aria-controls="login-panel"
                             aria-selected="true">
                             登入
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="register-tab" data-bs-toggle="pill"
+                        <button class="nav-link fw-medium" id="register-tab" data-bs-toggle="pill"
                             data-bs-target="#register-panel" type="button" role="tab" aria-controls="register-panel"
                             aria-selected="false">
                             註冊
@@ -41,15 +41,15 @@
                     <div class="tab-pane fade show active" id="login-panel" role="tabpanel" aria-labelledby="login-tab">
                         <form id="loginForm" class="login-form">
                             <div class="mb-3">
-                                <label for="loginEmail" class="form-label text-natural-950">電子郵件</label>
-                                <input type="email" class="form-control login-input" id="loginEmail" name="email"
+                                <label for="loginEmail" class="form-label fw-medium text-natural-950 mb-2">電子郵件</label>
+                                <input type="email" class="form-control login-input" id="loginEmail" name="email" placeholder="請輸入電子郵件"
                                     required>
                             </div>
                             <div class="mb-3">
-                                <label for="loginPassword" class="form-label text-natural-950">密碼</label>
+                                <label for="loginPassword" class="form-label fw-medium text-natural-950 mb-2">密碼</label>
                                 <div class="position-relative">
                                     <input type="password" class="form-control login-input" id="loginPassword"
-                                        name="password" required>
+                                        name="password" placeholder="請輸入密碼" required>
                                     <button type="button"
                                         class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
                                         onclick="togglePassword('loginPassword')">
@@ -96,20 +96,20 @@
                     <div class="tab-pane fade" id="register-panel" role="tabpanel" aria-labelledby="register-tab">
                         <form id="registerForm" class="login-form">
                             <div class="mb-3">
-                                <label for="registerName" class="form-label text-natural-950">姓名</label>
-                                <input type="text" class="form-control login-input" id="registerName" name="name"
+                                <label for="registerName" class="form-label fw-medium text-natural-950 mb-2">姓名</label>
+                                <input type="text" class="form-control login-input" id="registerName" name="name" placeholder="請輸入姓名"
                                     required>
                             </div>
                             <div class="mb-3">
-                                <label for="registerEmail" class="form-label text-natural-950">電子郵件</label>
-                                <input type="email" class="form-control login-input" id="registerEmail" name="email"
+                                <label for="registerEmail" class="form-label fw-medium text-natural-950 mb-2">電子郵件</label>
+                                <input type="email" class="form-control login-input" id="registerEmail" name="email" placeholder="請輸入電子郵件"
                                     required>
                             </div>
                             <div class="mb-3">
-                                <label for="registerPassword" class="form-label text-natural-950">密碼</label>
+                                <label for="registerPassword" class="form-label fw-medium text-natural-950 mb-2">密碼</label>
                                 <div class="position-relative">
                                     <input type="password" class="form-control login-input" id="registerPassword"
-                                        name="password" required>
+                                        name="password" placeholder="請輸入密碼" required>
                                     <button type="button"
                                         class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
                                         onclick="togglePassword('registerPassword')">
@@ -118,10 +118,10 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="confirmPassword" class="form-label text-natural-950">確認密碼</label>
+                                <label for="confirmPassword" class="form-label fw-medium text-natural-950 mb-2">確認密碼</label>
                                 <div class="position-relative">
                                     <input type="password" class="form-control login-input" id="confirmPassword"
-                                        name="confirmPassword" required>
+                                        name="confirmPassword" placeholder="再次輸入密碼" required>
                                     <button type="button"
                                         class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
                                         onclick="togglePassword('confirmPassword')">
