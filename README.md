@@ -144,7 +144,7 @@
 - fontawesome：https://fontawesome.com/?o=r
 - fontawesome → 已使用 npm 全域安裝，可直接到官網複製 class 使用
 - tabler：https://tabler.io/icons
-- tabler → 使用 CDN 引入，已在header.ejs引入
+- tabler → 使用 CDN 引入，已在index.html引入
 - icon 庫：https://icon-sets.iconify.design/
 - Google Material Design Icons：https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_drop_up:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3
 
