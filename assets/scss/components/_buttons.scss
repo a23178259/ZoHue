@@ -1,3 +1,39 @@
-.btn-primary {
-    color: white;
+.btn-category {
+    padding: 13.5px 8px;
+    color: $natural-400;
+    background: $white;
+    border: 0;
+
+    &:hover {
+        background: transparent;
+        border: $secondary-400 2px solid;
+    }
+
+    &:focus {
+        background: $secondary-100;
+        border: $secondary-400 2px solid;
+        color: $secondary-800;
+
+        span {
+            color: $secondary-600;
+        }
+    }
+
+    &.active {
+        background: $secondary-100;
+        border: $secondary-400 2px solid;
+        color: $secondary-800;
+
+        span {
+            color: $secondary-600;
+        }
+    }
 }
+
+@media (max-width: 576px) {
+    .btn-category {
+        padding: 11.5px 8px;
+    }
+}
+
+
