@@ -190,7 +190,7 @@ body.modal-open-custom {
 .modal-dialog::after {
   content: "點擊空白處即可關閉視窗";
   position: absolute;
-  bottom: 20px;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
   color: $red-500;
@@ -199,4 +199,9 @@ body.modal-open-custom {
   white-space: nowrap;
   z-index: 1070;
   pointer-events: none;
+}
+// 當註冊頁面顯示時，調整提示文字位置
+#register-panel.show.active ~ .modal-dialog::after,
+.modal:has(#register-panel.show.active) .modal-dialog::after {
+  top: 0; /* 註冊頁面：更遠離模態框 */
 }
