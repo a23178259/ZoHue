@@ -5,11 +5,17 @@ import {
   signInWithEmailAndPassword,
   signOut,
   GoogleAuthProvider,
-  FacebookAuthProvider,
   signInWithPopup,
   updateProfile,
   onAuthStateChanged,
+  GithubAuthProvider,
 } from "firebase/auth";
+
+// Github
+export const loginWithGithub = () => {
+  const provider = new GithubAuthProvider();
+  return signInWithPopup(auth, provider);
+};
 
 // 電子郵件註冊
 export const registerUser = (email, password) => {
@@ -35,19 +41,6 @@ export const loginWithGoogle = async () => {
     return result;
   } catch (error) {
     console.error("Google 登入失敗:", error);
-    throw error;
-  }
-};
-
-// Facebook 登入
-export const loginWithFacebook = async () => {
-  const provider = new FacebookAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    console.log("Facebook 登入成功:", result.user);
-    return result;
-  } catch (error) {
-    console.error("Facebook 登入失敗:", error);
     throw error;
   }
 };
