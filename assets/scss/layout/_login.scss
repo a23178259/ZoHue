@@ -124,28 +124,10 @@ body.modal-open-custom {
     font-size: 0.9rem;
   }
 }
-//* 提交按鈕*
-// .login-submit-btn {
-//   background-color: #8bc34a;
-//   border-color: #8bc34a;
-//   border-radius: 0.5rem;
-//   padding: 0.75rem 1.5rem;
-//   font-weight: 600;
-//   font-size: 1rem;
-//   transition: all 0.2s ease;
-//   &:hover {
-//     background-color: #7cb342;
-//     border-color: #7cb342;
-//     transform: translateY(-1px);
-//   }
-//   &:focus {
-//     box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.25);
-//   }
-// }
 //* 社群登入按鈕*
 .social-btn {
-  width: 3rem;
-  height: 3rem;
+  max-width: 3rem;
+  max-height: 3rem;
   border-radius: 50%;
   border: 1px solid $natural-200;
   display: flex;
@@ -153,6 +135,7 @@ body.modal-open-custom {
   justify-content: center;
   color: $natural-600;
   transition: all 0.2s ease;
+  flex-shrink: 0;
   &:hover {
     background-color: $natural-50;
     border-color: $natural-300;
@@ -190,8 +173,8 @@ body.modal-open-custom {
     }
   }
   .social-btn {
-    width: 2.5rem;
-    height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
     i {
       font-size: 1rem;
     }
