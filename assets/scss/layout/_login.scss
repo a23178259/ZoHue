@@ -190,7 +190,7 @@ body.modal-open-custom {
 .modal-dialog::after {
   content: "點擊空白處即可關閉視窗";
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: $red-500;
