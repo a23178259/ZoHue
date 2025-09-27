@@ -1,9 +1,10 @@
-// Firebase 導入
+// login.js
+// 使用第三方 Firebase後端系統 導入登入、註冊功能
 import {
   registerUser,
   loginUser,
   loginWithGoogle,
-  loginWithFacebook,
+  loginWithGithub,
 } from "../auth.js";
 
 // 打開登入模態框的函數
@@ -63,13 +64,13 @@ async function handleGoogleLogin() {
   }
 }
 
-// Facebook 登入處理
-async function handleFacebookLogin() {
-  console.log("Facebook 登入被點擊");
+// GitHub 登入處理
+async function handleGithubLogin() {
+  console.log("GitHub 登入被點擊");
   try {
-    const result = await loginWithFacebook();
-    console.log("Facebook 登入成功:", result.user);
-    alert("Facebook 登入成功！");
+    const result = await loginWithGithub();
+    console.log("GitHub 登入成功:", result.user);
+    alert("GitHub 登入成功！");
 
     const modal = bootstrap.Modal.getInstance(
       document.getElementById("loginModal")
@@ -78,12 +79,28 @@ async function handleFacebookLogin() {
       modal.hide();
     }
   } catch (error) {
-    console.error("Facebook 登入失敗:", error);
-    alert("Facebook 登入失敗: " + error.message);
+    console.error("GitHub 登入失敗:", error);
+
+    let errorMessage = "GitHub 登入失敗";
+    switch (error.code) {
+      case "auth/popup-closed-by-user":
+        errorMessage = "登入窗口已關閉";
+        break;
+      case "auth/popup-blocked":
+        errorMessage = "彈出窗口被阻擋，請允許彈出窗口";
+        break;
+      case "auth/account-exists-with-different-credential":
+        errorMessage = "此 Email 已使用其他登入方式註冊";
+        break;
+      default:
+        errorMessage = "GitHub 登入失敗: " + error.message;
+    }
+
+    alert(errorMessage);
   }
 }
 
-// 掛載到 window（為了相容 onclick，雖然我們改用事件監聽器）
+// 掛載到 window
 window.openLoginModal = openLoginModal;
 window.togglePassword = togglePassword;
 
@@ -96,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 模態框事件處理
   loginModal.addEventListener("show.bs.modal", function () {
-    
     const allElements = document.querySelectorAll(
       "body > *:not(.modal):not(.modal-backdrop)"
     );
@@ -227,21 +243,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-  // ✅ 社群登入按鈕事件監聽器 - 放在這裡！
-  // 綁定具體 id 的按鈕
+  // 社群登入按鈕事件監聽器 - 移除所有 Facebook 相關
   const googleLoginBtn = document.getElementById("googleLoginBtn");
-  const facebookLoginBtn = document.getElementById("facebookLoginBtn");
+  const githubLoginBtn = document.getElementById("githubLoginBtn");
   const googleRegisterBtn = document.getElementById("googleRegisterBtn");
-  const facebookRegisterBtn = document.getElementById("facebookRegisterBtn");
+  const githubRegisterBtn = document.getElementById("githubRegisterBtn");
 
   if (googleLoginBtn) {
     googleLoginBtn.addEventListener("click", handleGoogleLogin);
     console.log("Google 登入按鈕事件已綁定");
   }
 
-  if (facebookLoginBtn) {
-    facebookLoginBtn.addEventListener("click", handleFacebookLogin);
-    console.log("Facebook 登入按鈕事件已綁定");
+  if (githubLoginBtn) {
+    githubLoginBtn.addEventListener("click", handleGithubLogin);
+    console.log("GitHub 登入按鈕事件已綁定");
   }
 
   if (googleRegisterBtn) {
@@ -249,12 +264,12 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Google 註冊按鈕事件已綁定");
   }
 
-  if (facebookRegisterBtn) {
-    facebookRegisterBtn.addEventListener("click", handleFacebookLogin);
-    console.log("Facebook 註冊按鈕事件已綁定");
+  if (githubRegisterBtn) {
+    githubRegisterBtn.addEventListener("click", handleGithubLogin);
+    console.log("GitHub 註冊按鈕事件已綁定");
   }
 
-  // 備用方案：如果上面的 id 找不到，用 class 選擇器
+  // 備用方案 - 移除 Facebook 相關
   if (!googleLoginBtn && !googleRegisterBtn) {
     console.log("使用備用方案綁定 Google 按鈕");
     const googleBtns = document.querySelectorAll(".social-btn .fa-google");
@@ -267,16 +282,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (!facebookLoginBtn && !facebookRegisterBtn) {
-    console.log("使用備用方案綁定 Facebook 按鈕");
-    const facebookBtns = document.querySelectorAll(
-      ".social-btn .fa-facebook-f"
-    );
-    facebookBtns.forEach((icon, index) => {
+  if (!githubLoginBtn && !githubRegisterBtn) {
+    console.log("使用備用方案綁定 GitHub 按鈕");
+    const githubBtns = document.querySelectorAll(".social-btn .fa-github");
+    githubBtns.forEach((icon, index) => {
       const btn = icon.closest("button");
       if (btn) {
-        btn.addEventListener("click", handleFacebookLogin);
-        console.log(`Facebook 按鈕 ${index + 1} 事件已綁定`);
+        btn.addEventListener("click", handleGithubLogin);
+        console.log(`GitHub 按鈕 ${index + 1} 事件已綁定`);
       }
     });
   }
