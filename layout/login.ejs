@@ -2,7 +2,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
 </head>
 <!-- 登入註冊模態框 -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" role="dialog"
+    aria-modal="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content login-modal-content">
             <!-- 模態框頭部 -->
@@ -18,7 +19,8 @@
                 </div>
 
                 <!-- 切換按鈕 -->
-                <ul class="nav nav-pills nav-justified mb-4 login-nav-pills bg-natural-100" id="loginTabs" role="tablist">
+                <ul class="nav nav-pills nav-justified mb-4 login-nav-pills bg-natural-100" id="loginTabs"
+                    role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link fw-medium active" id="login-tab" data-bs-toggle="pill"
                             data-bs-target="#login-panel" type="button" role="tab" aria-controls="login-panel"
@@ -42,8 +44,8 @@
                         <form id="loginForm" class="login-form">
                             <div class="mb-3">
                                 <label for="loginEmail" class="form-label fw-medium text-natural-950 mb-2">電子郵件</label>
-                                <input type="email" class="form-control login-input" id="loginEmail" name="email" placeholder="請輸入電子郵件"
-                                    required>
+                                <input type="email" class="form-control login-input" id="loginEmail" name="email"
+                                    placeholder="請輸入電子郵件" required>
                             </div>
                             <div class="mb-3">
                                 <label for="loginPassword" class="form-label fw-medium text-natural-950 mb-2">密碼</label>
@@ -66,8 +68,7 @@
                                 </div>
                                 <a href="#" class="text-decoration-none link-primary">忘記密碼？</a>
                             </div>
-                            <button type="submit"
-                                class="btn btn-secondary-500 text-secondary-800 fw-bold w-100 mb-3">
+                            <button type="submit" class="btn btn-secondary-500 text-secondary-800 fw-bold w-100 mb-3">
                                 登入
                             </button>
                         </form>
@@ -76,11 +77,11 @@
                         <div class="text-center">
                             <p class="text-natural-500 mb-3">或使用社群帳號登入</p>
                             <div class="d-flex gap-2 justify-content-center">
-                                <button type="button"
+                                <button type="button" id="googleLoginBtn"
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
                                     <i class="fab fa-google text-primary-500"></i>
                                 </button>
-                                <button type="button"
+                                <button type="button" id="facebookLoginBtn"
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
                                     <i class="fab fa-facebook-f text-primary-500"></i>
                                 </button>
@@ -97,16 +98,18 @@
                         <form id="registerForm" class="login-form">
                             <div class="mb-3">
                                 <label for="registerName" class="form-label fw-medium text-natural-950 mb-2">姓名</label>
-                                <input type="text" class="form-control login-input" id="registerName" name="name" placeholder="請輸入姓名"
-                                    required>
+                                <input type="text" class="form-control login-input" id="registerName" name="name"
+                                    placeholder="請輸入姓名" required>
                             </div>
                             <div class="mb-3">
-                                <label for="registerEmail" class="form-label fw-medium text-natural-950 mb-2">電子郵件</label>
-                                <input type="email" class="form-control login-input" id="registerEmail" name="email" placeholder="請輸入電子郵件"
-                                    required>
+                                <label for="registerEmail"
+                                    class="form-label fw-medium text-natural-950 mb-2">電子郵件</label>
+                                <input type="email" class="form-control login-input" id="registerEmail" name="email"
+                                    placeholder="請輸入電子郵件" required>
                             </div>
                             <div class="mb-3">
-                                <label for="registerPassword" class="form-label fw-medium text-natural-950 mb-2">密碼</label>
+                                <label for="registerPassword"
+                                    class="form-label fw-medium text-natural-950 mb-2">密碼</label>
                                 <div class="position-relative">
                                     <input type="password" class="form-control login-input" id="registerPassword"
                                         name="password" placeholder="請輸入密碼" required>
@@ -118,7 +121,8 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="confirmPassword" class="form-label fw-medium text-natural-950 mb-2">確認密碼</label>
+                                <label for="confirmPassword"
+                                    class="form-label fw-medium text-natural-950 mb-2">確認密碼</label>
                                 <div class="position-relative">
                                     <input type="password" class="form-control login-input" id="confirmPassword"
                                         name="confirmPassword" placeholder="再次輸入密碼" required>
@@ -140,7 +144,8 @@
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold w-100 mb-3">註冊</button>
+                            <button type="submit"
+                                class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold w-100 mb-3">註冊</button>
                         </form>
 
                         <!-- 社群註冊 -->
@@ -167,92 +172,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    // 打開登入模態框的函數
-    function openLoginModal() {
-        const modal = new bootstrap.Modal(document.getElementById('loginModal'));
-        const body = document.body;
-        // 隱藏滾動條
-        body.classList.add('modal-open-custom');
-
-        modal.show();
-    }
-
-    // 切換密碼顯示/隱藏
-    function togglePassword(inputId) {
-        const input = document.getElementById(inputId);
-        const icon = document.getElementById(inputId + 'Icon');
-
-        if (input.type === 'password') {
-            input.type = 'text';
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-        } else {
-            input.type = 'password';
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-        }
-    }
-
-    // 表單提交處理
-    document.addEventListener('DOMContentLoaded', function () {
-        const loginModal = document.getElementById('loginModal');
-        const body = document.body;
-
-        // 監聽模態框顯示事件 - 添加強烈模糊效果
-        loginModal.addEventListener('show.bs.modal', function () {
-            // 對所有不是模態框的元素添加模糊
-            const allElements = document.querySelectorAll('body > *:not(.modal):not(.modal-backdrop)');
-            allElements.forEach(element => {
-                element.style.filter = 'blur(15px)';
-                element.style.transition = 'filter 0.3s ease';
-            });
-
-            // 設置模態框背景
-            setTimeout(() => {
-                const backdrop = document.querySelector('.modal-backdrop');
-                if (backdrop) {
-                    backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-                }
-            }, 100);
-        });
-
-        // 監聽模態框關閉事件 - 移除模糊效果
-        loginModal.addEventListener('hide.bs.modal', function () {
-            // 移除所有模糊效果
-            const allElements = document.querySelectorAll('body > *');
-            allElements.forEach(element => {
-                element.style.filter = '';
-                element.style.transition = '';
-            });
-
-            body.classList.remove('modal-open-custom');
-        });
-
-        // 登入表單
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-
-            console.log('登入表單數據:', Object.fromEntries(formData));
-        });
-
-        // 註冊表單
-        document.getElementById('registerForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const password = formData.get('password');
-            const confirmPassword = formData.get('confirmPassword');
-
-            // 密碼確認檢查
-            if (password !== confirmPassword) {
-                alert('密碼和確認密碼不一致');
-                return;
-            }
-
-            // 這裡加入你的註冊邏輯
-            console.log('註冊表單數據:', Object.fromEntries(formData));
-        });
-    });
-</script>
