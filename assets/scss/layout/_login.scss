@@ -42,16 +42,18 @@ body.modal-open-custom {
   }
 }
 
-//* Logo 樣式*
+// Logo 樣式
 .login-logo {
   height: 60px;
   width: auto;
 }
-//* 切換標籤樣式*
+// 切換標籤樣式
 .login-nav-pills {
   background-color: $natural-50;
   border-radius: 0.75rem;
   padding: 0.25rem;
+  display: flex;
+  gap: 4px;
   .nav-link {
     border-radius: 0.5rem;
     color: $natural-600;
@@ -61,16 +63,16 @@ body.modal-open-custom {
     border: none;
     &:hover {
       color: $natural-800;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: $natural-200;
     }
     &.active {
-      background-color: white;
+      background-color: $white;
       color: $natural-950;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
   }
 }
-//* 表單樣式*
+// 表單樣式
 .login-form {
   .form-label {
     font-weight: 500;
@@ -108,7 +110,7 @@ body.modal-open-custom {
       box-shadow: none;
     }
   }
-  //* 記住我和忘記密碼*
+  // 記住我和忘記密碼
   .form-check-input {
     border: 1px solid $natural-300;
     &:checked {
@@ -129,32 +131,19 @@ body.modal-open-custom {
   max-width: 3rem;
   max-height: 3rem;
   border-radius: 50%;
-  border: 1px solid $natural-200;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $natural-600;
   transition: all 0.2s ease;
   flex-shrink: 0;
   &:hover {
-    background-color: $natural-50;
-    border-color: $natural-300;
-    color: $natural-800;
     transform: translateY(-2px);
   }
   i {
     font-size: 1.1rem;
   }
 }
-//* 連結樣式*
-.link-primary {
-  color: #8bc34a;
-  font-size: 0.9rem;
-  &:hover {
-    color: #7cb342;
-  }
-}
-//* 響應式設計*
+// 響應式設計
 @media (max-width: 576px) {
   .login-modal-content {
     margin: 0.5rem;
@@ -190,7 +179,7 @@ body.modal-open-custom {
 .modal-dialog::after {
   content: "點擊空白處即可關閉視窗";
   position: absolute;
-  top: 40px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   color: $red-500;
@@ -203,5 +192,5 @@ body.modal-open-custom {
 // 當註冊頁面顯示時，調整提示文字位置
 #register-panel.show.active ~ .modal-dialog::after,
 .modal:has(#register-panel.show.active) .modal-dialog::after {
-  top: 0; /* 註冊頁面：更遠離模態框 */
+  bottom: -30px;
 }
