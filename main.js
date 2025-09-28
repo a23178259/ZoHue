@@ -1,10 +1,10 @@
 import "./assets/scss/all.scss";
 import * as bootstrap from "bootstrap";
-import "./firebase.js";
-import "./auth.js";
-import "./layout/volunteerStories.js";
-import "./layout/login.js";
-import "./layout/header.js";
+import "./assets/JS/firebase.js";
+import "./assets/JS/auth.js";
+import "./assets/JS/volunteerStories.js";
+import "./assets/JS/login.js";
+import "./assets/JS/header.js";
 
 // 使bootstrap 物件(CSS、JS)可在全域範圍使用
 window.bootstrap = bootstrap;

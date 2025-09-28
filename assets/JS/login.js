@@ -5,7 +5,7 @@ import {
   loginUser,
   loginWithGoogle,
   loginWithGithub,
-} from "../auth.js";
+} from "./auth.js";
 
 // Toast 功能
 function showToast(message, type = "info", title = "通知") {
