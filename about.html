@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>about</title>
-    <script type="module" crossorigin src="/ZoHue/assets/main-Dpa68kMi.js"></script>
-    <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-Ukr1IeLu.css">
+    <script type="module" crossorigin src="/ZoHue/assets/main-CkT1wo0q.js"></script>
+    <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-D3mWAMYa.css">
   </head>
   <body>
     <nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
@@ -249,7 +249,10 @@
         </div>
     </div>
 </div>
-    <head>
+    <!-- login.ejs -->
+ 
+ <!-- tabler icons -->
+<head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
 </head>
 <!-- 登入註冊模態框 -->
@@ -332,9 +335,9 @@
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
                                     <i class="fab fa-google text-primary-500"></i>
                                 </button>
-                                <button type="button" id="facebookLoginBtn"
+                                <button type="button" id="githubLoginBtn"
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
-                                    <i class="fab fa-facebook-f text-primary-500"></i>
+                                    <i class="fab fa-github fs-4 text-primary-500"></i>
                                 </button>
                                 <button type="button"
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
@@ -403,13 +406,13 @@
                         <div class="text-center">
                             <p class="text-natural-500 mb-3">或使用社群帳號註冊</p>
                             <div class="d-flex gap-2 justify-content-center">
-                                <button type="button"
+                                <button type="button" id="googleRegisterBtn"
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
                                     <i class="fab fa-google text-primary-500"></i>
                                 </button>
-                                <button type="button"
+                                <button type="button" id="githubRegisterBtn"
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
-                                    <i class="fab fa-facebook-f text-primary-500"></i>
+                                    <i class="fab fa-github fs-4 text-primary-500"></i>
                                 </button>
                                 <button type="button"
                                     class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
@@ -424,10 +427,23 @@
     </div>
 </div>
 
+<!-- Toast 容器 -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+    <div id="authToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i id="toastIcon" class="me-2"></i>
+            <strong id="toastTitle" class="me-auto">通知</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toastBody">
+            訊息內容
+        </div>
+    </div>
+</div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
-            // 修改你的 toggleMobileDropdown 函數
             function toggleMobileDropdown() {
                 const dropdown = document.querySelector('#mobileDropdown');
                 const icon = document.querySelector('#hamburgerIcon');
