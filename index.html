@@ -13,8 +13,8 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
         <title>index</title>
-      <script type="module" crossorigin src="/ZoHue/assets/main-CkT1wo0q.js"></script>
-      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-D3mWAMYa.css">
+      <script type="module" crossorigin src="/ZoHue/assets/main-Bk1TPgzK.js"></script>
+      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-xcu2EkAl.css">
     </head>
 
     <body>
@@ -448,103 +448,11 @@
             訊息內容
         </div>
     </div>
-</div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-        <script>
-            function toggleMobileDropdown() {
-                const dropdown = document.querySelector('#mobileDropdown');
-                const icon = document.querySelector('#hamburgerIcon');
-                const body = document.body;
-
-                dropdown.classList.toggle('show');
-
-                // 切換圖標和動畫
-                if (dropdown.classList.contains('show')) {
-                    // 菜單打開 - 變成 X
-                    icon.className = 'fa-solid fa-xmark text-natural-700 hamburger-icon active';
-                    // 隱藏滾動條
-                    body.classList.add('mobile-menu-open');
-
-                    // 嘗試進入全屏模式隱藏系統導航欄
-                    requestFullscreen();
-
-                } else {
-                    // 菜單關閉 - 變回漢堡包
-                    icon.className = 'fa-solid fa-bars text-natural-700 hamburger-icon';
-                    // 顯示滾動條
-                    body.classList.remove('mobile-menu-open');
-
-                    // 退出全螢幕模式
-                    exitFullscreen();
-                }
-            }
-
-            function closeMobileDropdown() {
-                const dropdown = document.querySelector('#mobileDropdown');
-                const icon = document.querySelector('#hamburgerIcon');
-                const body = document.body;
-
-                dropdown.classList.remove('show');
-                // 重置圖標為漢堡包
-                icon.className = 'fa-solid fa-bars text-natural-700 hamburger-icon';
-                // 顯示滾動條
-                body.classList.remove('mobile-menu-open');
-
-                // 退出全屏模式
-                exitFullscreen();
-            }
-
-            // 全螢幕相關函數
-            function requestFullscreen() {
-                const elem = document.documentElement;
-
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
-                }
-
-                // 針對移動設備的額外處理
-                if (screen.orientation && screen.orientation.lock) {
-                    screen.orientation.lock('portrait').catch(() => {
-                    });
-                }
-            }
-
-            function exitFullscreen() {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
-                    document.msExitFullscreen();
-                }
-            }
-
-            // 監聽全屏變化事件
-            document.addEventListener('fullscreenchange', handleFullscreenChange);
-            document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-            document.addEventListener('msfullscreenchange', handleFullscreenChange);
-
-            function handleFullscreenChange() {
-                const dropdown = document.querySelector('#mobileDropdown');
-
-                // 如果不是全屏狀態且菜單是開著的，就關閉菜單
-                if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                    if (dropdown.classList.contains('show')) {
-                        closeMobileDropdown();
-                    }
-                }
-            }
-        </script> <!-- 圓弧 -->
+</div> <!-- 圓弧 -->
 <div>
     <img src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Ebene_1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20version='1.1'%20viewBox='0%200%201920%2080'%3e%3c!--%20Generator:%20Adobe%20Illustrator%2029.8.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%202.1.1%20Build%202)%20--%3e%3cdefs%3e%3cstyle%3e%20.st0%20{%20fill:%20none;%20}%20.st1%20{%20fill:%20%23f9f5f1;%20}%20.st2%20{%20fill:%20%23f4ece5;%20}%20.st3%20{%20clip-path:%20url(%23clippath);%20}%20%3c/style%3e%3cclipPath%20id='clippath'%3e%3crect%20class='st0'%20width='1920'%20height='80'/%3e%3c/clipPath%3e%3c/defs%3e%3crect%20class='st1'%20width='1920'%20height='80'/%3e%3cg%20class='st3'%3e%3cellipse%20class='st2'%20cx='959.5'%20cy='120'%20rx='1173.5'%20ry='120'/%3e%3c/g%3e%3c/svg%3e" alt="arc" class="d-block" />
 </div>
-<section class="container-fluid bg-bg-02 pe-0">
+<section class="container-fluid bg-gradient pe-0">
     <div class="container pe-0 overflow-hidden">
         <div class="row">
             <!-- 插畫 -->
@@ -673,15 +581,59 @@
                     </div>
                 </div>
             </div>
-            <!-- 卡片 -->
-            <div class="d-flex gap-4 gap-lg-5 mb-lg-2xl mb-xl">
+        </div>
+    </div>
+    <!-- 卡片區 -->
+    <div class="container bg-gradient mb-lg-2xl mb-xl">
+        <div class="project-card-slider">
+            <div class="slider-track gap-4 gap-lg-5">
+                <!-- 卡片一 -->
                 <div
-                    class="bg-white border rounded border-primary-300 border-2">
+                    class="card-fixed border rounded border-primary-300 border-2 bg-project-card">
                     <div class="p-4 p-lg-xxl">
-                        <img
-                            src="/ZoHue/assets/project-card_1-B8JCJQ4R.png"
-                            class="rounded mb-4 mb-lg-5"
-                            alt="project-card_1" />
+                        <div class="position-relative mb-4 mb-lg-5">
+                            <img
+                                src="/ZoHue/assets/project-card_1-B8JCJQ4R.png"
+                                class="rounded"
+                                alt="project-card_1" />
+
+                            <!-- 標籤 -->
+                            <div
+                                class="position-absolute top-0 start-0 mt-3 ms-3 d-flex align-items-center gap-2">
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        language </span
+                                    >遠端</span
+                                >
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        event_note </span
+                                    >中期</span
+                                >
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        forest </span
+                                    >偏鄉</span
+                                >
+                            </div>
+
+                            <div
+                                class="position-absolute bottom-0 end-0 me-3 mb-3">
+                                <span
+                                    class="bg-white bg-opacity-75 p-2 blur-4 rounded-circle d-flex align-items-center"
+                                    ><span
+                                        class="material-symbols-outlined fs-4">
+                                        favorite
+                                    </span></span
+                                >
+                            </div>
+                        </div>
 
                         <h5 class="card-title fs-lg fs-lg-4 mb-2 mb-lg-3">
                             偏鄉小學網站改版
@@ -757,21 +709,358 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- CTA Button -->
-            <div class="d-flex justify-content-center">
-                <button
-                    type="button"
-                    class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold">
-                    探索更多專案
-                </button>
+                <!-- 卡片二 -->
+                <div
+                    class="card-fixed bg-project-card border rounded border-primary-300 border-2">
+                    <div class="p-4 p-lg-xxl">
+                        <div class="position-relative mb-4 mb-lg-5">
+                            <img
+                                src="/ZoHue/assets/project-card_2-Bg2Klwvi.png"
+                                class="rounded"
+                                alt="project-card_2" />
+
+                            <!-- 標籤 -->
+                            <div
+                                class="position-absolute top-0 start-0 mt-3 ms-3 d-flex align-items-center gap-2">
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        language </span
+                                    >在地</span
+                                >
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        event </span
+                                    >一日</span
+                                >
+                            </div>
+
+                            <div
+                                class="position-absolute bottom-0 end-0 me-3 mb-3">
+                                <span
+                                    class="bg-white bg-opacity-75 p-2 blur-4 rounded-circle d-flex align-items-center"
+                                    ><span
+                                        class="material-symbols-outlined fs-4">
+                                        favorite
+                                    </span></span
+                                >
+                            </div>
+                        </div>
+
+                        <h5 class="card-title fs-lg fs-lg-4 mb-2 mb-lg-3">
+                            淨灘行動日：守護海岸線
+                        </h5>
+                        <p class="card-text fs-lg-6 fs-7 mb-2 mb-lg-4">
+                            不需專業背景，只需一顆願意參與的心。地點：...
+                        </p>
+
+                        <div class="success-cases-skill-tags mb-3 mb-lg-3">
+                            <a
+                                href="#"
+                                class="success-cases-skill-tag text-secondary-800 bg-secondary-50 py-1 px-2 border border-secondary-500 small">
+                                <span>不拘(不需經驗)</span>
+                            </a>
+                        </div>
+
+                        <!-- 進度條 -->
+                        <div class="mb-3 mb-lg-4">
+                            <div class="d-flex align-items-center">
+                                <div
+                                    class="progress flex-fill"
+                                    role="progressbar"
+                                    aria-label="Basic example"
+                                    aria-valuenow="92"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <div
+                                        class="progress-bar"
+                                        style="width: 25%"></div>
+                                </div>
+                                <p
+                                    class="fs-7 fs-lg-6 ms-2 text-primary-500 fw-semibold">
+                                    92%
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 數字區塊 -->
+                        <div class="d-flex justify-content-between">
+                            <h4 class="fs-lg fs-lg-4">NT$ 5,000</h4>
+                            <div class="d-flex">
+                                <p
+                                    class="fs-7 fs-lg-6 me-4 d-flex align-items-center">
+                                    <span
+                                        class="material-symbols-outlined filled align-bottom me-1">
+                                        face
+                                    </span>
+                                    志工<span class="fw-semibold px-1">10</span
+                                    >人
+                                </p>
+
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="material-symbols-outlined align-bottom">
+                                        hourglass
+                                    </span>
+                                    <p class="fs-7 fs-lg-6">
+                                        <span class="fw-semibold px-1">2</span
+                                        >天
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 卡片三 -->
+                <div
+                    class="card-fixed bg-project-card border rounded border-primary-300 border-2">
+                    <div class="p-4 p-lg-xxl">
+                        <div class="position-relative mb-4 mb-lg-5">
+                            <img
+                                src="/ZoHue/assets/project-card_3-DAEokPLy.png"
+                                class="rounded"
+                                alt="project-card_3" />
+
+                            <!-- 標籤 -->
+                            <div
+                                class="position-absolute top-0 start-0 mt-3 ms-3 d-flex align-items-center gap-2">
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        language </span
+                                    >遠端</span
+                                >
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        date_range </span
+                                    >短期</span
+                                >
+                            </div>
+
+                            <div
+                                class="position-absolute bottom-0 end-0 me-3 mb-3">
+                                <span
+                                    class="bg-white bg-opacity-75 p-2 blur-4 rounded-circle d-flex align-items-center"
+                                    ><span
+                                        class="material-symbols-outlined fs-4">
+                                        favorite
+                                    </span></span
+                                >
+                            </div>
+                        </div>
+
+                        <h5 class="card-title fs-lg fs-lg-4 mb-2 mb-lg-3">
+                            颱風災後資訊彙整地圖協作
+                        </h5>
+                        <p class="card-text fs-lg-6 fs-7 mb-2 mb-lg-4">
+                            彙整災情、需求與資源資訊，協作製作資訊地圖...
+                        </p>
+
+                        <div class="success-cases-skill-tags mb-3 mb-lg-3">
+                            <a
+                                href="#"
+                                class="success-cases-skill-tag text-secondary-800 bg-secondary-50 py-1 px-2 border border-secondary-500 small">
+                                <span>資料整理</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="success-cases-skill-tag text-secondary-800 bg-secondary-50 py-1 px-2 border border-secondary-500 small">
+                                <span>表單設計</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="success-cases-skill-tag text-secondary-800 bg-secondary-50 py-1 px-2 border border-secondary-500 small">
+                                <span>地圖工具</span>
+                            </a>
+                        </div>
+
+                        <!-- 進度條 -->
+                        <div class="mb-3 mb-lg-4">
+                            <div class="d-flex align-items-center">
+                                <div
+                                    class="progress flex-fill"
+                                    role="progressbar"
+                                    aria-label="Basic example"
+                                    aria-valuenow="37"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <div
+                                        class="progress-bar"
+                                        style="width: 25%"></div>
+                                </div>
+                                <p
+                                    class="fs-7 fs-lg-6 ms-2 text-primary-500 fw-semibold">
+                                    37%
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 數字區塊 -->
+                        <div class="d-flex justify-content-between">
+                            <h4 class="fs-lg fs-lg-4">NT$ 15,000</h4>
+                            <div class="d-flex">
+                                <p
+                                    class="fs-7 fs-lg-6 me-4 d-flex align-items-center">
+                                    <span
+                                        class="material-symbols-outlined filled align-bottom me-1">
+                                        face
+                                    </span>
+                                    志工<span class="fw-semibold px-1">5</span
+                                    >人
+                                </p>
+
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="material-symbols-outlined align-bottom">
+                                        hourglass
+                                    </span>
+                                    <p class="fs-7 fs-lg-6">
+                                        <span class="fw-semibold px-1">7</span
+                                        >天
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 卡片四 -->
+                <div
+                    class="card-fixed bg-project-card border rounded border-primary-300 border-2">
+                    <div class="p-4 p-lg-xxl">
+                        <div class="position-relative mb-4 mb-lg-5">
+                            <img
+                                src="/ZoHue/assets/project-card_4-C75i7F8g.png"
+                                class="rounded"
+                                alt="project-card_4" />
+
+                            <!-- 標籤 -->
+                            <div
+                                class="position-absolute top-0 start-0 mt-3 ms-3 d-flex align-items-center gap-2">
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        language </span
+                                    >遠端</span
+                                >
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        date_range </span
+                                    >短期</span
+                                >
+                                <span
+                                    class="fs-7 bg-white bg-opacity-75 text-natural-950 px-2 py-1 rounded-pill blur-4"
+                                    ><span
+                                        class="material-symbols-outlined fs-lg me-1 align-bottom">
+                                        forest </span
+                                    >偏鄉</span
+                                >
+                            </div>
+
+                            <div
+                                class="position-absolute bottom-0 end-0 me-3 mb-3">
+                                <span
+                                    class="bg-white bg-opacity-75 p-2 blur-4 rounded-circle d-flex align-items-center"
+                                    ><span
+                                        class="material-symbols-outlined fs-4">
+                                        favorite
+                                    </span></span
+                                >
+                            </div>
+                        </div>
+
+                        <h5 class="card-title fs-lg fs-lg-4 mb-2 mb-lg-3">
+                            在地故事紀錄短片製作
+                        </h5>
+                        <p class="card-text fs-lg-6 fs-7 mb-2 mb-lg-4">
+                            剪輯原住民在地生活與人物紀錄，傳遞土地的真實與溫度
+                        </p>
+
+                        <div class="success-cases-skill-tags mb-3 mb-lg-3">
+                            <a
+                                href="#"
+                                class="success-cases-skill-tag text-secondary-800 bg-secondary-50 py-1 px-2 border border-secondary-500 small">
+                                <span>影片剪輯</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="success-cases-skill-tag text-secondary-800 bg-secondary-50 py-1 px-2 border border-secondary-500 small">
+                                <span>字幕處理</span>
+                            </a>
+                        </div>
+
+                        <!-- 進度條 -->
+                        <div class="mb-3 mb-lg-4">
+                            <div class="d-flex align-items-center">
+                                <div
+                                    class="progress flex-fill"
+                                    role="progressbar"
+                                    aria-label="Basic example"
+                                    aria-valuenow="40"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <div
+                                        class="progress-bar"
+                                        style="width: 25%"></div>
+                                </div>
+                                <p
+                                    class="fs-7 fs-lg-6 ms-2 text-primary-500 fw-semibold">
+                                    40%
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 數字區塊 -->
+                        <div class="d-flex justify-content-between">
+                            <h4 class="fs-lg fs-lg-4">NT$ 8,000</h4>
+                            <div class="d-flex">
+                                <p
+                                    class="fs-7 fs-lg-6 me-4 d-flex align-items-center">
+                                    <span
+                                        class="material-symbols-outlined filled align-bottom me-1">
+                                        face
+                                    </span>
+                                    志工<span class="fw-semibold px-1">3</span
+                                    >人
+                                </p>
+
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="material-symbols-outlined align-bottom">
+                                        hourglass
+                                    </span>
+                                    <p class="fs-7 fs-lg-6">
+                                        <span class="fw-semibold px-1">12</span
+                                        >天
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <!-- CTA Button -->
+    <div class="d-flex justify-content-center pb-lg-2xl pb-xl">
+        <button
+            type="button"
+            class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold">
+            探索更多專案
+        </button>
     </div>
 </section>
  <!-- @format -->
 
-<section class="container-fluid bg-bg-02">
+<section class="container-fluid bg-bg-01">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 m-auto my-7">
