@@ -1,0 +1,76 @@
+/* 外層滑軌容器：可水平滾動、右側遮罩 */
+.project-card-slider {
+    /* 外層滑軌容器：只向右延伸到 viewport 邊緣，左側貼齊 container */
+
+    width: calc(100% + (100vw - 100%) / 2);
+    max-width: none;
+    /* 把多出來的寬度用負的右邊距拉回流程，不影響後面元素排列 */
+    margin-right: calc((100vw - 100%) / -2);
+
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+
+    /* 右側漸層遮罩（只右邊） */
+    --fade: 64px; /* 你要的淡出寬度，可調 */
+    mask-image: linear-gradient(
+        to right,
+        #000 calc(100% - var(--fade)),
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        #000 calc(100% - var(--fade)),
+        transparent
+    );
+}
+
+/* 軌道：不換行 + 尾端預留空間讓遮罩不吃到最後一張 */
+.slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-right: var(--fade);
+}
+
+/* 卡片：固定寬度、不縮放 */
+.card-fixed {
+    --card-w: 416px;
+    flex: 0 0 var(--card-w);
+    width: var(--card-w);
+}
+
+/* 圖片等比 */
+.card-fixed img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bg-gradient {
+    position: relative;
+}
+.bg-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, $background-02, $background-01);
+    z-index: -1; /* 在內容下方 */
+}
+
+.bg-project-card {
+    background: $white;
+    &:hover {
+        background: $primary-100;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-fixed {
+        --card-w: 320px;
+    }
+
+    .project-card-slider {
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+}
