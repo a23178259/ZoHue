@@ -7,9 +7,52 @@ import {
   loginWithGithub,
 } from "../auth.js";
 
+// Toast 功能
+function showToast(message, type = "info", title = "通知") {
+  const toast = document.querySelector("#authToast");
+  const toastIcon = document.querySelector("#toastIcon");
+  const toastTitle = document.querySelector("#toastTitle");
+  const toastBody = document.querySelector("#toastBody");
+  const toastHeader = toast.querySelector(".toast-header");
+
+  // 設定內容
+  toastTitle.textContent = title;
+  toastBody.textContent = message;
+
+  // 清除之前的樣式
+  toastHeader.className = "toast-header";
+  toastIcon.className = "me-2";
+
+  // 根據類型設定樣式和圖標
+  switch (type) {
+    case "success":
+      toastHeader.classList.add("bg-success", "text-white");
+      toastIcon.classList.add("fas", "fa-check-circle", "text-white");
+      break;
+    case "error":
+      toastHeader.classList.add("bg-danger", "text-white");
+      toastIcon.classList.add("fas", "fa-exclamation-circle", "text-white");
+      break;
+    case "warning":
+      toastHeader.classList.add("bg-warning", "text-dark");
+      toastIcon.classList.add("fas", "fa-exclamation-triangle", "text-dark");
+      break;
+    default:
+      toastHeader.classList.add("bg-primary", "text-white");
+      toastIcon.classList.add("fas", "fa-info-circle", "text-white");
+  }
+
+  // 顯示 Toast
+  const bsToast = new bootstrap.Toast(toast, {
+    autohide: true,
+    delay: type === "error" ? 5000 : 3000, // 錯誤訊息顯示久一點
+  });
+  bsToast.show();
+}
+
 // 打開登入模態框的函數
 function openLoginModal() {
-  const modal = new bootstrap.Modal(document.getElementById("loginModal"));
+  const modal = new bootstrap.Modal(document.querySelector("#loginModal"));
   const body = document.body;
   body.classList.add("modal-open-custom");
   modal.show();
@@ -17,8 +60,8 @@ function openLoginModal() {
 
 // 切換密碼顯示/隱藏
 function togglePassword(inputId) {
-  const input = document.getElementById(inputId);
-  const icon = document.getElementById(inputId + "Icon");
+  const input = document.querySelector(`#${inputId}`);
+  const icon = document.querySelector(`#${inputId}Icon`);
 
   if (input.type === "password") {
     input.type = "text";
@@ -37,10 +80,10 @@ async function handleGoogleLogin() {
   try {
     const result = await loginWithGoogle();
     console.log("Google 登入成功:", result.user);
-    alert("Google 登入成功！");
+    showToast("Google 登入成功！歡迎回來", "success", "登入成功");
 
     const modal = bootstrap.Modal.getInstance(
-      document.getElementById("loginModal")
+      document.querySelector("#loginModal")
     );
     if (modal) {
       modal.hide();
@@ -51,16 +94,16 @@ async function handleGoogleLogin() {
     let errorMessage = "Google 登入失敗";
     switch (error.code) {
       case "auth/popup-closed-by-user":
-        errorMessage = "登入窗口已關閉";
+        errorMessage = "登入窗口已關閉，請重新嘗試";
         break;
       case "auth/popup-blocked":
-        errorMessage = "彈出窗口被阻擋，請允許彈出窗口";
+        errorMessage = "彈出窗口被阻擋，請允許彈出窗口後重試";
         break;
       default:
-        errorMessage = "Google 登入失敗: " + error.message;
+        errorMessage = `Google 登入失敗：${error.message}`;
     }
 
-    alert(errorMessage);
+    showToast(errorMessage, "error", "登入失敗");
   }
 }
 
@@ -70,10 +113,10 @@ async function handleGithubLogin() {
   try {
     const result = await loginWithGithub();
     console.log("GitHub 登入成功:", result.user);
-    alert("GitHub 登入成功！");
+    showToast("GitHub 登入成功！歡迎回來", "success", "登入成功");
 
     const modal = bootstrap.Modal.getInstance(
-      document.getElementById("loginModal")
+      document.querySelector("#loginModal")
     );
     if (modal) {
       modal.hide();
@@ -84,19 +127,16 @@ async function handleGithubLogin() {
     let errorMessage = "GitHub 登入失敗";
     switch (error.code) {
       case "auth/popup-closed-by-user":
-        errorMessage = "登入窗口已關閉";
+        errorMessage = "登入窗口已關閉，請重新嘗試";
         break;
       case "auth/popup-blocked":
-        errorMessage = "彈出窗口被阻擋，請允許彈出窗口";
-        break;
-      case "auth/account-exists-with-different-credential":
-        errorMessage = "此 Email 已使用其他登入方式註冊";
+        errorMessage = "彈出窗口被阻擋，請允許彈出窗口後重試";
         break;
       default:
-        errorMessage = "GitHub 登入失敗: " + error.message;
+        errorMessage = `GitHub 登入失敗：${error.message}`;
     }
 
-    alert(errorMessage);
+    showToast(errorMessage, "error", "登入失敗");
   }
 }
 
@@ -108,7 +148,7 @@ window.togglePassword = togglePassword;
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM 載入完成");
 
-  const loginModal = document.getElementById("loginModal");
+  const loginModal = document.querySelector("#loginModal");
   const body = document.body;
 
   // 模態框事件處理
@@ -140,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 登入表單處理
   document
-    .getElementById("loginForm")
+    .querySelector("#loginForm")
     .addEventListener("submit", async function (e) {
       e.preventDefault();
       const formData = new FormData(this);
@@ -148,14 +188,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const password = formData.get("password");
 
       if (!email || !password) {
-        alert("請輸入電子郵件和密碼");
+        showToast("請輸入電子郵件和密碼", "warning", "輸入不完整");
         return;
       }
 
       try {
         const userCredential = await loginUser(email, password);
         console.log("登入成功:", userCredential.user);
-        alert("登入成功！");
+        showToast("登入成功！歡迎回來", "success", "登入成功");
 
         const modal = bootstrap.Modal.getInstance(loginModal);
         if (modal) {
@@ -167,26 +207,26 @@ document.addEventListener("DOMContentLoaded", function () {
         let errorMessage = "登入失敗";
         switch (error.code) {
           case "auth/user-not-found":
-            errorMessage = "找不到此帳號，請先註冊";
+            errorMessage = "找不到此帳號，請先註冊或檢查 Email 是否正確";
             break;
           case "auth/wrong-password":
           case "auth/invalid-credential":
-            errorMessage = "密碼錯誤或帳號不存在";
+            errorMessage = "密碼錯誤或帳號不存在，請檢查登入資訊";
             break;
           case "auth/invalid-email":
             errorMessage = "請輸入有效的電子郵件地址";
             break;
           default:
-            errorMessage = "登入失敗: " + error.message;
+            errorMessage = `登入失敗：${error.message}`;
         }
 
-        alert(errorMessage);
+        showToast(errorMessage, "error", "登入失敗");
       }
     });
 
   // 註冊表單處理
   document
-    .getElementById("registerForm")
+    .querySelector("#registerForm")
     .addEventListener("submit", async function (e) {
       e.preventDefault();
       const formData = new FormData(this);
@@ -196,24 +236,24 @@ document.addEventListener("DOMContentLoaded", function () {
       const confirmPassword = formData.get("confirmPassword");
 
       if (!name || !email || !password || !confirmPassword) {
-        alert("請填寫所有必填欄位");
+        showToast("請填寫所有必填欄位", "warning", "輸入不完整");
         return;
       }
 
       if (password !== confirmPassword) {
-        alert("密碼和確認密碼不一致");
+        showToast("密碼和確認密碼不一致", "warning", "密碼不符");
         return;
       }
 
       if (password.length < 6) {
-        alert("密碼至少需要6個字元");
+        showToast("密碼至少需要6個字元", "warning", "密碼太短");
         return;
       }
 
       try {
         const userCredential = await registerUser(email, password);
         console.log("註冊成功:", userCredential.user);
-        alert("註冊成功！現在可以使用此帳號登入。");
+        showToast("註冊成功！現在可以使用此帳號登入", "success", "註冊成功");
 
         const modal = bootstrap.Modal.getInstance(loginModal);
         if (modal) {
@@ -227,27 +267,28 @@ document.addEventListener("DOMContentLoaded", function () {
         let errorMessage = "註冊失敗";
         switch (error.code) {
           case "auth/email-already-in-use":
-            errorMessage = "此電子郵件已被註冊";
+            errorMessage = "此電子郵件已被註冊，請使用其他 Email 或嘗試登入";
             break;
           case "auth/invalid-email":
             errorMessage = "請輸入有效的電子郵件地址";
             break;
           case "auth/weak-password":
-            errorMessage = "密碼強度不足，請使用更複雜的密碼";
+            errorMessage =
+              "密碼強度不足，請使用更複雜的密碼（至少包含字母和數字）";
             break;
           default:
-            errorMessage = "註冊失敗: " + error.message;
+            errorMessage = `註冊失敗：${error.message}`;
         }
 
-        alert(errorMessage);
+        showToast(errorMessage, "error", "註冊失敗");
       }
     });
 
-  // 社群登入按鈕事件監聽器 - 移除所有 Facebook 相關
-  const googleLoginBtn = document.getElementById("googleLoginBtn");
-  const githubLoginBtn = document.getElementById("githubLoginBtn");
-  const googleRegisterBtn = document.getElementById("googleRegisterBtn");
-  const githubRegisterBtn = document.getElementById("githubRegisterBtn");
+  // 社群登入按鈕事件監聽器
+  const googleLoginBtn = document.querySelector("#googleLoginBtn");
+  const githubLoginBtn = document.querySelector("#githubLoginBtn");
+  const googleRegisterBtn = document.querySelector("#googleRegisterBtn");
+  const githubRegisterBtn = document.querySelector("#githubRegisterBtn");
 
   if (googleLoginBtn) {
     googleLoginBtn.addEventListener("click", handleGoogleLogin);
@@ -269,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("GitHub 註冊按鈕事件已綁定");
   }
 
-  // 備用方案 - 移除 Facebook 相關
+  // 備用方案
   if (!googleLoginBtn && !googleRegisterBtn) {
     console.log("使用備用方案綁定 Google 按鈕");
     const googleBtns = document.querySelectorAll(".social-btn .fa-google");

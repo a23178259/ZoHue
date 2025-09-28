@@ -138,6 +138,35 @@ body.modal-open-custom {
     font-size: 1.1rem;
   }
 }
+
+// Toast 樣式
+.toast-container {
+  z-index: 9999 !important;
+  filter: none !important;
+}
+
+.toast {
+  .toast-header {
+    border-bottom: none;
+
+    &.bg-success .btn-close {
+      filter: invert(1);
+    }
+
+    &.bg-danger .btn-close {
+      filter: invert(1);
+    }
+
+    &.bg-primary .btn-close {
+      filter: invert(1);
+    }
+  }
+  .toast-body {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
 // 響應式設計
 @media (max-width: 576px) {
   .login-modal-content {
