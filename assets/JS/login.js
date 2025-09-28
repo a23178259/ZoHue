@@ -5,7 +5,9 @@ import {
   loginUser,
   loginWithGoogle,
   loginWithGithub,
+  auth,
 } from "./auth.js";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 // Toast 功能
 function showToast(message, type = "info", title = "通知") {
@@ -45,9 +47,94 @@ function showToast(message, type = "info", title = "通知") {
   // 顯示 Toast
   const bsToast = new bootstrap.Toast(toast, {
     autohide: true,
-    delay: type === "error" ? 5000 : 3000, // 錯誤訊息顯示久一點
+    delay: type === "error" ? 5000 : 3000,
   });
   bsToast.show();
+}
+
+// 檢查用戶登入狀態
+function checkAuthState() {
+  onAuthStateChanged(auth, (user) => {
+    console.log("認證狀態變化:", user);
+    updateAuthUI(!!user, user);
+  });
+}
+
+// 更新認證相關的UI
+function updateAuthUI(isLoggedIn, user = null) {
+  const mobileLoginBtn = document.getElementById("mobileLoginBtn");
+  const mobileMemberBtn = document.getElementById("mobileMemberBtn");
+  const desktopLoginBtn = document.getElementById("desktopLoginBtn");
+  const desktopMemberBtn = document.getElementById("desktopMemberBtn");
+
+  console.log("更新UI，登入狀態:", isLoggedIn);
+
+  if (isLoggedIn) {
+    // 顯示會員中心按鈕
+    if (mobileLoginBtn) mobileLoginBtn.classList.add("d-none");
+    if (mobileMemberBtn) mobileMemberBtn.classList.remove("d-none");
+    if (desktopLoginBtn) desktopLoginBtn.classList.add("d-none");
+    if (desktopMemberBtn) desktopMemberBtn.classList.remove("d-none");
+
+    // 可以在這裡更新用戶名稱或其他信息
+    if (user && user.displayName) {
+      const userNameElements = document.querySelectorAll(".user-display-name");
+      userNameElements.forEach((el) => {
+        el.textContent = user.displayName;
+      });
+    }
+
+    console.log("UI已切換為登入狀態");
+  } else {
+    // 顯示登入按鈕
+    if (mobileLoginBtn) mobileLoginBtn.classList.remove("d-none");
+    if (mobileMemberBtn) mobileMemberBtn.classList.add("d-none");
+    if (desktopLoginBtn) desktopLoginBtn.classList.remove("d-none");
+    if (desktopMemberBtn) desktopMemberBtn.classList.add("d-none");
+
+    console.log("UI已切換為未登入狀態");
+  }
+}
+
+// 處理會員中心菜單項目點擊
+function handleMemberMenuClick(event, element) {
+  // 如果是登出按鈕，不處理選中狀態
+  if (element.classList.contains("logout-item")) {
+    return;
+  }
+
+  // 防止鏈接默認行為
+  event.preventDefault();
+
+  // 找到當前下拉菜單中的所有項目
+  const dropdown = element.closest(".member-dropdown");
+  const allItems = dropdown.querySelectorAll(
+    ".dropdown-item:not(.logout-item)"
+  );
+
+  // 移除所有項目的選中狀態
+  allItems.forEach((item) => {
+    item.classList.remove("selected", "active");
+  });
+
+  // 為當前點擊的項目添加選中狀態
+  element.classList.add("selected");
+
+  console.log("選中項目:", element.textContent.trim());
+}
+
+// 登出處理函數
+async function handleLogout() {
+  if (confirm("確定要登出嗎？")) {
+    try {
+      await signOut(auth);
+      showToast("已成功登出", "success", "登出成功");
+      console.log("登出成功");
+    } catch (error) {
+      console.error("登出失敗:", error);
+      showToast("登出時發生錯誤", "error", "登出失敗");
+    }
+  }
 }
 
 // 打開登入模態框的函數
@@ -88,6 +175,8 @@ async function handleGoogleLogin() {
     if (modal) {
       modal.hide();
     }
+
+    // UI 更新會自動通過 onAuthStateChanged 處理
   } catch (error) {
     console.error("Google 登入失敗:", error);
 
@@ -121,6 +210,8 @@ async function handleGithubLogin() {
     if (modal) {
       modal.hide();
     }
+
+    // UI 更新會自動通過 onAuthStateChanged 處理
   } catch (error) {
     console.error("GitHub 登入失敗:", error);
 
@@ -143,10 +234,14 @@ async function handleGithubLogin() {
 // 掛載到 window
 window.openLoginModal = openLoginModal;
 window.togglePassword = togglePassword;
+window.handleLogout = handleLogout;
 
 // DOM 載入完成後的處理
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM 載入完成");
+
+  // 檢查登入狀態 - 這是新增的
+  checkAuthState();
 
   const loginModal = document.querySelector("#loginModal");
   const body = document.body;
@@ -201,6 +296,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (modal) {
           modal.hide();
         }
+
+        // UI 更新會自動通過 onAuthStateChanged 處理
       } catch (error) {
         console.error("登入失敗:", error);
 
@@ -261,6 +358,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         this.reset();
+
+        // UI 更新會自動通過 onAuthStateChanged 處理
       } catch (error) {
         console.error("註冊失敗:", error);
 
@@ -334,4 +433,24 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // 添加會員中心菜單項目點擊事件監聽器
+  function initMemberMenuEvents() {
+    const memberDropdowns = document.querySelectorAll(".member-dropdown");
+
+    memberDropdowns.forEach((dropdown) => {
+      const menuItems = dropdown.querySelectorAll(
+        ".dropdown-item:not(.logout-item)"
+      );
+
+      menuItems.forEach((item) => {
+        item.addEventListener("click", function (event) {
+          handleMemberMenuClick(event, this);
+        });
+      });
+    });
+  }
+
+  // 初始化會員中心菜單事件
+  initMemberMenuEvents();
 });

@@ -1,3 +1,4 @@
+// header.js
 function toggleMobileDropdown() {
   const dropdown = document.querySelector("#mobileDropdown");
   const icon = document.querySelector("#hamburgerIcon");

@@ -1,3 +1,4 @@
+<!-- header.ejs -->
 <nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
     <div class="container d-flex align-items-center">
         <!-- Logo -->
@@ -5,10 +6,38 @@
             <img src="../assets/images/logo.svg" alt="logo">
         </a>
 
-        <!-- 手機版登入按鈕 -->
-        <a href="#" class="d-lg-none ms-auto me-2">
-            <button class="btn btn-secondaryL fw-semibold btn-mobile" onclick="openLoginModal()">登入/註冊</button>
-        </a>
+        <!-- 手機版登入/會員中心按鈕 -->
+        <div id="mobileAuthSection" class="d-lg-none ms-auto me-2">
+            <!-- 未登入狀態 -->
+            <div id="mobileLoginBtn" class="mobile-auth-btn">
+                <button class="btn btn-secondaryL fw-semibold btn-mobile" onclick="openLoginModal()">登入/註冊</button>
+            </div>
+
+            <!-- 已登入狀態 - 手機版會員中心 -->
+            <div id="mobileMemberBtn" class="mobile-auth-btn d-none">
+                <div class="dropdown">
+                    <button class="btn btn-secondaryL fw-semibold d-flex align-items-center gap-1" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="material-icons align-middle fs-5">
+                            face
+                        </span>
+                        會員中心
+                    </button>
+                    <ul class="dropdown-menu member-dropdown">
+                        <li><a class="dropdown-item text-natural-950" href="#"><i class="fas fa-tasks text-primary text-center me-2"></i>我的參與</a></li>
+                        <li><a class="dropdown-item text-natural-950 active" href="#"><i class="fas fa-trophy text-warning text-center me-2"></i>我的成就</a>
+                        </li>
+                        <li><a class="dropdown-item text-natural-950" href="#"><i class="fas fa-heart text-danger text-center me-2"></i>收藏與追蹤</a></li>
+                        <li><a class="dropdown-item text-natural-950" href="#"><i class="fas fa-user-cog text-info text-center me-2"></i>我的帳戶</a></li>
+                        <li>
+                            <hr class="mt-2 mb-0 mx-0 border-natural-200">
+                        </li>
+                        <li><a class="dropdown-item text-danger fw-medium logout-item" href="#" onclick="handleLogout()"><i
+                                    class="fas fa-sign-out-alt text-center me-2"></i>登出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <!-- 漢堡選單  -->
         <button class="navbar-toggler border-0 d-lg-none" type="button" onclick="toggleMobileDropdown()">
@@ -34,11 +63,41 @@
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
                         href="#">常見問題</a>
                 </li>
-                <!-- 桌面版登入按鈕 -->
+
+                <!-- 桌面版登入/會員中心按鈕 -->
                 <li class="nav-item d-none d-lg-block ms-5">
-                    <a href="#">
+                    <!-- 未登入狀態 -->
+                    <div id="desktopLoginBtn" class="desktop-auth-btn">
                         <button class="btn btn-secondaryL fw-semibold" onclick="openLoginModal()">登入/註冊</button>
-                    </a>
+                    </div>
+
+                    <!-- 已登入狀態 - 桌面版會員中心 -->
+                    <div id="desktopMemberBtn" class="desktop-auth-btn d-none">
+                        <div class="dropdown">
+                            <button class="btn btn-secondaryL fw-semibold d-flex align-items-center gap-1" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="material-icons align-middle fs-5">
+                                    face
+                                </span>
+                                會員中心
+                            </button>
+                            <ul class="dropdown-menu member-dropdown">
+                                <li><a class="dropdown-item text-natural-950" href="#"><i class="fas fa-tasks text-primary text-center me-2"></i>我的參與</a>
+                                </li>
+                                <li><a class="dropdown-item text-natural-950 active" href="#"><i
+                                            class="fas fa-trophy text-warning text-center me-2"></i>我的成就</a></li>
+                                <li><a class="dropdown-item text-natural-950" href="#"><i class="fas fa-heart text-danger text-center me-2"></i>收藏與追蹤</a>
+                                </li>
+                                <li><a class="dropdown-item text-natural-950" href="#"><i class="fas fa-user-cog text-info text-center me-2"></i>我的帳戶</a>
+                                </li>
+                                <li>
+                                    <hr class="mt-2 mb-0 mx-0 border-natural-200">
+                                </li>
+                                <li><a class="dropdown-item text-danger fw-medium logout-item" href="#" onclick="handleLogout()"><i
+                                            class="fas fa-sign-out-alt text-center me-2"></i>登出</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
