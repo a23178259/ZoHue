@@ -147,6 +147,7 @@
 - tabler → 使用 CDN 引入，已在index.html引入
 - icon 庫：https://icon-sets.iconify.design/
 - Google Material Design Icons：https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_drop_up:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3
+- Google Material Design Icons → 已在index.html引入CDN，可直接到官網複製使用
 
 ## Node.js 版本
 
