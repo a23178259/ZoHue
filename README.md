@@ -21,6 +21,8 @@
 ### margin、padding 間距
 
 ```
+
+-0：移除該間距
 -1：4px
 -2：8px
 -3：12px
@@ -39,6 +41,77 @@
 上下：my、py
 左右：mx、px
 ```
+
+### gap 間距
+
+⚠️ gap間距跟margin、padding共用，需搭配 d-flex 使用
+
+設定方法：
+- 所有方向：gap-X
+- 垂直方向(行與行之間)：row-gap-X
+- 水平方向(列與列之間)：col-gap-X
+
+### display
+
+#### flexbox
+
+- d-flex
+- d-inline-flex
+
+#### flex direction（方向）
+
+- flex-row：水平，從左到右（預設）
+- flex-row-reverse：水平，從右到左
+- flex-column：垂直，從上到下
+- flex-column-reverse：垂直，從下到上
+
+#### flex wrap（換行）
+
+- flex-wrap：允許換行
+- flex-nowrap：不換行（預設）
+- flex-wrap-reverse：反向換行
+
+#### justify content（主軸對齊）
+
+- justify-content-start：靠左/上
+- justify-content-end：靠右/下
+- justify-content-center：置中
+- justify-content-between：兩端對齊
+- justify-content-around：環繞分配
+- justify-content-evenly：平均分配
+
+#### align items（交叉軸對齊）
+
+- align-items-start：靠上/左
+- align-items-end：靠下/右
+- align-items-center：置中
+- align-items-baseline：基線對齊
+- align-items-stretch：拉伸填滿（預設）
+
+#### align content（多行對齊）
+
+- align-content-start：靠上
+- align-content-end：靠下
+- align-content-center：置中
+- align-content-between：兩端對齊
+- align-content-around：環繞分配
+- align-content-evenly：拉伸填滿
+
+#### align self（單個子項對齊）
+
+- align-self-start：靠上/左
+- align-self-end：靠下/右
+- align-self-center：置中
+- align-self-baseline：基線對齊
+- align-self-stretch：拉伸填滿
+
+#### flex（子項伸縮）
+
+flex-fill：填滿可用空間
+flex-grow-0：不放大
+flex-grow-1：可放大
+flex-shrink-0：不縮減
+flex-shrink-1：可縮減
 
 ### 顏色
 
@@ -122,6 +195,15 @@
 - btn-py: 16px
 - btn-px: 24px
 - radius: 100px
+
+#### 垂直對齊
+
+- align-baseline：預設，元素與父元素的基準線對齊
+- align-top：元素及其後代與行高的頂部對齊
+- align-middle：元素與行高的中間對齊
+- align-bottom：元素及其後代與行高的底部對齊
+- align-text-top：元素與父元素字體的頂部對齊
+- align-text-bottom：元素與父元素字體的底部對齊
 
 ### 隱藏元素
 
