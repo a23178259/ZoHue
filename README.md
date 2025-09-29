@@ -47,9 +47,9 @@
 ⚠️ gap間距跟margin、padding共用，需搭配 d-flex 使用
 
 設定方法：
-- 所有方向：gap-X
-- 垂直方向(行與行之間)：row-gap-X
-- 水平方向(列與列之間)：col-gap-X
+- 所有方向：gap-x
+- 垂直方向(行與行之間)：row-gap-x
+- 水平方向(列與列之間)：col-gap-x
 
 ### display
 
