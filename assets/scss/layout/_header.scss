@@ -19,6 +19,32 @@
   }
 }
 
+.navbar-nav {
+  .nav-link {
+    display: flex !important;
+    align-items: center;
+
+    .notification-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 12px;
+      min-width: 17px;
+      height: 17px;
+      line-height: 18px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Material Icons 特殊處理
+.material-symbols-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 .hamburger-icon {
   font-size: 1.2rem;
   transition: all 0.3s ease;
@@ -49,6 +75,15 @@
   .navbar-nav .navbarList-link {
     padding: 0.5rem 1rem;
   }
+
+  .notification-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    min-width: 17px;
+    height: 17px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* 桌面版樣式 */
@@ -67,7 +102,7 @@ body.mobile-menu-open {
   overflow: hidden;
 }
 
-// 手機版下拉菜單 
+// 手機版下拉菜單
 .mobile-dropdown-menu {
   position: fixed;
   top: 80px;
