@@ -5,10 +5,11 @@
   box-sizing: border-box;
 }
 
-// body {
-//   letter-spacing: 0.02em;
-//   background-color: $natural-95;
-// }
+body {
+  // letter-spacing: 0.02em;
+  // background-color: $natural-95;
+  overflow-x: hidden;
+}
 
 img {
   max-width: 100%;
