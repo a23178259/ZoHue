@@ -190,13 +190,7 @@ flex-shrink-1：可縮減
 - fw-bold：700px
 - fw-bolder：bolder(比父元素更粗)
 
-### button
-
-- btn-py: 16px
-- btn-px: 24px
-- radius: 100px
-
-#### 垂直對齊
+### 垂直對齊
 
 - align-baseline：預設，元素與父元素的基準線對齊
 - align-top：元素及其後代與行高的頂部對齊
@@ -204,6 +198,12 @@ flex-shrink-1：可縮減
 - align-bottom：元素及其後代與行高的底部對齊
 - align-text-top：元素與父元素字體的頂部對齊
 - align-text-bottom：元素與父元素字體的底部對齊
+
+### button
+
+- btn-py: 16px
+- btn-px: 24px
+- radius: 100px
 
 ### 隱藏元素
 
