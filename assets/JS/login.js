@@ -78,7 +78,7 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (desktopLoginBtn) desktopLoginBtn.classList.add("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.remove("d-none");
 
-    // 手機版底部按鈕 - 改為登出按鈕
+    // 登入/註冊改為登出
     if (mobileLogoutBtn) {
       mobileLogoutBtn.className =
         "btn btn-secondaryL fw-semibold rounded-pill w-100";
@@ -107,7 +107,7 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (desktopLoginBtn) desktopLoginBtn.classList.remove("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.add("d-none");
 
-    // 手機版底部按鈕 - 改為登入/註冊按鈕
+    // 登出改為登入/註冊
     if (mobileLogoutBtn) {
       mobileLogoutBtn.className =
         "btn btn-secondaryL fw-semibold rounded-pill w-100";
