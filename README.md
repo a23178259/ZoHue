@@ -107,11 +107,11 @@
 
 #### flex（子項伸縮）
 
-flex-fill：填滿可用空間
-flex-grow-0：不放大
-flex-grow-1：可放大
-flex-shrink-0：不縮減
-flex-shrink-1：可縮減
+- flex-fill：填滿可用空間
+- flex-grow-0：不放大
+- flex-grow-1：可放大
+- flex-shrink-0：不縮減
+- flex-shrink-1：可縮減
 
 ### 顏色
 
