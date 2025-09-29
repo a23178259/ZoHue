@@ -66,6 +66,8 @@ function updateAuthUI(isLoggedIn, user = null) {
   const mobileMemberBtn = document.getElementById("mobileMemberBtn");
   const desktopLoginBtn = document.getElementById("desktopLoginBtn");
   const desktopMemberBtn = document.getElementById("desktopMemberBtn");
+  const mobileLogoutBtn = document.querySelector("#mobileLogoutBtn");
+  const memberOnlyItems = document.querySelectorAll(".member-only-item");
 
   console.log("更新UI，登入狀態:", isLoggedIn);
 
@@ -76,7 +78,20 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (desktopLoginBtn) desktopLoginBtn.classList.add("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.remove("d-none");
 
-    // 可以在這裡更新用戶名稱或其他信息
+    // 手機版底部按鈕 - 改為登出按鈕
+    if (mobileLogoutBtn) {
+      mobileLogoutBtn.className =
+        "btn btn-secondaryL fw-semibold rounded-pill w-100";
+      mobileLogoutBtn.innerHTML =
+        '<i class="fas fa-sign-out-alt me-2"></i>登出';
+      mobileLogoutBtn.onclick = handleLogout;
+    }
+
+    // 顯示漢堡包選單中的會員登入項目
+    memberOnlyItems.forEach((item) => {
+      item.classList.remove("d-none");
+    });
+
     if (user && user.displayName) {
       const userNameElements = document.querySelectorAll(".user-display-name");
       userNameElements.forEach((el) => {
@@ -91,6 +106,19 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (mobileMemberBtn) mobileMemberBtn.classList.add("d-none");
     if (desktopLoginBtn) desktopLoginBtn.classList.remove("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.add("d-none");
+
+    // 手機版底部按鈕 - 改為登入/註冊按鈕
+    if (mobileLogoutBtn) {
+      mobileLogoutBtn.className =
+        "btn btn-secondaryL fw-semibold rounded-pill w-100";
+      mobileLogoutBtn.innerHTML = "登入/註冊";
+      mobileLogoutBtn.onclick = openLoginModal;
+    }
+
+    // 隱藏漢堡包選單中的會員專屬項目
+    memberOnlyItems.forEach((item) => {
+      item.classList.add("d-none");
+    });
 
     console.log("UI已切換為未登入狀態");
   }

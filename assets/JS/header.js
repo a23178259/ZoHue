@@ -46,29 +46,36 @@ function requestFullscreen() {
   const elem = document.documentElement;
 
   if (elem.requestFullscreen) {
-    elem.requestFullscreen();
+    elem.requestFullscreen().catch(() => {
+      // 用戶可能拒絕全屏，不影響功能
+    });
   } else if (elem.webkitRequestFullscreen) {
-    /* Safari */
     elem.webkitRequestFullscreen();
   } else if (elem.msRequestFullscreen) {
-    /* IE11 */
     elem.msRequestFullscreen();
   }
 
-  // 針對移動設備的額外處理
   if (screen.orientation && screen.orientation.lock) {
     screen.orientation.lock("portrait").catch(() => {});
   }
 }
 
 function exitFullscreen() {
+  // 檢查是否真的在全屏狀態
+  if (
+    !document.fullscreenElement &&
+    !document.webkitFullscreenElement &&
+    !document.msFullscreenElement
+  ) {
+    return; // 不在全屏，直接返回
+  }
+
+  // 執行退出全屏
   if (document.exitFullscreen) {
-    document.exitFullscreen();
+    document.exitFullscreen().catch(() => {});
   } else if (document.webkitExitFullscreen) {
-    /* Safari */
     document.webkitExitFullscreen();
   } else if (document.msExitFullscreen) {
-    /* IE11 */
     document.msExitFullscreen();
   }
 }
@@ -85,13 +92,13 @@ document.addEventListener("msfullscreenchange", handleFullscreenChange);
 function handleFullscreenChange() {
   const dropdown = document.querySelector("#mobileDropdown");
 
-  // 如果不是全屏狀態且菜單是開著的，就關閉菜單
+  // 如果退出全屏且菜單是開著的，就關閉菜單
   if (
     !document.fullscreenElement &&
     !document.webkitFullscreenElement &&
     !document.msFullscreenElement
   ) {
-    if (dropdown.classList.contains("show")) {
+    if (dropdown && dropdown.classList.contains("show")) {
       closeMobileDropdown();
     }
   }
