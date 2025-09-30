@@ -2,7 +2,7 @@
     padding: 13.5px 8px;
     color: $natural-400;
     background: $white;
-    border: 0;
+    border: transparent 2px solid;
 
     &:hover {
         background: transparent;
@@ -35,5 +35,3 @@
         padding: 11.5px 8px;
     }
 }
-
-
