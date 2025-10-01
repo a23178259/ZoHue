@@ -178,16 +178,32 @@ function handleMemberMenuClick(event, element) {
 }
 
 // 登出處理函數
-async function handleLogout() {
-  if (confirm("確定要登出嗎？")) {
-    try {
-      await signOut(auth);
-      showToast("已成功登出", "success", "登出成功");
-      console.log("登出成功");
-    } catch (error) {
-      console.error("登出失敗:", error);
-      showToast("登出時發生錯誤", "error", "登出失敗");
+function handleLogout() {
+  // 顯示登出確認 Modal
+  const logoutModal = new bootstrap.Modal(
+    document.querySelector("#logoutModal")
+  );
+  logoutModal.show();
+}
+
+// 執行實際登出操作
+async function confirmLogout() {
+  try {
+    // 關閉 Modal
+    const logoutModal = bootstrap.Modal.getInstance(
+      document.querySelector("#logoutModal")
+    );
+    if (logoutModal) {
+      logoutModal.hide();
     }
+
+    // 執行登出
+    await signOut(auth);
+    showToast("已成功登出", "success", "登出成功");
+    console.log("登出成功");
+  } catch (error) {
+    console.error("登出失敗:", error);
+    showToast("登出時發生錯誤", "error", "登出失敗");
   }
 }
 
@@ -507,4 +523,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 初始化會員中心菜單事件
   initMemberMenuEvents();
+
+  // 綁定登出確認按鈕事件
+  const confirmLogoutBtn = document.querySelector("#confirmLogoutBtn");
+  if (confirmLogoutBtn) {
+    confirmLogoutBtn.addEventListener("click", confirmLogout);
+    console.log("登出確認按鈕事件已綁定");
+  }
 });

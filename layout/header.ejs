@@ -114,7 +114,7 @@
 
         <!-- 會員中心 -->
         <li class="member-only-item d-none my-0 mx-4 border-bottom border-natural-200">
-            <p class="text-natural-500 fs-6 py-4 px-2 small">會員中心</p>
+            <p class="text-natural-500 py-4 px-2 small">會員中心</p>
         </li>
         <!-- 會員中心連結 -->
         <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
@@ -135,3 +135,24 @@
 
 <%- include('volunteerStories') %>
     <%- include('login') %>
+
+        <!-- 登出確認 Modal -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-semibold" id="logoutModalLabel">確認登出</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-2">
+                        <p class="text-natural-700 mb-0">確定要登出嗎？</p>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-outline-secondary-700 py-2 px-4"
+                            data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger py-2 px-4" id="confirmLogoutBtn">確定登出</button>
+                    </div>
+                </div>
+            </div>
+        </div>
