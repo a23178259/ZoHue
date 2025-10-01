@@ -62,10 +62,10 @@ function checkAuthState() {
 
 // 更新認證相關的UI
 function updateAuthUI(isLoggedIn, user = null) {
-  const mobileLoginBtn = document.getElementById("mobileLoginBtn");
-  const mobileMemberBtn = document.getElementById("mobileMemberBtn");
-  const desktopLoginBtn = document.getElementById("desktopLoginBtn");
-  const desktopMemberBtn = document.getElementById("desktopMemberBtn");
+  const mobileLoginBtn = document.querySelector("#mobileLoginBtn");
+  const mobileMemberBtn = document.querySelector("#mobileMemberBtn");
+  const desktopLoginBtn = document.querySelector("#desktopLoginBtn");
+  const desktopMemberBtn = document.querySelector("#desktopMemberBtn");
   const mobileLogoutBtn = document.querySelector("#mobileLogoutBtn");
   const mobileNotificationBtn = document.querySelector(
     "#mobileNotificationBtn"
@@ -215,6 +215,21 @@ function openLoginModal() {
   modal.show();
 }
 
+// 打開註冊模態框的函數（直接切換到註冊分頁）
+function openRegisterModal() {
+  const modal = new bootstrap.Modal(document.querySelector("#loginModal"));
+  const body = document.body;
+  body.classList.add("modal-open-custom");
+
+  // 切換到註冊分頁
+  const registerTab = document.querySelector("#register-tab");
+  const registerTabInstance = new bootstrap.Tab(registerTab);
+  registerTabInstance.show();
+
+  // 顯示 Modal
+  modal.show();
+}
+
 // 切換密碼顯示/隱藏
 function togglePassword(inputId) {
   const input = document.querySelector(`#${inputId}`);
@@ -303,6 +318,7 @@ async function handleGithubLogin() {
 
 // 掛載到 window
 window.openLoginModal = openLoginModal;
+window.openRegisterModal = openRegisterModal;
 window.togglePassword = togglePassword;
 window.handleLogout = handleLogout;
 
