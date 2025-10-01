@@ -67,6 +67,12 @@ function updateAuthUI(isLoggedIn, user = null) {
   const desktopLoginBtn = document.getElementById("desktopLoginBtn");
   const desktopMemberBtn = document.getElementById("desktopMemberBtn");
   const mobileLogoutBtn = document.querySelector("#mobileLogoutBtn");
+  const mobileNotificationBtn = document.querySelector(
+    "#mobileNotificationBtn"
+  );
+  const desktopNotificationBtn = document.querySelector(
+    "#desktopNotificationBtn"
+  );
   const memberOnlyItems = document.querySelectorAll(".member-only-item");
 
   console.log("更新UI，登入狀態:", isLoggedIn);
@@ -77,6 +83,16 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (mobileMemberBtn) mobileMemberBtn.classList.remove("d-none");
     if (desktopLoginBtn) desktopLoginBtn.classList.add("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.remove("d-none");
+
+    // 顯示手機版鈴鐺
+    if (mobileNotificationBtn) {
+      mobileNotificationBtn.classList.remove("d-none");
+    }
+
+    // 顯示桌面版鈴鐺
+    if (desktopNotificationBtn) {
+      desktopNotificationBtn.classList.remove("d-none");
+    }
 
     // 登入/註冊改為登出
     if (mobileLogoutBtn) {
@@ -106,6 +122,16 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (mobileMemberBtn) mobileMemberBtn.classList.add("d-none");
     if (desktopLoginBtn) desktopLoginBtn.classList.remove("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.add("d-none");
+
+    // 隱藏手機版鈴鐺
+    if (mobileNotificationBtn) {
+      mobileNotificationBtn.classList.add("d-none");
+    }
+
+    // 隱藏桌面版鈴鐺
+    if (desktopNotificationBtn) {
+      desktopNotificationBtn.classList.add("d-none");
+    }
 
     // 登出改為登入/註冊
     if (mobileLogoutBtn) {

@@ -6,12 +6,18 @@
             <img src="../assets/images/logo.svg" alt="logo">
         </a>
 
-        <!-- 手機版鈴鐺通知 -->
-        <a class="d-lg-none position-relative ms-auto me-3" href="#">
+        <!-- 手機版登入/註冊按鈕 - 未登入時顯示 -->
+        <div id="mobileLoginBtn" class="d-lg-none ms-auto me-2">
+            <button class="btn btn-secondaryM fw-semibold" onclick="openLoginModal()">登入/註冊</button>
+        </div>
+
+        <!-- 手機版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+        <a id="mobileNotificationBtn" class="d-lg-none d-none position-relative ms-auto me-3" href="#">
             <span class="material-symbols-outlined text-natural-700">
                 notifications
             </span>
-            <span class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
+            <span
+                class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
         </a>
 
         <!-- 漢堡選單  -->
@@ -38,7 +44,10 @@
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
                         href="#">常見問題</a>
                 </li>
-                <a class="navbarList-link nav-link align-middle px-3 position-relative" href="#">
+
+                <!-- 桌面版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+                <a id="desktopNotificationBtn"
+                    class="navbarList-link nav-link align-middle px-3 position-relative d-none" href="#">
                     <span class="material-symbols-outlined text-natural-700">
                         notifications
                     </span>
@@ -119,7 +128,7 @@
     </ul>
 
     <div class="mobile-menu-footer py-4 px-5 mx-3">
-        <button class="btn btn-secondaryL fw-semibold rounded-pill" id="mobileLogoutBtn"
+        <button class="btn btn-secondaryL fw-semibold rounded-pill w-100" id="mobileLogoutBtn"
             onclick="openLoginModal()">登入/註冊</button>
     </div>
 </div>
