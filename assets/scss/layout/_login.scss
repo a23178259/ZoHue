@@ -193,14 +193,14 @@ body.modal-open-custom {
 }
 
 //模態框動畫
-.modal.fade .modal-dialog {
+.modal.fade .modal-dialog-close {
   transform: scale(0.9) translateY(-20px);
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.modal.show .modal-dialog {
+.modal.show .modal-dialog-close {
   transform: scale(1) translateY(0);
 }
-.modal-dialog::after {
+.modal-dialog-close::after {
   content: "點擊空白處即可關閉視窗";
   position: absolute;
   bottom: 25px;
@@ -214,7 +214,7 @@ body.modal-open-custom {
   pointer-events: none;
 }
 // 當註冊頁面顯示時，調整提示文字位置
-#register-panel.show.active ~ .modal-dialog::after,
-.modal:has(#register-panel.show.active) .modal-dialog::after {
+#register-panel.show.active ~ .modal-dialog-close::after,
+.modal:has(#register-panel.show.active) .modal-dialog-close::after {
   bottom: -30px;
 }

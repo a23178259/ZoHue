@@ -62,11 +62,17 @@ function checkAuthState() {
 
 // 更新認證相關的UI
 function updateAuthUI(isLoggedIn, user = null) {
-  const mobileLoginBtn = document.getElementById("mobileLoginBtn");
-  const mobileMemberBtn = document.getElementById("mobileMemberBtn");
-  const desktopLoginBtn = document.getElementById("desktopLoginBtn");
-  const desktopMemberBtn = document.getElementById("desktopMemberBtn");
+  const mobileLoginBtn = document.querySelector("#mobileLoginBtn");
+  const mobileMemberBtn = document.querySelector("#mobileMemberBtn");
+  const desktopLoginBtn = document.querySelector("#desktopLoginBtn");
+  const desktopMemberBtn = document.querySelector("#desktopMemberBtn");
   const mobileLogoutBtn = document.querySelector("#mobileLogoutBtn");
+  const mobileNotificationBtn = document.querySelector(
+    "#mobileNotificationBtn"
+  );
+  const desktopNotificationBtn = document.querySelector(
+    "#desktopNotificationBtn"
+  );
   const memberOnlyItems = document.querySelectorAll(".member-only-item");
 
   console.log("更新UI，登入狀態:", isLoggedIn);
@@ -77,6 +83,16 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (mobileMemberBtn) mobileMemberBtn.classList.remove("d-none");
     if (desktopLoginBtn) desktopLoginBtn.classList.add("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.remove("d-none");
+
+    // 顯示手機版鈴鐺
+    if (mobileNotificationBtn) {
+      mobileNotificationBtn.classList.remove("d-none");
+    }
+
+    // 顯示桌面版鈴鐺
+    if (desktopNotificationBtn) {
+      desktopNotificationBtn.classList.remove("d-none");
+    }
 
     // 登入/註冊改為登出
     if (mobileLogoutBtn) {
@@ -106,6 +122,16 @@ function updateAuthUI(isLoggedIn, user = null) {
     if (mobileMemberBtn) mobileMemberBtn.classList.add("d-none");
     if (desktopLoginBtn) desktopLoginBtn.classList.remove("d-none");
     if (desktopMemberBtn) desktopMemberBtn.classList.add("d-none");
+
+    // 隱藏手機版鈴鐺
+    if (mobileNotificationBtn) {
+      mobileNotificationBtn.classList.add("d-none");
+    }
+
+    // 隱藏桌面版鈴鐺
+    if (desktopNotificationBtn) {
+      desktopNotificationBtn.classList.add("d-none");
+    }
 
     // 登出改為登入/註冊
     if (mobileLogoutBtn) {
@@ -152,16 +178,32 @@ function handleMemberMenuClick(event, element) {
 }
 
 // 登出處理函數
-async function handleLogout() {
-  if (confirm("確定要登出嗎？")) {
-    try {
-      await signOut(auth);
-      showToast("已成功登出", "success", "登出成功");
-      console.log("登出成功");
-    } catch (error) {
-      console.error("登出失敗:", error);
-      showToast("登出時發生錯誤", "error", "登出失敗");
+function handleLogout() {
+  // 顯示登出確認 Modal
+  const logoutModal = new bootstrap.Modal(
+    document.querySelector("#logoutModal")
+  );
+  logoutModal.show();
+}
+
+// 執行實際登出操作
+async function confirmLogout() {
+  try {
+    // 關閉 Modal
+    const logoutModal = bootstrap.Modal.getInstance(
+      document.querySelector("#logoutModal")
+    );
+    if (logoutModal) {
+      logoutModal.hide();
     }
+
+    // 執行登出
+    await signOut(auth);
+    showToast("已成功登出", "success", "登出成功");
+    console.log("登出成功");
+  } catch (error) {
+    console.error("登出失敗:", error);
+    showToast("登出時發生錯誤", "error", "登出失敗");
   }
 }
 
@@ -170,6 +212,21 @@ function openLoginModal() {
   const modal = new bootstrap.Modal(document.querySelector("#loginModal"));
   const body = document.body;
   body.classList.add("modal-open-custom");
+  modal.show();
+}
+
+// 打開註冊模態框的函數（直接切換到註冊分頁）
+function openRegisterModal() {
+  const modal = new bootstrap.Modal(document.querySelector("#loginModal"));
+  const body = document.body;
+  body.classList.add("modal-open-custom");
+
+  // 切換到註冊分頁
+  const registerTab = document.querySelector("#register-tab");
+  const registerTabInstance = new bootstrap.Tab(registerTab);
+  registerTabInstance.show();
+
+  // 顯示 Modal
   modal.show();
 }
 
@@ -261,6 +318,7 @@ async function handleGithubLogin() {
 
 // 掛載到 window
 window.openLoginModal = openLoginModal;
+window.openRegisterModal = openRegisterModal;
 window.togglePassword = togglePassword;
 window.handleLogout = handleLogout;
 
@@ -481,4 +539,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 初始化會員中心菜單事件
   initMemberMenuEvents();
+
+  // 綁定登出確認按鈕事件
+  const confirmLogoutBtn = document.querySelector("#confirmLogoutBtn");
+  if (confirmLogoutBtn) {
+    confirmLogoutBtn.addEventListener("click", confirmLogout);
+    console.log("登出確認按鈕事件已綁定");
+  }
 });
