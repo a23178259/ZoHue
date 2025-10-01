@@ -1,33 +1,42 @@
 <!-- @format -->
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-TW">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- google icon Outlined -->
         <link
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            rel="stylesheet" />
+        <!-- google icon 實心版 -->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet" />
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
         <title>index</title>
-      <script type="module" crossorigin src="/ZoHue/assets/main-Bk1TPgzK.js"></script>
-      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-xcu2EkAl.css">
+      <script type="module" crossorigin src="/ZoHue/assets/main-D4udDT58.js"></script>
+      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-nnUk4w_v.css">
     </head>
 
     <body>
-        <nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
+        <!-- header.ejs -->
+<nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
     <div class="container d-flex align-items-center">
         <!-- Logo -->
         <a class="navbar-brand logo-picture" href="index.html">
             <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo">
         </a>
 
-        <!-- 手機版登入按鈕 -->
-        <a href="#" class="d-lg-none ms-auto me-2">
-            <button class="btn btn-secondaryL fw-semibold btn-mobile" onclick="openLoginModal()">登入/註冊</button>
+        <!-- 手機版鈴鐺通知 -->
+        <a class="d-lg-none position-relative ms-auto me-3" href="#">
+            <span class="material-symbols-outlined text-natural-700">
+                notifications
+            </span>
+            <span class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
         </a>
 
         <!-- 漢堡選單  -->
@@ -37,7 +46,7 @@
 
         <!-- 桌面版菜單 -->
         <div class="collapse navbar-collapse navbarList" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center flex-shrink-0">
                 <li class="nav-item">
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
                         href="#">專案探索</a>
@@ -54,11 +63,53 @@
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
                         href="#">常見問題</a>
                 </li>
-                <!-- 桌面版登入按鈕 -->
-                <li class="nav-item d-none d-lg-block ms-5">
-                    <a href="#">
+                <a class="navbarList-link nav-link align-middle px-3 position-relative" href="#">
+                    <span class="material-symbols-outlined text-natural-700">
+                        notifications
+                    </span>
+                    <span
+                        class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle align-text-top">3
+                    </span>
+                </a>
+
+                <!-- 桌面版登入/會員中心按鈕 -->
+                <li class="nav-item d-none d-lg-block ms-4">
+                    <!-- 未登入狀態 -->
+                    <div id="desktopLoginBtn" class="desktop-auth-btn">
                         <button class="btn btn-secondaryL fw-semibold" onclick="openLoginModal()">登入/註冊</button>
-                    </a>
+                    </div>
+
+                    <!-- 已登入狀態 - 桌面版會員中心 -->
+                    <div id="desktopMemberBtn" class="desktop-auth-btn d-none">
+                        <div class="dropdown">
+                            <button class="btn btn-secondaryL fw-semibold d-flex align-items-center gap-1" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="material-icons align-middle fs-5">
+                                    face
+                                </span>
+                                會員中心
+                            </button>
+                            <ul class="dropdown-menu member-dropdown">
+                                <li><a class="dropdown-item text-natural-950" href="#"><i
+                                            class="fas fa-tasks text-primary text-center me-2"></i>我的參與</a>
+                                </li>
+                                <li><a class="dropdown-item text-natural-950 active" href="#"><i
+                                            class="fas fa-trophy text-warning text-center me-2"></i>我的成就</a></li>
+                                <li><a class="dropdown-item text-natural-950" href="#"><i
+                                            class="fas fa-heart text-danger text-center me-2"></i>收藏與追蹤</a>
+                                </li>
+                                <li><a class="dropdown-item text-natural-950" href="#"><i
+                                            class="fas fa-user-cog text-info text-center me-2"></i>我的帳戶</a>
+                                </li>
+                                <li>
+                                    <hr class="mt-2 mb-0 mx-0 border-natural-200">
+                                </li>
+                                <li><a class="dropdown-item text-danger fw-medium logout-item" href="#"
+                                        onclick="handleLogout()"><i
+                                            class="fas fa-sign-out-alt text-center me-2"></i>登出</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -67,7 +118,7 @@
 
 <!-- 手機版下拉菜單  -->
 <div class="mobile-dropdown-menu d-lg-none" id="mobileDropdown">
-    <ul class="mobile-menu-links pb-4 text-center">
+    <ul class="mobile-menu-links pb-4">
         <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">專案探索</a></li>
         <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
@@ -76,10 +127,25 @@
                 onclick="closeMobileDropdown(); openLightbox()">志工故事</a></li>
         <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">常見問題</a></li>
+
+        <!-- 會員中心 -->
+        <li class="member-only-item d-none my-0 mx-4 border-bottom border-natural-200">
+            <p class="text-natural-500 fs-6 py-4 px-2 small">會員中心</p>
+        </li>
+        <!-- 會員中心連結 -->
+        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()">我的參與</a></li>
+        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()">我的成就</a></li>
+        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()">收藏與追蹤</a></li>
+        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()">我的帳戶</a></li>
     </ul>
 
     <div class="mobile-menu-footer py-4 px-5 mx-3">
-        <button class="btn btn-secondaryL fw-semibold rounded-pill" onclick="openLoginModal()">登入/註冊</button>
+        <button class="btn btn-secondaryL fw-semibold rounded-pill" id="mobileLogoutBtn"
+            onclick="openLoginModal()">登入/註冊</button>
     </div>
 </div>
 
@@ -448,12 +514,30 @@
             訊息內容
         </div>
     </div>
-</div> <!-- 圓弧 -->
+</div>        <!-- <section class="container-fluid bg-bg-01">
+    <div class="container">
+        <div class="row py-2xl py-lg-7">
+            <div
+                class="d-flex justify-content-center position-relative mb-lg-2xl mb-xl">
+                <img
+                    src="/assets/images/steps.svg"
+                    alt="projects"
+                    class="md-w180" />
+                <img
+                    src="/assets/images/list.svg"
+                    alt="fire"
+                    class="md-w80 position-absolute start-60 top-60 translate-middle" />
+            </div>
+        </div>
+    </div>
+</section>
+ -->
+        <!-- 圓弧 -->
 <div>
     <img src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Ebene_1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20version='1.1'%20viewBox='0%200%201920%2080'%3e%3c!--%20Generator:%20Adobe%20Illustrator%2029.8.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%202.1.1%20Build%202)%20--%3e%3cdefs%3e%3cstyle%3e%20.st0%20{%20fill:%20none;%20}%20.st1%20{%20fill:%20%23f9f5f1;%20}%20.st2%20{%20fill:%20%23f4ece5;%20}%20.st3%20{%20clip-path:%20url(%23clippath);%20}%20%3c/style%3e%3cclipPath%20id='clippath'%3e%3crect%20class='st0'%20width='1920'%20height='80'/%3e%3c/clipPath%3e%3c/defs%3e%3crect%20class='st1'%20width='1920'%20height='80'/%3e%3cg%20class='st3'%3e%3cellipse%20class='st2'%20cx='959.5'%20cy='120'%20rx='1173.5'%20ry='120'/%3e%3c/g%3e%3c/svg%3e" alt="arc" class="d-block" />
 </div>
-<section class="container-fluid bg-gradient pe-0">
-    <div class="container pe-0 overflow-hidden">
+<section class="container-fluid bg-gradient pe-0 overflow-hidden">
+    <div class="container">
         <div class="row">
             <!-- 插畫 -->
             <div
@@ -539,7 +623,7 @@
                             aria-expanded="false">
                             專案狀態 : 進行中
                         </button>
-                        <ul class="dropdown-menu position-static">
+                        <ul class="dropdown-menu member-dropdown">
                             <li>
                                 <a class="dropdown-item" href="#"
                                     >專案狀態 : 即將開始</a
@@ -561,7 +645,7 @@
                             aria-expanded="false">
                             排序 : 熱門
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu member-dropdown">
                             <li>
                                 <a class="dropdown-item" href="#"
                                     >排序 : 最新上架</a
