@@ -18,8 +18,8 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
         <title>index</title>
-      <script type="module" crossorigin src="/ZoHue/assets/main-D4udDT58.js"></script>
-      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-nnUk4w_v.css">
+      <script type="module" crossorigin src="/ZoHue/assets/main-Ds9lQUe1.js"></script>
+      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-BFjRmLnk.css">
     </head>
 
     <body>
@@ -31,12 +31,18 @@
             <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo">
         </a>
 
-        <!-- 手機版鈴鐺通知 -->
-        <a class="d-lg-none position-relative ms-auto me-3" href="#">
+        <!-- 手機版登入/註冊按鈕 - 未登入時顯示 -->
+        <div id="mobileLoginBtn" class="d-lg-none ms-auto me-2">
+            <button class="btn btn-secondaryM fw-semibold" onclick="openLoginModal()">登入/註冊</button>
+        </div>
+
+        <!-- 手機版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+        <a id="mobileNotificationBtn" class="d-lg-none d-none position-relative ms-auto me-3" href="#">
             <span class="material-symbols-outlined text-natural-700">
                 notifications
             </span>
-            <span class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
+            <span
+                class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
         </a>
 
         <!-- 漢堡選單  -->
@@ -63,7 +69,10 @@
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
                         href="#">常見問題</a>
                 </li>
-                <a class="navbarList-link nav-link align-middle px-3 position-relative" href="#">
+
+                <!-- 桌面版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+                <a id="desktopNotificationBtn"
+                    class="navbarList-link nav-link align-middle px-3 position-relative d-none" href="#">
                     <span class="material-symbols-outlined text-natural-700">
                         notifications
                     </span>
@@ -130,7 +139,7 @@
 
         <!-- 會員中心 -->
         <li class="member-only-item d-none my-0 mx-4 border-bottom border-natural-200">
-            <p class="text-natural-500 fs-6 py-4 px-2 small">會員中心</p>
+            <p class="text-natural-500 py-4 px-2 small">會員中心</p>
         </li>
         <!-- 會員中心連結 -->
         <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
@@ -144,7 +153,7 @@
     </ul>
 
     <div class="mobile-menu-footer py-4 px-5 mx-3">
-        <button class="btn btn-secondaryL fw-semibold rounded-pill" id="mobileLogoutBtn"
+        <button class="btn btn-secondaryL fw-semibold rounded-pill w-100" id="mobileLogoutBtn"
             onclick="openLoginModal()">登入/註冊</button>
     </div>
 </div>
@@ -333,7 +342,7 @@
 <!-- 登入註冊模態框 -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" role="dialog"
     aria-modal="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-close">
         <div class="modal-content login-modal-content">
             <!-- 模態框頭部 -->
             <div class="modal-header border-0 pb-0">
@@ -514,24 +523,128 @@
             訊息內容
         </div>
     </div>
-</div>        <!-- <section class="container-fluid bg-bg-01">
+</div>
+
+        <!-- 登出確認 Modal -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-semibold" id="logoutModalLabel">確認登出</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-2">
+                        <p class="text-natural-700 mb-0">確定要登出嗎？</p>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-outline-secondary-700 py-2 px-4"
+                            data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger py-2 px-4" id="confirmLogoutBtn">確定登出</button>
+                    </div>
+                </div>
+            </div>
+        </div> <section class="container-fluid bg-bg-01">
     <div class="container">
         <div class="row py-2xl py-lg-7">
+            <!-- 插畫 -->
             <div
-                class="d-flex justify-content-center position-relative mb-lg-2xl mb-xl">
-                <img
-                    src="/assets/images/steps.svg"
-                    alt="projects"
-                    class="md-w180" />
-                <img
-                    src="/assets/images/list.svg"
-                    alt="fire"
-                    class="md-w80 position-absolute start-60 top-60 translate-middle" />
+                class="d-flex justify-content-center position-relative mb-lg-3 mb-2">
+                <div>
+                    <img
+                        src="/ZoHue/assets/steps-CHA_D3Gm.svg"
+                        alt="projects"
+                        class="md-w180" />
+                    <img
+                        src="/ZoHue/assets/list-BZgU8548.svg"
+                        alt="fire"
+                        class="md-w80 position-absolute start-60 top-60 translate-middle" />
+                </div>
+            </div>
+            <p
+                class="text-natural-600 text-center fs-7 fs-lg-6 mb-xl mb-lg-2xl">
+                讓每一份專業與資源，都投入需要的地方。
+            </p>
+            <div class="row flex-column flex-lg-row">
+                <!-- Step1 -->
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="position-relative step-icon mb--20">
+                            <div
+                                class="position-absolute top-30 start-50 translate-middle">
+                                <h5 class="text-white">1</h5>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-circle mb-4 mb-lg-5">
+                            <img
+                                src="/ZoHue/assets/step-1-CGcliw0O.svg"
+                                alt="step-1"
+                                class="w240" />
+                        </div>
+                        <h4 class="fs-lg fs-lg-4 mb-3 mb-lg-4">
+                            發起專案或加入任務
+                        </h4>
+                        <p
+                            class="text-center mx-lg-6 text-natural-600 fs-7 fs-lg-6">
+                            提出你的行動想法，或用技能／時間參與現有專案。每個人都能是改變的起點。
+                        </p>
+                    </div>
+                </div>
+                <!-- Step2 -->
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="position-relative step-icon mb--20">
+                            <div
+                                class="position-absolute top-30 start-50 translate-middle">
+                                <h5 class="text-white">2</h5>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-circle mb-4 mb-lg-5">
+                            <img
+                                src="/ZoHue/assets/step-2-D-oozluO.svg"
+                                alt="step-2"
+                                class="w240" />
+                        </div>
+                        <h4 class="fs-lg fs-lg-4 mb-3 mb-lg-4">
+                            媒合技能或金援支持
+                        </h4>
+                        <p
+                            class="text-center mx-lg-6 text-natural-600 fs-7 fs-lg-6">
+                            平台自動媒合志工或捐款者，讓你快速找到合適資源，不再孤軍奮戰。
+                        </p>
+                    </div>
+                </div>
+                <!-- Step3 -->
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="position-relative step-icon mb--20">
+                            <div
+                                class="position-absolute top-30 start-50 translate-middle">
+                                <h5 class="text-white">3</h5>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-circle mb-4 mb-lg-5">
+                            <img
+                                src="/ZoHue/assets/step-3-C-gwfTDa.svg"
+                                alt="step-3"
+                                class="w240" />
+                        </div>
+                        <h4 class="fs-lg fs-lg-4 mb-3 mb-lg-4">
+                            專案執行看到改變
+                        </h4>
+                        <p
+                            class="text-center mx-lg-6 text-natural-600 fs-7 fs-lg-6">
+                            與志工／提案者協作任務，完成後可回報成果、上傳照片，一起見證行動的影響力。
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
- -->
         <!-- 圓弧 -->
 <div>
     <img src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Ebene_1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20version='1.1'%20viewBox='0%200%201920%2080'%3e%3c!--%20Generator:%20Adobe%20Illustrator%2029.8.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%202.1.1%20Build%202)%20--%3e%3cdefs%3e%3cstyle%3e%20.st0%20{%20fill:%20none;%20}%20.st1%20{%20fill:%20%23f9f5f1;%20}%20.st2%20{%20fill:%20%23f4ece5;%20}%20.st3%20{%20clip-path:%20url(%23clippath);%20}%20%3c/style%3e%3cclipPath%20id='clippath'%3e%3crect%20class='st0'%20width='1920'%20height='80'/%3e%3c/clipPath%3e%3c/defs%3e%3crect%20class='st1'%20width='1920'%20height='80'/%3e%3cg%20class='st3'%3e%3cellipse%20class='st2'%20cx='959.5'%20cy='120'%20rx='1173.5'%20ry='120'/%3e%3c/g%3e%3c/svg%3e" alt="arc" class="d-block" />
@@ -2007,9 +2120,9 @@
 
                 <!-- 立即註冊按鈕 -->
                 <div class="button-container">
-                    <a href="#">
-                        <button class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold">立即註冊</button>
-                    </a>
+                    <button class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold"
+                        onclick="openRegisterModal()">立即註冊
+                    </button>
                 </div>
             </div>
         </div>

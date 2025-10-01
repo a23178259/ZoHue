@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <title>隱私權政策</title>
-  <script type="module" crossorigin src="/ZoHue/assets/main-D4udDT58.js"></script>
-  <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-nnUk4w_v.css">
+  <script type="module" crossorigin src="/ZoHue/assets/main-Ds9lQUe1.js"></script>
+  <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-BFjRmLnk.css">
 </head>
 
 <body>
@@ -20,12 +20,18 @@
             <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo">
         </a>
 
-        <!-- 手機版鈴鐺通知 -->
-        <a class="d-lg-none position-relative ms-auto me-3" href="#">
+        <!-- 手機版登入/註冊按鈕 - 未登入時顯示 -->
+        <div id="mobileLoginBtn" class="d-lg-none ms-auto me-2">
+            <button class="btn btn-secondaryM fw-semibold" onclick="openLoginModal()">登入/註冊</button>
+        </div>
+
+        <!-- 手機版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+        <a id="mobileNotificationBtn" class="d-lg-none d-none position-relative ms-auto me-3" href="#">
             <span class="material-symbols-outlined text-natural-700">
                 notifications
             </span>
-            <span class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
+            <span
+                class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
         </a>
 
         <!-- 漢堡選單  -->
@@ -52,7 +58,10 @@
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
                         href="#">常見問題</a>
                 </li>
-                <a class="navbarList-link nav-link align-middle px-3 position-relative" href="#">
+
+                <!-- 桌面版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+                <a id="desktopNotificationBtn"
+                    class="navbarList-link nav-link align-middle px-3 position-relative d-none" href="#">
                     <span class="material-symbols-outlined text-natural-700">
                         notifications
                     </span>
@@ -119,7 +128,7 @@
 
         <!-- 會員中心 -->
         <li class="member-only-item d-none my-0 mx-4 border-bottom border-natural-200">
-            <p class="text-natural-500 fs-6 py-4 px-2 small">會員中心</p>
+            <p class="text-natural-500 py-4 px-2 small">會員中心</p>
         </li>
         <!-- 會員中心連結 -->
         <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
@@ -133,7 +142,7 @@
     </ul>
 
     <div class="mobile-menu-footer py-4 px-5 mx-3">
-        <button class="btn btn-secondaryL fw-semibold rounded-pill" id="mobileLogoutBtn"
+        <button class="btn btn-secondaryL fw-semibold rounded-pill w-100" id="mobileLogoutBtn"
             onclick="openLoginModal()">登入/註冊</button>
     </div>
 </div>
@@ -322,7 +331,7 @@
 <!-- 登入註冊模態框 -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" role="dialog"
     aria-modal="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-close">
         <div class="modal-content login-modal-content">
             <!-- 模態框頭部 -->
             <div class="modal-header border-0 pb-0">
@@ -504,6 +513,27 @@
         </div>
     </div>
 </div>
+
+        <!-- 登出確認 Modal -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-semibold" id="logoutModalLabel">確認登出</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-2">
+                        <p class="text-natural-700 mb-0">確定要登出嗎？</p>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-outline-secondary-700 py-2 px-4"
+                            data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger py-2 px-4" id="confirmLogoutBtn">確定登出</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <main class="bg-bg-01">
             <div class="container py-lg-7 py-6">
                 <div class="row justify-content-center">
