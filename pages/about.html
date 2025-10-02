@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>about</title>
-  </head>
-  <body>
-    <%- include('./layout/header'); -%>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>關於我們</title>
+</head>
+
+<body>
+  <%- include('./layout/header'); -%>
+  <!-- section 1 -->
+    <section class="my-2xl my-md-7">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 class="display-6 display-md-4 text-primary-600 fw-semibold fw-md-bold mb-4 mb-md-5">我們是 ZoHue 做伙</h1>
+            <p class="fs-lg fs-md-2 text-natural-600">把專業與善意連結，讓每個好點子都有人力實現。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section 2 -->
     <%- include('./layout/footer'); -%>
 
-    <script type="module" src="../main.js"></script>
-  </body>
+      <script type="module" src="../main.js"></script>
+</body>
+
 </html>
