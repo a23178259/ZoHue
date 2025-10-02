@@ -111,14 +111,93 @@ footer {
   object-fit: cover; /* 圖片填滿容器 */
 }
 
-.px-3 {
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
 @media (min-width: 768px) and (max-width: 991px) {
   .footer-columns {
     margin-top: 80px;
     margin-bottom: 40px;
+  }
+}
+
+// 返回頂部按鈕
+.btn-back-to-top {
+  // 位置
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
+
+  // 移除所有按鈕預設樣式和外框
+  cursor: pointer;
+  outline: none !important;
+  box-shadow: none !important;
+
+  // 移除 Bootstrap 按鈕的預設樣式
+  &:focus,
+  &:focus-visible,
+  &:active:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  // 初始隱藏狀態
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+  // 顯示狀態
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  // 懸停效果 - 向上跳動動畫
+  &:hover i {
+    animation: bounce-up 0.6s ease;
+  }
+
+  // 按下效果
+  &:active i {
+    transform: scale(0.95);
+  }
+}
+
+// 向上跳動動畫
+@keyframes bounce-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30%,
+  70% {
+    transform: translateY(-12px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+// 手機版調整
+@media (max-width: 767px) {
+  .btn-back-to-top {
+    bottom: 20px;
+    right: 20px;
+
+    i {
+      font-size: 48px;
+    }
+  }
+}
+
+// 平板版調整
+@media (min-width: 768px) and (max-width: 991px) {
+  .btn-back-to-top {
+    bottom: 24px;
+    right: 24px;
+
+    i {
+      font-size: 52px;
+    }
   }
 }
