@@ -179,7 +179,7 @@
 - fs-lg：20px
 - fs-5：18px → 對應 h5
 - fs-6：16px → 對應 h6
-- fs-7、sm：14px
+- fs-7、small：14px
 
 #### 標題文字大小
 
