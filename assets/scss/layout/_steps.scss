@@ -1,0 +1,26 @@
+.w240 {
+    width: 240px;
+    padding: 24px;
+}
+
+.step-icon {
+    background: url(/assets/images/step-icon.svg) no-repeat;
+    width: 40px;
+    height: 48px;
+    z-index: 2;
+}
+
+.mb--20 {
+    margin-bottom: -20px;
+}
+
+.top-30 {
+    top: 38%;
+}
+
+@media (max-width: 768px) {
+    .w240 {
+        width: 200px;
+        padding: 20px;
+    }
+}
