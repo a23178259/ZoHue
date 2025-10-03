@@ -1,5 +1,3 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
@@ -17,9 +15,9 @@
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-        <title>index</title>
-      <script type="module" crossorigin src="/ZoHue/assets/main-Ds9lQUe1.js"></script>
-      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-BFjRmLnk.css">
+        <title>Home</title>
+      <script type="module" crossorigin src="/ZoHue/assets/main-CrGI0b-m.js"></script>
+      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-CYhnztkS.css">
     </head>
 
     <body>
@@ -59,7 +57,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
-                        href="#">關於我們</a>
+                        href="about.html">關於我們</a>
                 </li>
                 <li class="nav-item">
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#"
@@ -130,7 +128,7 @@
     <ul class="mobile-menu-links pb-4">
         <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">專案探索</a></li>
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
+        <li><a href="about.html" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">關於我們</a></li>
         <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown(); openLightbox()">志工故事</a></li>
@@ -565,7 +563,7 @@
                 class="text-natural-600 text-center fs-7 fs-lg-6 mb-xl mb-lg-2xl">
                 讓每一份專業與資源，都投入需要的地方。
             </p>
-            <div class="row flex-column flex-lg-row">
+            <div class="row flex-column flex-lg-row row-gap-xxl">
                 <!-- Step1 -->
                 <div class="col">
                     <div class="d-flex flex-column align-items-center">
@@ -736,7 +734,7 @@
                             aria-expanded="false">
                             專案狀態 : 進行中
                         </button>
-                        <ul class="dropdown-menu member-dropdown">
+                        <ul class="dropdown-menu member-dropdown top90">
                             <li>
                                 <a class="dropdown-item" href="#"
                                     >專案狀態 : 即將開始</a
@@ -750,7 +748,7 @@
                         </ul>
                     </div>
 
-                    <div class="dropdown flex-grow-1 flex-lg-grow-0">
+                    <div class="dropdown flex-grow-1 flex-lg-grow-0 top100">
                         <button
                             class="btn btn-secondary dropdown-toggle bg-white border-natural-200 px-4 py-2 px-lg-5 py-lg-4 fs-7 fs-lg-6 fw-semibold w-100 w-lg-auto"
                             type="button"
@@ -758,7 +756,7 @@
                             aria-expanded="false">
                             排序 : 熱門
                         </button>
-                        <ul class="dropdown-menu member-dropdown">
+                        <ul class="dropdown-menu member-dropdown top90">
                             <li>
                                 <a class="dropdown-item" href="#"
                                     >排序 : 最新上架</a
@@ -1289,7 +1287,7 @@
                                 專案完成率
                             </h4>
                             <h3
-                                class="fs-xl fs-md-2xl fw-bold fw-md-semibold text-secondary-600">
+                                class="display-6 fs-md-2xl fw-bold fw-md-semibold text-secondary-600">
                                 80%
                             </h3>
                         </div>
@@ -1298,7 +1296,7 @@
                                 成功專案
                             </h4>
                             <h3
-                                class="fs-xl fs-md-2xl fw-bold fw-md-semibold text-secondary-600">
+                                class="display-6 fs-md-2xl fw-bold fw-md-semibold text-secondary-600">
                                 400+
                             </h3>
                         </div>
@@ -1307,7 +1305,7 @@
                                 志工參與
                             </h4>
                             <h3
-                                class="fs-xl fs-md-2xl fw-bold fw-md-semibold text-secondary-600">
+                                class="display-6 fs-md-2xl fw-bold fw-md-semibold text-secondary-600">
                                 20k+
                             </h3>
                         </div>
@@ -2146,7 +2144,7 @@
                         <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">平台</h6>
                         <div class="row g-2">
                             <div class="col-6">
-                                <a href="#"
+                                <a href="about.html"
                                     class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">關於我們</a>
                                 <a href="userAgreement.html"
                                     class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">使用條款</a>
@@ -2165,7 +2163,7 @@
                         <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">志工</h6>
                         <ul class="list-unstyled">
                             <li class=""><a href="#"
-                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4 fs-7">專案列表</a>
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">專案列表</a>
                             </li>
                             <li class=""><a href="#" onclick="openLightbox()"
                                     class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">志工故事</a>
@@ -2218,6 +2216,11 @@
         </div>
     </div>
 </footer>
+
+<!-- 返回頂部按鈕 -->
+<button id="backToTop" class="position-fixed btn-back-to-top border-0 bg-transparent p-0 d-none d-md-block" aria-label="返回頂部">
+    <i class="ti ti-square-rounded-arrow-up-filled text-primary-600 d-block fs-1"></i>
+</button>
 
 <!-- 燈箱 -->
 <div class="lightbox" id="lightbox">

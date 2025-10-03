@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>about</title>
-    <script type="module" crossorigin src="/ZoHue/assets/main-Ds9lQUe1.js"></script>
-    <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-BFjRmLnk.css">
-  </head>
-  <body>
-    <!-- header.ejs -->
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>about</title>
+  <script type="module" crossorigin src="/ZoHue/assets/main-CrGI0b-m.js"></script>
+  <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-CYhnztkS.css">
+</head>
+
+<body>
+  <!-- header.ejs -->
 <nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
     <div class="container d-flex align-items-center">
         <!-- Logo -->
@@ -45,7 +47,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
-                        href="#">關於我們</a>
+                        href="about.html">關於我們</a>
                 </li>
                 <li class="nav-item">
                     <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#"
@@ -116,7 +118,7 @@
     <ul class="mobile-menu-links pb-4">
         <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">專案探索</a></li>
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
+        <li><a href="about.html" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown()">關於我們</a></li>
         <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
                 onclick="closeMobileDropdown(); openLightbox()">志工故事</a></li>
@@ -530,7 +532,18 @@
                     </div>
                 </div>
             </div>
-        </div>    <h1>我是about</h1>
+        </div>    <!-- section 1 -->
+    <section class="my-2xl my-md-7">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 class="display-6 display-md-4 text-primary-600 fw-semibold fw-md-bold mb-4 mb-md-5">我們是 ZoHue 做伙</h1>
+            <p class="fs-lg fs-md-2 text-natural-600">把專業與善意連結，讓每個好點子都有人力實現。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section 2 -->
     <footer class="container-fluid">
     <img src="/ZoHue/assets/Exclude-CI-SP6fK.svg" alt="Exclude" class="Exclude d-none d-md-block">
     <img src="/ZoHue/assets/Exclude-small-DhFM4DXZ.svg" alt="Exclude" class="Exclude d-block d-md-none">
@@ -550,7 +563,7 @@
                         <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">平台</h6>
                         <div class="row g-2">
                             <div class="col-6">
-                                <a href="#"
+                                <a href="about.html"
                                     class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">關於我們</a>
                                 <a href="userAgreement.html"
                                     class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">使用條款</a>
@@ -569,7 +582,7 @@
                         <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">志工</h6>
                         <ul class="list-unstyled">
                             <li class=""><a href="#"
-                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4 fs-7">專案列表</a>
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">專案列表</a>
                             </li>
                             <li class=""><a href="#" onclick="openLightbox()"
                                     class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">志工故事</a>
@@ -622,6 +635,11 @@
         </div>
     </div>
 </footer>
+
+<!-- 返回頂部按鈕 -->
+<button id="backToTop" class="position-fixed btn-back-to-top border-0 bg-transparent p-0 d-none d-md-block" aria-label="返回頂部">
+    <i class="ti ti-square-rounded-arrow-up-filled text-primary-600 d-block fs-1"></i>
+</button>
 
 <!-- 燈箱 -->
 <div class="lightbox" id="lightbox">
@@ -798,5 +816,6 @@
         </div>
     </div>
 </div>
-  </body>
+</body>
+
 </html>
