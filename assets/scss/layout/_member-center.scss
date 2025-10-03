@@ -1,97 +1,97 @@
 /* 會員中心下拉選單 */
 .member-dropdown {
-  min-width: 200px;
-  border: none;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
-  /* 會員中心下拉選單置中定位 */
-  top: calc(100% + 13px) !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+    min-width: 200px;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    /* 會員中心下拉選單置中定位 */
+    top: calc(100% + 13px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 .member-dropdown .dropdown-item {
-  padding: 0.75rem 1rem;
-  margin: 0;
-  border-radius: 0;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  border: none;
-  background: none;
-  cursor: pointer;
-  line-height: 1.2;
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    line-height: 1.2;
 }
 
 .member-dropdown .dropdown-item:hover {
-  background-color: $natural-50;
+    background-color: $natural-50;
 }
 
 /* 選中狀態 */
 .member-dropdown .dropdown-item.selected {
-  background-color: $secondary-100;
-  font-weight: 600;
+    background-color: $secondary-100;
+    font-weight: 600;
 }
 
 .member-dropdown .dropdown-item i {
-  width: 20px;
-  font-size: 0.9rem;
+    width: 20px;
+    font-size: 0.9rem;
 }
 
 /* 登出項目特殊樣式 */
 .logout-item {
-  position: relative !important;
-  background: none !important;
+    position: relative !important;
+    background: none !important;
 }
 
 .logout-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: -0.5rem;
-  background-color: transparent;
-  border-radius: 0 0 12px 12px;
-  transition: background-color 0.2s ease;
-  z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -0.5rem;
+    background-color: transparent;
+    border-radius: 0 0 12px 12px;
+    transition: background-color 0.2s ease;
+    z-index: -1;
 }
 
 .logout-item:hover::before,
 logout-item.selected::before {
-  background-color: $red-100;
+    background-color: $red-100;
 }
 
 /* 響應式調整 */
 @media (max-width: 991.98px) {
-  .member-center-btn {
-    font-size: 0.9rem;
-    padding: 0.4rem 1rem;
-  }
+    .member-center-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
 
-  .notification-badge {
-    width: 18px;
-    height: 18px;
-    font-size: 0.65rem;
-  }
+    .notification-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 0.65rem;
+    }
 
-  .member-dropdown {
-    min-width: 180px;
-  }
+    .member-dropdown {
+        min-width: 180px;
+    }
 }
 
 /* 動畫效果 */
 .member-dropdown {
-  animation: fadeInDown 0.2s ease-out;
+    animation: fadeInDown 0.2s ease-out;
 }
 
 @keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
