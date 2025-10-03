@@ -24,6 +24,12 @@ $utilities: map-merge(
         class: display,
         values: $display-font-sizes,
       ),
+    "gap": (
+      responsive: true,
+      property: gap,
+      class: gap,
+      values: $spacers,
+    ),
   )
 );
 
