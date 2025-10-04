@@ -21,7 +21,7 @@
 ### margin、padding 間距
 
 ```
-
+- mx-auto：水平置中(等於 margin:0 auto)
 -0：移除該間距
 -1：4px
 -2：8px
