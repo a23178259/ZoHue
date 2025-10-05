@@ -1,0 +1,82 @@
+// section1
+// 圓弧背景
+.curved-section {
+  height: 80px;
+}
+
+.curved-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 160px;
+  background: $background-01;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .curved-section {
+    height: 40px;
+  }
+
+  .curved-section::after {
+    height: 120px;
+  }
+}
+
+//section 2
+// 左側Logo
+.ZoHueLogo {
+  width: 282px;
+  @media (max-width: 768px) {
+    width: 188px;
+  }
+}
+// 左側引用內容
+.quote-icon {
+  position: absolute;
+  top: -24px;
+  left: 459px;
+  transform: translateX(-50%);
+
+  @media (max-width: 768px) {
+    top: -20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+// 右側圖片
+.about-img-grid {
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
+
+  .aboutsImg {
+    border-radius: 24px;
+    max-width: 100%;
+
+    &:nth-child(1),
+    &:nth-child(4) {
+      width: calc(60% - 6px);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      width: calc(40% - 6px);
+    }
+
+    @media (min-width: 768px) {
+      &:nth-child(1),
+      &:nth-child(4) {
+        width: calc(58% - 12px);
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        width: calc(42% - 12px);
+      }
+    }
+  }
+}
