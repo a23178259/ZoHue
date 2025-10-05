@@ -1,0 +1,85 @@
+.index-title {
+    font-size: 100px;
+}
+.pink-wave {
+    background: url("/assets/images/pinkwave.svg") no-repeat;
+
+    background-position: top center;
+    background-size: cover;
+    margin-top: -64px;
+}
+.tab-item {
+    color: $natural-300;
+    line-height: 24px;
+    .tab-icon {
+        display: none;
+        text-align: center;
+    }
+    &.active {
+        color: $natural-800;
+        .tab-icon {
+            display: block;
+        }
+    }
+    :hover {
+        color: $natural-800;
+    }
+}
+
+.form-select.no-icon {
+    background-image: none !important;
+}
+
+.btn.icon-btn {
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 自適應分隔線：手機=水平線，桌面=垂直線，皆撐滿 */
+.divider-adaptive {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* 手機隱藏label文字 */
+.floating-label-sm-hide label {
+    opacity: 0;
+}
+
+@media (min-width: 992px) {
+    .divider-adaptive {
+        width: 1px;
+        height: 100%;
+        align-self: stretch;
+    }
+
+    .floating-label-sm-hide label {
+        opacity: 1;
+    }
+
+    .rounded-lg-pill {
+        border-radius: 1000px;
+    }
+}
+
+/* 手機版輸入框 placeholder padding 調整 */
+@media (max-width: 991.98px) {
+    .form-control,
+    .form-select {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .form-mobile-spacing .form-control,
+    .form-mobile-spacing .form-select {
+        padding: 0 !important;
+    }
+}

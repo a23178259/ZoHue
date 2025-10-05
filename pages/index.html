@@ -15,17 +15,31 @@
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+        <!-- Favicon -->
+        <link
+            rel="shortcut icon"
+            href="/assets/images/favicon.svg"
+            type="image/x-icon" />
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet" />
+
         <title>Home</title>
     </head>
 
     <body>
-        <%- include('./layout/header'); -%> <%- include('./layout/steps'); -%>
-        <%- include('./layout/projects-list'); -%> <%-
+        <%- include('./layout/header'); -%> <%-
+        include('./layout/search-banner'); -%> <%- include('./layout/steps');
+        -%> <%- include('./layout/projects-list'); -%> <%-
         include('./layout/data-card'); -%> <%-
         include('./layout/success-story'); -%> <%-
         include('./layout/testimonials'); -%> <%- include('./layout/cta'); -%>
         <%- include('./layout/footer'); -%>
 
         <script type="module" src="../main.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>

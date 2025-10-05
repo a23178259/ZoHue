@@ -78,3 +78,30 @@
         -webkit-mask-image: none;
     }
 }
+
+.fab {
+    position: fixed;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.fab-hidden {
+    opacity: 0;
+    transform: translateY(8px);
+}
+.fab-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.ti-arrow-big-right-line-filled {
+    &:hover {
+        color: $white;
+    }
+}
+
+.bg-hover-black {
+    background-color: white;
+    &:hover {
+        background-color: $natural-950;
+    }
+}
