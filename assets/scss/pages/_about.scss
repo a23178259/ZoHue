@@ -26,7 +26,7 @@
   }
 }
 
-//section 2
+// section 2
 // 左側Logo
 .ZoHueLogo {
   width: 282px;
@@ -34,6 +34,7 @@
     width: 188px;
   }
 }
+
 // 左側引用內容
 .quote-icon {
   position: absolute;
@@ -47,6 +48,7 @@
     height: 40px;
   }
 }
+
 // 右側圖片
 .about-img-grid {
   @media (min-width: 768px) {
@@ -78,5 +80,133 @@
         width: calc(42% - 12px);
       }
     }
+  }
+}
+
+// Section 3 - 時間軸
+/* 時間軸線條 */
+.timeline-line {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 0;
+  pointer-events: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(16.67% + 1rem);
+    width: calc(66.67% - 2rem);
+    height: 2px;
+    background-image: repeating-linear-gradient(
+      to right,
+      $primary-300 0,
+      $primary-300 12px,
+      transparent 12px,
+      transparent 28px
+    );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(100% - 16.67% - 1rem);
+    width: calc(16.67% + 1rem);
+    height: 2px;
+    background-image: repeating-linear-gradient(
+      to right,
+      $primary-300 0,
+      $primary-300 12px,
+      transparent 12px,
+      transparent 28px
+    );
+    mask-image: linear-gradient(to right, $primary-300 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(
+      to right,
+      $primary-300 0%,
+      transparent 100%
+    );
+  }
+}
+
+/* 時間軸容器 */
+.timeline-container {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 0 1rem;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .row {
+    flex-wrap: nowrap;
+  }
+}
+
+/* 時間軸項目 */
+.timeline-item {
+  position: relative;
+  padding-top: 80px;
+  text-align: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* 年份氣泡框 */
+.timeline-year {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  background: $white;
+  border: 2px solid $primary-300;
+  border-radius: 24px;
+  white-space: nowrap;
+  z-index: 3;
+  overflow: visible;
+}
+
+/* 氣泡框的三角形 */
+.timeline-year::before {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 13px;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='13' viewBox='0 0 14 13' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 7 13 L 1 0 L 13 0 L 7 13 Z' fill='white'/%3E%3Cpath d='M 7 13 L 1 0' stroke='%23FFC27B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M 7 13 L 13 0' stroke='%23FFC27B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.timeline-year::after {
+  display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .timeline-year {
+    font-size: 0.875rem;
+    padding: 0.375rem 1rem;
+  }
+
+  .timeline-line::before {
+    left: calc(5% + 1rem);
+    width: calc(75% - 2rem);
+  }
+
+  .timeline-line::after {
+    left: calc(95% - 1rem);
+    width: 5%;
   }
 }
