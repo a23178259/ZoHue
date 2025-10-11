@@ -248,7 +248,7 @@
 <!-- 非實心 material-icons-outlined -->
 <span class="material-icons-outlined">notifications</span>
 
-<!-- 如果material-icons-outlined 沒有效果，就直接使用 material-symbols-outlined -->
+<!-- 如果 material-icons-outlined 沒有效果，就直接使用 material-symbols-outlined -->
 <span class="material-symbols-outlined">notifications</span>
 ```
 
