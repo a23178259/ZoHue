@@ -234,12 +234,23 @@
 ## 圖庫 Icon
 
 - fontawesome：https://fontawesome.com/?o=r
-- fontawesome → 已使用 npm 全域安裝，可直接到官網複製 class 使用
+- fontawesome → 已使用 npm 全域安裝，可直接到官網複製使用
 - tabler：https://tabler.io/icons
-- tabler → 使用 CDN 引入，已在 index.html 引入
+- tabler → 已使用 npm 全域安裝，可直接到官網複製使用
 - icon 庫：https://icon-sets.iconify.design/
 - Google Material Design Icons：https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_drop_up:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3
-- Google Material Design Icons → 已在 index.html 引入 CDN，可直接到官網複製使用
+- Google Material Design Icons → 已使用 npm 全域安裝，可直接到官網複製使用
+
+```
+<!-- 實心 material-icons -->
+<span class="material-icons">notifications</span>
+
+<!-- 非實心 material-icons-outlined -->
+<span class="material-icons-outlined">notifications</span>
+
+<!-- 如果material-icons-outlined 沒有效果，就直接使用 material-symbols-outlined -->
+<span class="material-symbols-outlined">notifications</span>
+```
 
 ## Node.js 版本
 

@@ -1,14 +1,20 @@
-/** @format */
+// All styles are imported here
 
 @import "../../node_modules/bootstrap/scss/functions";
 @import "./utils/variables";
 @import "../../node_modules/bootstrap";
 
-// Font Awesome
+// Font Awesome icon
 $fa-font-path: "../assets/webfonts";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+
+// Tabler Icons
+@import "../../node_modules/@tabler/icons-webfont/dist/tabler-icons.min.css";
+
+// Google Material Symbols
+@import "../../node_modules/material-icons/iconfont/material-icons.css";
 
 @import "./utils/utilities";
 @import "bootstrap/scss/utilities/api";

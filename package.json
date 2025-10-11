@@ -16,12 +16,15 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.1",
+    "@material-symbols/font-400": "^0.36.3",
     "@popperjs/core": "^2.11.8",
     "@tabler/icons": "^3.34.1",
+    "@tabler/icons-webfont": "^3.35.0",
     "bootstrap": "^5.3.8",
     "firebase": "^12.3.0",
     "gh-pages": "^5.0.0",
     "glob": "^10.2.2",
+    "material-icons": "^1.13.14",
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
     "vite-plugin-live-reload": "^3.0.2"
