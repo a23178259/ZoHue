@@ -13,8 +13,12 @@ $fa-font-path: "../assets/webfonts";
 // Tabler Icons
 @import "../../node_modules/@tabler/icons-webfont/dist/tabler-icons.min.css";
 
-// Google Material Symbols
+// 舊版Google Material Symbols：實心、非實心
 @import "../../node_modules/material-icons/iconfont/material-icons.css";
+@import "../../node_modules/material-icons/iconfont/outlined.css";
+
+// 新版Google Material Symbols：非實心 (新版的Google icon沒有實心版本)
+@import "../../node_modules/@material-symbols/font-400/outlined.css";
 
 @import "./utils/utilities";
 @import "bootstrap/scss/utilities/api";
