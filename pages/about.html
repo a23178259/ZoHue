@@ -203,6 +203,19 @@
         const prevBtn = document.querySelector('.timeline-nav-prev');
         const nextBtn = document.querySelector('.timeline-nav-next');
 
+        // 取得單個卡片的寬度（包含 padding 和 gap）
+        function getCardWidth() {
+          const firstCard = container.querySelector('.col-12');
+          if (!firstCard) return 300;
+
+          // 取得卡片寬度 + gap
+          const cardWidth = firstCard.offsetWidth;
+          const style = window.getComputedStyle(container.querySelector('.row'));
+          const gap = parseInt(style.gap) || 0;
+
+          return cardWidth + gap;
+        }
+
         // 檢查並更新按鈕狀態
         function updateButtonStates() {
           if (!container) return;
@@ -237,7 +250,8 @@
           e.preventDefault();
           if (prevBtn.classList.contains('disabled')) return;
 
-          container.scrollBy({ left: -300, behavior: 'smooth' });
+          const cardWidth = getCardWidth();
+          container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
           wrapper.classList.add('scrolled');
           setTimeout(updateButtonStates, 350);
         });
@@ -247,7 +261,8 @@
           e.preventDefault();
           if (nextBtn.classList.contains('disabled')) return;
 
-          container.scrollBy({ left: 300, behavior: 'smooth' });
+          const cardWidth = getCardWidth();
+          container.scrollBy({ left: cardWidth, behavior: 'smooth' });
           wrapper.classList.add('scrolled');
           setTimeout(updateButtonStates, 350);
         });
