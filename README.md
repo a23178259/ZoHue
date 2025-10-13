@@ -233,15 +233,23 @@
 
 ## 圖庫 Icon
 
+- icon 庫：https://icon-sets.iconify.design/
 - fontawesome：https://fontawesome.com/?o=r
 - fontawesome → 已使用 npm 全域安裝，可直接到官網複製使用
 - tabler：https://tabler.io/icons
 - tabler → 已使用 npm 全域安裝，可直接到官網複製使用
-- icon 庫：https://icon-sets.iconify.design/
 - Google Material Design Icons：https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_drop_up:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3
 - Google Material Design Icons → 已使用 npm 全域安裝，可直接到官網複製使用
 
 ```
+安裝了兩個版本一個是新版Google icon、一個是舊版Google icon。
+1.新版Google icon使用的class是：material-symbols-outlined
+2.舊版Google icon使用的class是：material-icons 和 material-icons-outlined
+3.新版與舊版的差異，差別在於舊版只有1000+個icon，新版有2500+個icon且新版的icon官網會持續更新，
+  舊版不更新且能使用的也較少，故而安裝了兩種版本的 Google Material icons
+4.因為新版Google icon沒有實心的圖標，所以也安裝了舊版的安裝包，
+  舊版的Google icon可以使用實心和非實心兩種icon型態，使用方式如下：
+
 <!-- 實心 material-icons -->
 <span class="material-icons">notifications</span>
 
