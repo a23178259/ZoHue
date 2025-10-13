@@ -242,6 +242,12 @@
 - Google Material Design Icons → 已使用 npm 全域安裝，可直接到官網複製使用
 
 ```
+安裝了兩個版本一個是新版Google icon、一個是舊版Google icon。
+1.新版Google icon使用的class是：material-icons-outlined
+2.舊版Google icon使用的class是：material-icons 和 material-icons-outlined
+3.新版與舊版的差異，差別在於舊版只有1000+個icon，新版有2500+個icon且新版的icon官網會持續更新，舊版不更新且能使用的也較少
+★ 因為新版Google icon沒有實心的圖標，所以也安裝了舊版的安裝包，舊版的Google icon可以使用實心和非實心兩種icon型態，使用方式如下：
+
 <!-- 實心 material-icons -->
 <span class="material-icons">notifications</span>
 
