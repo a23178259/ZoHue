@@ -83,57 +83,64 @@
   }
 }
 
-// Section 3 - 時間軸
+// Section 3
 /* 時間軸線條 */
-.timeline-line {
+.timeline-line-item {
   position: absolute;
-  top: 60px;
+  top: 20px;
   left: 0;
   right: 0;
   height: 2px;
-  z-index: 0;
-  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to right,
+    $primary-300 0,
+    $primary-300 12px,
+    transparent 12px,
+    transparent 28px
+  );
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: calc(16.67% + 1rem);
-    width: calc(66.67% - 2rem);
-    height: 2px;
-    background-image: repeating-linear-gradient(
-      to right,
-      $primary-300 0,
-      $primary-300 12px,
-      transparent 12px,
-      transparent 28px
-    );
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: calc(100% - 16.67% - 1rem);
-    width: calc(16.67% + 1rem);
-    height: 2px;
-    background-image: repeating-linear-gradient(
-      to right,
-      $primary-300 0,
-      $primary-300 12px,
-      transparent 12px,
-      transparent 28px
-    );
-    mask-image: linear-gradient(to right, $primary-300 0%, transparent 100%);
-    -webkit-mask-image: linear-gradient(
-      to right,
-      $primary-300 0%,
-      transparent 100%
-    );
+  @media (max-width: 768px) {
+    top: 18px;
+    left: 10%;
+    right: 10%;
   }
 }
 
-/* 時間軸容器 */
+// 第一個卡片的虛線：只從中間到右邊
+.timeline-container .row > div:first-child .timeline-line-item {
+  left: 50%;
+}
+// 最後一個卡片（2026展望）：只從左邊到中間
+.timeline-container .row > div:last-child .timeline-line-item {
+  right: 50%;
+}
+// 第四個卡片（2025）：右半部分虛線漸變透明
+.timeline-container .row > div:nth-last-child(4) .timeline-line-item {
+  mask-image: linear-gradient(
+    to right,
+    $primary-300 0%,
+    $primary-300 50%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    $primary-300 0%,
+    $primary-300 50%,
+    transparent 100%
+  );
+}
+
+// 滾動後移除透明效果
+.timeline-wrapper.scrolled
+  .timeline-container
+  .row
+  > div:nth-last-child(4)
+  .timeline-line-item {
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+// 時間軸容器
 .timeline-container {
   overflow-x: auto;
   overflow-y: visible;
@@ -150,7 +157,7 @@
   }
 }
 
-/* 時間軸項目 */
+// 時間軸項目
 .timeline-item {
   position: relative;
   padding-top: 80px;
@@ -159,7 +166,7 @@
   padding-right: 0.5rem;
 }
 
-/* 年份氣泡框 */
+// 年份氣泡框
 .timeline-year {
   position: absolute;
   top: 0;
@@ -174,7 +181,7 @@
   overflow: visible;
 }
 
-/* 氣泡框的三角形 */
+// 氣泡框的三角形 
 .timeline-year::before {
   content: "";
   position: absolute;
@@ -193,7 +200,7 @@
   display: none;
 }
 
-/* 響應式設計 */
+// 響應式
 @media (max-width: 768px) {
   .timeline-year {
     font-size: 0.875rem;
