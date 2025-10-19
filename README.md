@@ -158,8 +158,7 @@
 - rounded-sm：12px
 - rounded：16px(Bootstrap 預設)
 - rounded-lg：24px
-- rounded-xl：16px
-- rounded-xxl：32px
+- rounded-xl：32px
 - rounded-6: 40px
 - rounded-pill：膠囊型圓角
 - rounded-circle：圓形圓角
