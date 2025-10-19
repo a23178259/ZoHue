@@ -181,7 +181,7 @@
   overflow: visible;
 }
 
-// 氣泡框的三角形 
+// 氣泡框的三角形
 .timeline-year::before {
   content: "";
   position: absolute;
@@ -215,5 +215,58 @@
   .timeline-line::after {
     left: calc(95% - 1rem);
     width: 5%;
+  }
+}
+
+// Section 4
+.beliefs-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
+}
+
+.beliefs-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.belief-card {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.belief-card:hover {
+  transform: scale(1.02);
+}
+
+/* 底部漸層背景 */
+.belief-content {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.belief-tag {
+  top: 24px;
+  right: 24px;
+  border: 2px solid;
+  background-color: rgb(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+}
+
+@media (max-width: 768px) {
+  .belief-card {
+    width: 280px;
+  }
+
+  .beliefs-scroll-container .row {
+    gap: 16px; /* 卡片間距 */
+  }
+
+  .beliefs-scroll-container [class*="col-"] {
+    width: auto; /* 重設寬度 */
+    flex-basis: auto; /* 讓 col 自動寬度 */
+    padding: 0;
   }
 }
