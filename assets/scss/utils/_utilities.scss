@@ -30,6 +30,22 @@ $utilities: map-merge(
       class: gap,
       values: $spacers,
     ),
+    // 圓角
+    "rounded":
+      map-merge(
+        map-get($utilities, "rounded"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "rounded"), "values"),
+              (
+                "sm": $border-radius-sm,
+                "lg": $border-radius-lg,
+                "xl": $border-radius-xl,
+              )
+            ),
+        )
+      ),
   )
 );
 
