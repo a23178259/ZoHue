@@ -225,8 +225,6 @@
   scroll-behavior: smooth;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  width: 100%;
-  max-width: 100%;
 }
 
 .beliefs-scroll-container::-webkit-scrollbar {
@@ -239,10 +237,10 @@
 }
 
 .belief-card:hover {
-  transform: scale(1.02);
+  opacity: 0.7;
 }
 
-/* 底部漸層背景 */
+/* 卡片底部漸層背景 */
 .belief-content {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
 }
@@ -261,12 +259,10 @@
   }
 
   .beliefs-scroll-container .row {
-    gap: 16px; /* 卡片間距 */
+    --bs-gutter-x: 16px;
   }
 
-  .beliefs-scroll-container [class*="col-"] {
-    width: auto; /* 重設寬度 */
-    flex-basis: auto; /* 讓 col 自動寬度 */
-    padding: 0;
+  .belief-img {
+    width: 31px;
   }
 }
