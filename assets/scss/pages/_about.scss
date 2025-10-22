@@ -266,3 +266,29 @@
     width: 31px;
   }
 }
+
+// Section 5
+.binder-clip {
+  right: -10px;
+  top: -25px;
+}
+
+.btn-hover-dark:hover {
+  background-color: $dark !important;
+  color: $white;
+}
+
+@media (max-width: 768px) {
+  .w-112 {
+    width: 112px;
+  }
+  .binder-clip {
+    top: -15px;
+  }
+  .kid_star {
+    width: 32px;
+  }
+  .beliefs-scroll-container .d-flex {
+    justify-content: flex-start !important;
+  }
+}
