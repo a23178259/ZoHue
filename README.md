@@ -33,6 +33,7 @@
 -2xl：40px
 -6：48px
 -3xl：56px
+-4x：64px
 -7：80px
 上：mt、pt
 下：mb、pb
