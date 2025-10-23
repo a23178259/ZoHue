@@ -206,10 +206,9 @@ body.modal-open-custom {
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  color: $white;
+  color: $gray-600;
   letter-spacing: 5px;
-  font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
   z-index: 1070;
   pointer-events: none;
