@@ -47,12 +47,15 @@
 
                 <!-- 桌面版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
                 <a id="desktopNotificationBtn"
-                    class="navbarList-link nav-link align-middle px-3 position-relative d-none" href="#">
+                    class="navbarList-link nav-link align-middle p-3 position-relative d-none" href="#">
                     <span class="material-icons-outlined text-natural-700">notifications</span>
                     <span
                         class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle align-text-top">3
                     </span>
                 </a>
+
+                <!-- 背景遮罩 -->
+                <div id="notificationOverlay" class="notification-overlay d-none"></div>
 
                 <!-- 桌面版登入/會員中心按鈕 -->
                 <li class="nav-item d-none d-lg-block ms-4">

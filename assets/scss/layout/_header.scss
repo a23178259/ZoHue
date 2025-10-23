@@ -152,3 +152,16 @@ body.mobile-menu-open {
     }
   }
 }
+
+// 鈴鐺通知
+#desktopNotificationBtn {
+  border-radius: 100px;
+  transition: background-color 0.2s ease;
+
+  &.active {
+    background-color: $secondary-100;
+    .material-icons-outlined {
+      color: $secondary-700 !important;
+    }
+  }
+}

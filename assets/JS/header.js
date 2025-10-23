@@ -103,3 +103,20 @@ function handleFullscreenChange() {
     }
   }
 }
+// 鈴鐺通知狀態
+function initNotification() {
+  const btn = document.getElementById("desktopNotificationBtn");
+
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+  });
+
+  // 點擊其他地方移除 active
+  document.addEventListener("click", (e) => {
+    if (e.target !== btn && !btn.contains(e.target)) {
+      btn.classList.remove("active");
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initNotification);
