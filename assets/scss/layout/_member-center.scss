@@ -1,11 +1,12 @@
 /* 會員中心下拉選單 */
 .member-dropdown {
-    min-width: 200px;
-    border: none;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    min-width: 200px;;
+    border: 1px solid $natural-200;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     /* 會員中心下拉選單置中定位 */
-    top: calc(100% + 13px) !important;
+    top: calc(100% + 25px) !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
 }

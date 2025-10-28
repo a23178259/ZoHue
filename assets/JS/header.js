@@ -106,15 +106,25 @@ function handleFullscreenChange() {
 // 鈴鐺通知狀態
 function initNotification() {
   const btn = document.getElementById("desktopNotificationBtn");
+  const dropdown = document.getElementById("notificationDropdown");
 
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
     btn.classList.toggle("active");
+    dropdown.classList.toggle("show");
+    dropdown.classList.toggle("d-none");
   });
 
-  // 點擊其他地方移除 active
+  // 點擊其他地方移除 active 和關閉 dropdown
   document.addEventListener("click", (e) => {
-    if (e.target !== btn && !btn.contains(e.target)) {
+    if (
+      e.target !== btn &&
+      !btn.contains(e.target) &&
+      !dropdown.contains(e.target)
+    ) {
       btn.classList.remove("active");
+      dropdown.classList.remove("show");
+      dropdown.classList.add("d-none");
     }
   });
 }
