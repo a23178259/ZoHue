@@ -12,7 +12,16 @@
         </div>
 
         <!-- 手機版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
-        <a id="mobileNotificationBtn" class="d-lg-none d-none position-relative ms-auto me-3" href="#">
+        <!-- <a id="mobileNotificationBtn" class="d-lg-none d-none position-relative ms-auto me-3" href="#">
+            <span class="material-icons-outlined text-natural-700">
+                notifications
+            </span>
+            <span
+                class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
+        </a> -->
+        <!-- 手機版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+        <a id="mobileNotificationBtn" class="d-lg-none d-none position-relative ms-auto me-3" href="javascript:void(0)"
+            onclick="toggleMobileNotification()">
             <span class="material-icons-outlined text-natural-700">
                 notifications
             </span>
@@ -140,6 +149,55 @@
         </div>
     </div>
 </nav>
+
+<!-- 手機版鈴鐺通知 modal - 仿照 mobileDropdown 結構 -->
+<div class="notification-modal d-lg-none" id="mobileNotificationDropdown">
+    <div class="notification-modal-header">
+        <h5 class="mb-0">通知</h5>
+        <button type="button" class="btn-close" onclick="closeMobileNotification()"></button>
+    </div>
+
+    <div class="notification-modal-body">
+        <ul class="notification-list pb-4">
+            <li><a href="#" class="notification-item">
+                    <div class="notification-content mb-3">
+                        <h6 class="notification-title mb-1">【系統公告】</h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">為提供更穩定的服務，平台將於 8/5（週一）凌晨
+                            2:00–4:00進行系統維護。屆時部分功能可能暫時無法使用，敬請見諒。</p>
+                    </div>
+                    <button type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">查看詳情 →</button>
+                </a></li>
+            <li><a href="#" class="notification-item">
+                    <div class="notification-content">
+                        <h6 class="notification-title mb-1">【志工申請結果通知】</h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">你申請參與的專案「偏鄉小學網站改版」已審核通過！請盡快查看任務詳情與預計時程。
+                        </p>
+                    </div>
+                    <button type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">查看詳情 →</button>
+                </a></li>
+            <li><a href="#" class="notification-item">
+                    <div class="notification-content">
+                        <h6 class="notification-title mb-1">【專案進度提醒】</h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">你收藏的專案「颱風災後資訊地圖協作」剛剛更新了任務進度。</p>
+                    </div>
+                    <button type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">查看詳情 →</button>
+                </a></li>
+            <li>
+                <hr class="mt-2 mb-0 mx-0 border-natural-200">
+            </li>
+            <li>
+                <a href="#" class="notification-item text-center text-primary"
+                    onclick="closeMobileNotification()">查看全部通知</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <!-- 手機版下拉菜單  -->
 <div class="mobile-dropdown-menu d-lg-none" id="mobileDropdown">

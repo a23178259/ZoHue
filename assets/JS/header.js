@@ -129,4 +129,33 @@ function initNotification() {
   });
 }
 
+// 手機版鈴鐺通知（仿照 toggleMobileDropdown）
+function toggleMobileNotification() {
+  const modal = document.querySelector("#mobileNotificationDropdown");
+  const body = document.body;
+
+  modal.classList.toggle("show");
+
+  if (modal.classList.contains("show")) {
+    body.classList.add("mobile-menu-open");
+    requestFullscreen();
+  } else {
+    body.classList.remove("mobile-menu-open");
+    exitFullscreen();
+  }
+}
+
+function closeMobileNotification() {
+  const modal = document.querySelector("#mobileNotificationDropdown");
+  const body = document.body;
+
+  modal.classList.remove("show");
+  body.classList.remove("mobile-menu-open");
+  exitFullscreen();
+}
+
+// 掛載到 window
+window.toggleMobileNotification = toggleMobileNotification;
+window.closeMobileNotification = closeMobileNotification;
+
 document.addEventListener("DOMContentLoaded", initNotification);
