@@ -9,6 +9,7 @@
 - contact.html → 聯絡我們
 - privacy.html → 隱私權政策
 - userAgreement.html → 用戶條款
+- FAQ.html → 常見問答
 
 ## 常用 Bootstrap 類別
 
