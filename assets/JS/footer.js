@@ -1,4 +1,4 @@
-// backToTop.js - 返回頂部按鈕功能
+// 返回頂部按鈕功能
 
 (function () {
   "use strict";

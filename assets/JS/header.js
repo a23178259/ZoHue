@@ -129,6 +129,17 @@ function setActiveNavLink() {
       link.classList.remove("active");
     }
   });
+
+  // Footer
+  const footerNavLinks = document.querySelectorAll(".footer-nav-link");
+  footerNavLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === currentPage || href.includes(currentPage)) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
 }
 
 // 頁面加載完成時執行

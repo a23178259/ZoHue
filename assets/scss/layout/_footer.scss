@@ -201,3 +201,12 @@ footer {
     }
   }
 }
+
+.footer-nav-link:hover {
+  color: $primary;
+}
+
+.footer-nav-link.active {
+  font-weight: 700;
+  color: $primary;
+}
