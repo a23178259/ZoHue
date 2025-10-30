@@ -37,6 +37,17 @@
   }
 }
 
+.navbarList-link.active,
+.mobile-nav-link.active {
+  font-weight: 700 !important;
+  color: $primary !important;
+}
+
+.navbarList-link:hover,
+.mobile-nav-link:hover {
+  color: $primary !important;
+}
+
 // Material Icons 特殊處理
 .material-symbols-outlined {
   display: inline-flex;

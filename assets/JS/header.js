@@ -103,6 +103,37 @@ function handleFullscreenChange() {
     }
   }
 }
+
+// 檢測當前頁面並設置 active 狀態
+function setActiveNavLink() {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+  // 桌面版
+  const navLinks = document.querySelectorAll(".navbarList-link");
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === currentPage || href.includes(currentPage)) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+
+  // 手机版
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+  mobileNavLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === currentPage || href.includes(currentPage)) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+}
+
+// 頁面加載完成時執行
+document.addEventListener("DOMContentLoaded", setActiveNavLink);
+
 // 鈴鐺通知狀態
 function initNotification() {
   const btn = document.getElementById("desktopNotificationBtn");
