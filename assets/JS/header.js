@@ -119,7 +119,7 @@ function setActiveNavLink() {
     }
   });
 
-  // 手机版
+  // 手機版
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
   mobileNavLinks.forEach((link) => {
     const href = link.getAttribute("href");
