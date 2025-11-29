@@ -7,18 +7,127 @@
         <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
             rel="stylesheet" />
-        <title>My Participation</title>
+        <title>我的參與</title>
     </head>
 
     <body>
         <%- include('./layout/header'); -%>
         <section class="container-fluid bg-bg-01 pt-lg-7 pt-2xl">
             <div class="container">
-                <img src="" alt="" />
-                <h1 class="fs-lg-2 fs-4 fw-bold mb-2 mb-lg-4">我的參與</h1>
-                <p class="text-natural-600 fs-7 fs-lg-6">
-                    把專業與善意連結，讓每個好點子都有人力實現。
-                </p>
+                <div class="row pb-xl pb-lg-2xl">
+                    <div class="col-lg-auto">
+                        <div class="d-flex align-items-center">
+                            <img
+                                src="/assets/images/Profile-Image.png"
+                                alt="Profile-Image"
+                                class="me-4" />
+                            <div>
+                                <h1 class="fs-lg-2 fs-4 fw-bold mb-2 mb-lg-4">
+                                    我的參與
+                                </h1>
+                                <p class="text-natural-600 fs-7 fs-lg-6">
+                                    把專業與善意連結，讓每個好點子都有人力實現。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="tab-nav d-flex justify-content-center">
+                            <div class="tab-item active fs-lg">
+                                <a
+                                    class="pt-3 px-xl pb-2"
+                                    href="#cta-search-bar">
+                                    <span>總覽</span>
+                                </a>
+                                <div class="tab-icon">
+                                    <img
+                                        src="/assets/images/greenleaf.svg"
+                                        alt="" />
+                                </div>
+                            </div>
+
+                            <div class="tab-item fs-lg">
+                                <a
+                                    class="pt-3 px-xl pb-2"
+                                    href="#cta-search-bar">
+                                    <span>技能志工</span>
+                                </a>
+                                <div class="tab-icon">
+                                    <img
+                                        src="/assets/images/greenleaf.svg"
+                                        alt="" />
+                                </div>
+                            </div>
+
+                            <div class="tab-item fs-lg">
+                                <a
+                                    class="pt-3 px-xl pb-2"
+                                    href="#cta-search-bar">
+                                    <span>金援贊助</span>
+                                </a>
+                                <div class="tab-icon">
+                                    <img
+                                        src="/assets/images/greenleaf.svg"
+                                        alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 數據 -->
+                <div class="row pb-5 pb-lg-2xl">
+                    <div>
+                        <div class="rounded-6 bg-white p-lg-2xl p-xl">
+                            <div class="row row-gap-5">
+                                <div class="col-6 col-lg-3 text-center">
+                                    <h4
+                                        class="fs-6 fs-lg-4 fw-semibold mb-2 mb-lg-4 text-nowrap">
+                                        志工時數
+                                    </h4>
+                                    <h3
+                                        class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                        128
+                                    </h3>
+                                </div>
+
+                                <div class="col-6 col-lg-3 text-center">
+                                    <h4
+                                        class="fs-6 fs-lg-4 fw-semibold mb-2 mb-lg-4">
+                                        完成專案
+                                    </h4>
+                                    <h3
+                                        class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                        15
+                                    </h3>
+                                </div>
+
+                                <div class="col-6 col-lg-3 text-center">
+                                    <h4
+                                        class="fs-6 fs-lg-3 fw-semibold mb-2 mb-lg-4">
+                                        累計捐款（NTD）
+                                    </h4>
+                                    <h3
+                                        class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                        50,000
+                                    </h3>
+                                </div>
+
+                                <div class="col-6 col-lg-3 text-center">
+                                    <h4
+                                        class="fs-6 fs-lg-3 fw-semibold mb-2 mb-lg-4 text-nowrap">
+                                        受惠人數
+                                    </h4>
+                                    <h3
+                                        class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                        38
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
