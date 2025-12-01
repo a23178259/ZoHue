@@ -26,3 +26,30 @@
         color: $secondary-900;
     }
 }
+
+.accordion-project {
+    .accordion-item {
+        background: $natural-50;
+        border-radius: 24px;
+        overflow: hidden;
+
+        .accordion-button {
+            background: $natural-50;
+            box-shadow: none;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            border-bottom: 4px solid white;
+            border-radius: inherit;
+
+            &.collapsed {
+                border-radius: 24px;
+                border-bottom: none;
+            }
+        }
+        .accordion-collapse {
+            border-color: none;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+    }
+}
