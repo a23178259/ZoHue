@@ -1,3 +1,28 @@
 .progress-bar {
     height: 12px;
 }
+
+.btn-tabs {
+    padding: 12px 24px;
+    color: $natural-400;
+    background: $white;
+    border: transparent 2px solid;
+
+    &:hover {
+        background: transparent;
+        color: $secondary-900;
+        border: $secondary-500 2px solid;
+    }
+
+    &:focus {
+        background: $secondary-100;
+        border: $secondary-400 2px solid;
+        color: $secondary-900;
+    }
+
+    &.active {
+        background: $secondary-50;
+        border: $secondary-400 2px solid;
+        color: $secondary-900;
+    }
+}
