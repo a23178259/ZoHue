@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+            rel="stylesheet" />
+        <title>我的參與</title>
+      <script type="module" crossorigin src="/ZoHue/assets/main-AR16BBYd.js"></script>
+      <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-7Aj2KbCC.css">
+    </head>
+
+    <body>
+        <!-- header.ejs -->
+<nav
+    class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
+    <div class="container d-flex align-items-center">
+        <!-- Logo -->
+        <a class="navbar-brand logo-picture" href="index.html">
+            <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo" />
+        </a>
+
+        <!-- 手機版登入/註冊按鈕 - 未登入時顯示 -->
+        <div id="mobileLoginBtn" class="d-lg-none ms-auto me-2">
+            <button
+                class="btn btn-secondaryM fw-semibold"
+                onclick="openLoginModal()">
+                登入/註冊
+            </button>
+        </div>
+
+        <!-- 手機版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+        <a
+            id="mobileNotificationBtn"
+            class="d-lg-none d-none position-relative ms-auto me-3"
+            href="javascript:void(0)"
+            onclick="toggleMobileNotification()">
+            <span class="material-icons-outlined text-natural-700">
+                notifications
+            </span>
+            <span
+                class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle"
+                >3</span
+            >
+        </a>
+
+        <!-- 漢堡選單  -->
+        <button
+            class="navbar-toggler border-0 d-lg-none"
+            type="button"
+            onclick="toggleMobileDropdown()">
+            <i
+                id="hamburgerIcon"
+                class="fa-solid fa-bars text-natural-700 hamburger-icon"></i>
+        </button>
+
+        <!-- 桌面版菜單 -->
+        <div
+            class="collapse navbar-collapse navbarList"
+            id="navbarSupportedContent">
+            <ul
+                class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center flex-shrink-0">
+                <li class="nav-item">
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="#"
+                        >專案探索</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="about.html"
+                        >關於我們</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="#"
+                        onclick="openLightbox()"
+                        >志工故事</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="FAQ.html"
+                        >常見問答</a
+                    >
+                </li>
+
+                <!-- 桌面版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
+                <a
+                    id="desktopNotificationBtn"
+                    class="navbarList-link nav-link align-middle p-3 position-relative d-none"
+                    href="#">
+                    <span class="material-icons-outlined text-natural-700"
+                        >notifications</span
+                    >
+                    <span
+                        class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle align-text-top"
+                        >3
+                    </span>
+                </a>
+
+                <!-- 桌面版鈴鐺通知 dropdown -->
+                <div
+                    id="notificationDropdown"
+                    class="notification-dropdown d-none">
+                    <ul class="notification-list">
+                        <li>
+                            <a href="#" class="notification-item">
+                                <div class="notification-content mb-3">
+                                    <h6 class="notification-title mb-1">
+                                        【系統公告】
+                                    </h6>
+                                    <p
+                                        class="notification-text text-natural-800 mb-0 fs-7">
+                                        為提供更穩定的服務，平台將於
+                                        8/5（週一）凌晨
+                                        2:00–4:00進行系統維護。屆時部分功能可能暫時無法使用，敬請見諒。
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100">
+                                    查看詳情 →
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <div class="notification-content">
+                                    <h6 class="notification-title mb-1">
+                                        【志工申請結果通知】
+                                    </h6>
+                                    <p
+                                        class="notification-text text-natural-800 mb-0 fs-7">
+                                        你申請參與的專案「偏鄉小學網站改版」已審核通過！請盡快查看任務詳情與預計時程。
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100">
+                                    查看詳情 →
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <div class="notification-content">
+                                    <h6 class="notification-title mb-1">
+                                        【專案進度提醒】
+                                    </h6>
+                                    <p
+                                        class="notification-text text-natural-800 mb-0 fs-7">
+                                        你收藏的專案「颱風災後資訊地圖協作」剛剛更新了任務進度。
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100">
+                                    查看詳情 →
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="mt-2 mb-0 mx-0 border-natural-200" />
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="notification-item text-center text-primary"
+                                >查看全部通知</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 背景遮罩 -->
+                <div
+                    id="notificationOverlay"
+                    class="notification-overlay d-none"></div>
+
+                <!-- 桌面版登入/會員中心按鈕 -->
+                <li class="nav-item d-none d-lg-block ms-4">
+                    <!-- 未登入狀態 -->
+                    <div id="desktopLoginBtn" class="desktop-auth-btn">
+                        <button
+                            class="btn btn-secondaryL fw-semibold"
+                            onclick="openLoginModal()">
+                            登入/註冊
+                        </button>
+                    </div>
+
+                    <!-- 已登入狀態 - 桌面版會員中心 -->
+                    <div id="desktopMemberBtn" class="desktop-auth-btn d-none">
+                        <div class="dropdown">
+                            <button
+                                class="btn btn-secondaryL fw-semibold d-flex align-items-center gap-1"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <span class="material-icons align-middle fs-5"
+                                    >face</span
+                                >
+                                會員中心
+                            </button>
+                            <ul class="dropdown-menu member-dropdown">
+                                <li>
+                                    <a
+                                        class="dropdown-item text-natural-950"
+                                        href="participation.html"
+                                        ><i
+                                            class="fas fa-tasks text-primary text-center me-2"></i
+                                        >我的參與</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-natural-950 active"
+                                        href="#"
+                                        ><i
+                                            class="fas fa-trophy text-warning text-center me-2"></i
+                                        >我的成就</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-natural-950"
+                                        href="#"
+                                        ><i
+                                            class="fas fa-heart text-danger text-center me-2"></i
+                                        >收藏與追蹤</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-natural-950"
+                                        href="#"
+                                        ><i
+                                            class="fas fa-user-cog text-info text-center me-2"></i
+                                        >我的帳戶</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr
+                                        class="mt-2 mb-0 mx-0 border-natural-200" />
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-danger fw-medium logout-item"
+                                        href="#"
+                                        onclick="handleLogout()"
+                                        ><i
+                                            class="fas fa-sign-out-alt text-center me-2"></i
+                                        >登出</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 手機版鈴鐺通知 modal - 仿照 mobileDropdown 結構 -->
+<div class="notification-modal d-lg-none" id="mobileNotificationDropdown">
+    <div class="notification-modal-header">
+        <h5 class="mb-0">通知</h5>
+        <button
+            type="button"
+            class="btn-close"
+            onclick="closeMobileNotification()"></button>
+    </div>
+
+    <div class="notification-modal-body">
+        <ul class="notification-list pb-4">
+            <li>
+                <a href="#" class="notification-item">
+                    <div class="notification-content mb-3">
+                        <h6 class="notification-title mb-1">【系統公告】</h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">
+                            為提供更穩定的服務，平台將於 8/5（週一）凌晨
+                            2:00–4:00進行系統維護。屆時部分功能可能暫時無法使用，敬請見諒。
+                        </p>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">
+                        查看詳情 →
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="notification-item">
+                    <div class="notification-content">
+                        <h6 class="notification-title mb-1">
+                            【志工申請結果通知】
+                        </h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">
+                            你申請參與的專案「偏鄉小學網站改版」已審核通過！請盡快查看任務詳情與預計時程。
+                        </p>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">
+                        查看詳情 →
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="notification-item">
+                    <div class="notification-content">
+                        <h6 class="notification-title mb-1">
+                            【專案進度提醒】
+                        </h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">
+                            你收藏的專案「颱風災後資訊地圖協作」剛剛更新了任務進度。
+                        </p>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">
+                        查看詳情 →
+                    </button>
+                </a>
+            </li>
+            <li>
+                <hr class="mt-2 mb-0 mx-0 border-natural-200" />
+            </li>
+            <li>
+                <a
+                    href="#"
+                    class="notification-item text-center text-primary"
+                    onclick="closeMobileNotification()"
+                    >查看全部通知</a
+                >
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 手機版下拉菜單  -->
+<div class="mobile-dropdown-menu d-lg-none" id="mobileDropdown">
+    <ul class="mobile-menu-links pb-4">
+        <li>
+            <a
+                href="#"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown()"
+                >專案探索</a
+            >
+        </li>
+        <li>
+            <a
+                href="about.html"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown()"
+                >關於我們</a
+            >
+        </li>
+        <li>
+            <a
+                href="#"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown(); openLightbox()"
+                >志工故事</a
+            >
+        </li>
+        <li>
+            <a
+                href="FAQ.html"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown()"
+                >常見問答</a
+            >
+        </li>
+
+        <!-- 會員中心 -->
+        <li
+            class="member-only-item d-none my-0 mx-4 border-bottom border-natural-200">
+            <p class="text-natural-500 py-4 px-2 small">會員中心</p>
+        </li>
+        <!-- 會員中心連結 -->
+        <li class="member-only-item d-none">
+            <a
+                href="participation.html"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >我的參與</a
+            >
+        </li>
+        <li class="member-only-item d-none">
+            <a
+                href="#"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >我的成就</a
+            >
+        </li>
+        <li class="member-only-item d-none">
+            <a
+                href="#"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >收藏與追蹤</a
+            >
+        </li>
+        <li class="member-only-item d-none">
+            <a
+                href="#"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >我的帳戶</a
+            >
+        </li>
+    </ul>
+
+    <div class="mobile-menu-footer py-4 px-5 mx-3">
+        <button
+            class="btn btn-secondaryL fw-semibold rounded-pill w-100"
+            id="mobileLogoutBtn"
+            onclick="openLoginModal()">
+            登入/註冊
+        </button>
+    </div>
+</div>
+
+<!-- 燈箱 -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="close-button" onclick="closeLightbox()">&times;</button>
+
+        <!-- 志工故事牆內容 -->
+        <div class="story-wall">
+            <!-- 背景裝飾線條 -->
+            <div class="bg-lines">
+                <div class="bg-line bg-line-1"></div>
+                <div class="bg-line bg-line-2"></div>
+                <div class="bg-line bg-line-3"></div>
+                <div class="bg-line bg-line-4"></div>
+                <div class="bg-line bg-line-5"></div>
+            </div>
+
+            <!-- 右側固定頁面指示器 -->
+            <div class="page-indicators d-none d-md-flex" id="pageIndicators">
+                <!-- 動態生成 -->
+            </div>
+
+            <div class="story-container" id="container">
+                <!-- 頂部標題 -->
+                <header class="storyheader">
+                    <div class="header-decoration">
+                        <div class="header-line"></div>
+                        <h1 class="header-title">志工故事牆</h1>
+                        <div class="header-line"></div>
+                    </div>
+                    <p class="header-subtitle">VOLUNTEER STORIES</p>
+                </header>
+
+                <!-- 主要內容區 -->
+                <div class="content">
+                    <!-- 左側故事內容 -->
+                    <div class="story-content" id="storyContent">
+                        <!-- 章節標題 -->
+                        <div class="chapter-title">
+                            <div class="chapter-header">
+                                <h2 class="chapter-name" id="chapterName"></h2>
+                                <span class="chapter-subtitle" id="chapterSubtitle"></span>
+                            </div>
+                            <div class="chapter-line"></div>
+                        </div>
+
+                        <!-- 志工資訊 -->
+                        <div class="volunteer-info">
+                            <div class="volunteer-image" id="volunteerImage"></div>
+                            <div>
+                                <h3 class="volunteer-name" id="volunteerName"></h3>
+                                <p class="volunteer-role" id="volunteerRole"></p>
+                            </div>
+                        </div>
+
+                        <!-- 故事內容 -->
+                        <div class="story-text">
+                            <div class="quote-icon">"</div>
+                            <p class="story-paragraph" id="storyParagraph"></p>
+                            <p class="story-quote" id="storyQuote"></p>
+                        </div>
+
+                        <!-- 統計數據 -->
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statStudents"></p>
+                                <p class="stat-label">位學生</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statHours"></p>
+                                <p class="stat-label">教學時數</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statYears"></p>
+                                <p class="stat-label">年資歷</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側圖片框架 -->
+                    <div class="visual-content" id="visualContent">
+                        <div class="visual-frame">
+                            <!-- 外框 -->
+                            <div class="frame-outer"></div>
+                            <!-- 內框 -->
+                            <div class="frame-inner"></div>
+                            <!-- 角落裝飾 -->
+                            <div class="frame-corner frame-corner-tl"></div>
+                            <div class="frame-corner frame-corner-tr"></div>
+                            <div class="frame-corner frame-corner-bl"></div>
+                            <div class="frame-corner frame-corner-br"></div>
+
+                            <!-- 中心內容 -->
+                            <div class="visual-center">
+                                <img src="" alt="Story Image" id="storyImage" class="story-image">
+                                <div class="visual-label">
+                                </div>
+                            </div>
+
+                            <!-- 裝飾線條 -->
+                            <div class="frame-line-h"></div>
+                            <div class="frame-line-v"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部導航控制區 -->
+                <div class="navigation-area">
+                    <!-- 滾動提示 -->
+                    <div class="scroll-hint d-none d-md-flex" id="scrollHint">
+                        <div class="scroll-hint-content">
+                            <p class="scroll-text">SCROLL</p>
+                            <div class="scroll-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- 底部導航 -->
+                    <div class="navigation">
+                        <button class="nav-button" id="prevButton" aria-label="Previous story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="page-counter">
+                            <span class="page-current" id="pageCurrent">1</span>
+                            <span class="page-separator">/</span>
+                            <span class="page-total" id="pageTotal">6</span>
+                        </div>
+
+                        <button class="nav-button" id="nextButton" aria-label="Next story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 底部裝飾 -->
+                    <div class="storyfooter">
+                        <div class="footer-decoration">
+                            <div class="footer-line"></div>
+                            <p class="footer-text">愛心無界 · 教育無限</p>
+                            <div class="footer-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- login.ejs -->
+<!-- 登入註冊模態框 -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" role="dialog"
+    aria-modal="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-close">
+        <div class="modal-content login-modal-content">
+            <!-- 模態框頭部 -->
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- 模態框內容 -->
+            <div class="modal-body px-4 pb-4">
+                <!-- Logo -->
+                <div class="text-center mb-4">
+                    <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="ZoHue Logo" class="login-logo">
+                </div>
+
+                <!-- 切換按鈕 -->
+                <ul class="nav nav-pills nav-justified mb-4 login-nav-pills bg-natural-100" id="loginTabs"
+                    role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-medium active" id="login-tab" data-bs-toggle="pill"
+                            data-bs-target="#login-panel" type="button" role="tab" aria-controls="login-panel"
+                            aria-selected="true">
+                            登入
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-medium" id="register-tab" data-bs-toggle="pill"
+                            data-bs-target="#register-panel" type="button" role="tab" aria-controls="register-panel"
+                            aria-selected="false">
+                            註冊
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- 內容區域 -->
+                <div class="tab-content" id="loginTabsContent">
+                    <!-- 登入表單 -->
+                    <div class="tab-pane fade show active" id="login-panel" role="tabpanel" aria-labelledby="login-tab">
+                        <form id="loginForm" class="login-form">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label fw-medium text-natural-950 mb-2">電子郵件</label>
+                                <input type="email" class="form-control login-input" id="loginEmail" name="email"
+                                    placeholder="請輸入電子郵件" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label fw-medium text-natural-950 mb-2">密碼</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control login-input" id="loginPassword"
+                                        name="password" placeholder="請輸入密碼" required>
+                                    <button type="button"
+                                        class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
+                                        onclick="togglePassword('loginPassword')">
+                                        <i class="fa-solid fa-eye" id="loginPasswordIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3 d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label text-natural-700" for="rememberMe">
+                                        記住我
+                                    </label>
+                                </div>
+                                <a href="#" class="text-decoration-none link-primary">忘記密碼？</a>
+                            </div>
+                            <button type="submit" class="btn btn-secondary-500 text-secondary-800 fw-bold w-100 mb-3">
+                                登入
+                            </button>
+                        </form>
+
+                        <!-- 社群登入 -->
+                        <div class="text-center">
+                            <p class="text-natural-500 mb-3">或使用社群帳號登入</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" id="googleLoginBtn"
+                                    class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
+                                    <i class="fab fa-google text-primary-500"></i>
+                                </button>
+                                <button type="button" id="githubLoginBtn"
+                                    class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
+                                    <i class="fab fa-github fs-4 text-primary-500"></i>
+                                </button>
+                                <button type="button"
+                                    class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
+                                    <i class="ti ti-brand-instagram-filled fs-4 text-primary-500"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 註冊表單 -->
+                    <div class="tab-pane fade" id="register-panel" role="tabpanel" aria-labelledby="register-tab">
+                        <form id="registerForm" class="login-form">
+                            <div class="mb-3">
+                                <label for="registerName" class="form-label fw-medium text-natural-950 mb-2">姓名</label>
+                                <input type="text" class="form-control login-input" id="registerName" name="name"
+                                    placeholder="請輸入姓名" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerEmail"
+                                    class="form-label fw-medium text-natural-950 mb-2">電子郵件</label>
+                                <input type="email" class="form-control login-input" id="registerEmail" name="email"
+                                    placeholder="請輸入電子郵件" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerPassword"
+                                    class="form-label fw-medium text-natural-950 mb-2">密碼</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control login-input" id="registerPassword"
+                                        name="password" placeholder="請輸入密碼" required>
+                                    <button type="button"
+                                        class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
+                                        onclick="togglePassword('registerPassword')">
+                                        <i class="fa-solid fa-eye" id="registerPasswordIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword"
+                                    class="form-label fw-medium text-natural-950 mb-2">確認密碼</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control login-input" id="confirmPassword"
+                                        name="confirmPassword" placeholder="再次輸入密碼" required>
+                                    <button type="button"
+                                        class="btn btn-link position-absolute end-0 top-50 translate-middle-y password-toggle"
+                                        onclick="togglePassword('confirmPassword')">
+                                        <i class="fa-solid fa-eye" id="confirmPasswordIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                    <label class="form-check-label text-natural-700" for="agreeTerms">
+                                        我同意 <a href="userAgreement.html" target="_blank"
+                                            class="text-decoration-none link-primary">用戶條款</a> 和
+                                        <a href="privacy.html" target="_blank"
+                                            class="text-decoration-none link-primary">隱私權政策</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="btn btn-secondaryL bg-primary-500 btn-primaryL text-white fw-semibold w-100 mb-3">註冊</button>
+                        </form>
+
+                        <!-- 社群註冊 -->
+                        <div class="text-center">
+                            <p class="text-natural-500 mb-3">或使用社群帳號註冊</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" id="googleRegisterBtn"
+                                    class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
+                                    <i class="fab fa-google text-primary-500"></i>
+                                </button>
+                                <button type="button" id="githubRegisterBtn"
+                                    class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
+                                    <i class="fab fa-github fs-4 text-primary-500"></i>
+                                </button>
+                                <button type="button"
+                                    class="btn btn-outline-secondary social-btn bg-primary-50 border-primary-500">
+                                    <i class="ti ti-brand-instagram-filled fs-4 text-primary-500"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast 容器 -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+    <div id="authToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i id="toastIcon" class="me-2"></i>
+            <strong id="toastTitle" class="me-auto">通知</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toastBody">
+            訊息內容
+        </div>
+    </div>
+</div>
+
+<!-- 登出確認 Modal -->
+<div
+    class="modal fade"
+    id="logoutModal"
+    tabindex="-1"
+    aria-labelledby="logoutModalLabel"
+    aria-hidden="true"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-semibold" id="logoutModalLabel">
+                    確認登出
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-2">
+                <p class="text-natural-700 mb-0">確定要登出嗎？</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary-700 py-2 px-4"
+                    data-bs-dismiss="modal">
+                    取消
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-danger py-2 px-4"
+                    id="confirmLogoutBtn">
+                    確定登出
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+        <section class="container-fluid bg-bg-01 pt-lg-7 pt-2xl">
+            <div class="container">
+                <div class="row pb-xl pb-lg-2xl">
+                    <div class="col-lg-auto">
+                        <div class="d-flex align-items-center">
+                            <img
+                                src="/ZoHue/assets/Profile-Image-Fb3JDx7A.png"
+                                alt="Profile-Image"
+                                class="me-4" />
+                            <div>
+                                <h1 class="fs-lg-2 fs-4 fw-bold mb-2 mb-lg-4">
+                                    我的參與
+                                </h1>
+                                <p class="text-natural-600 fs-7 fs-lg-6">
+                                    把專業與善意連結，讓每個好點子都有人力實現。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div
+                            class="tab-nav d-flex justify-content-center justify-content-lg-end">
+                            <div class="tab-item active fs-lg">
+                                <a
+                                    class="pt-3 px-xl pb-2"
+                                    href="#cta-search-bar">
+                                    <span>總覽</span>
+                                </a>
+                                <div class="tab-icon">
+                                    <img
+                                        src="/ZoHue/assets/greenleaf-C-Rg15dz.svg"
+                                        alt="" />
+                                </div>
+                            </div>
+
+                            <div class="tab-item fs-lg">
+                                <a
+                                    class="pt-3 px-xl pb-2"
+                                    href="#cta-search-bar">
+                                    <span>技能志工</span>
+                                </a>
+                                <div class="tab-icon">
+                                    <img
+                                        src="/ZoHue/assets/greenleaf-C-Rg15dz.svg"
+                                        alt="" />
+                                </div>
+                            </div>
+
+                            <div class="tab-item fs-lg">
+                                <a
+                                    class="pt-3 px-xl pb-2"
+                                    href="#cta-search-bar">
+                                    <span>金援贊助</span>
+                                </a>
+                                <div class="tab-icon">
+                                    <img
+                                        src="/ZoHue/assets/greenleaf-C-Rg15dz.svg"
+                                        alt="greenleaf" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 總覽數據 -->
+                <div class="row pb-5 pb-lg-2xl">
+                    <div class="rounded-6 bg-white p-lg-2xl p-xl">
+                        <div class="row row-gap-5">
+                            <div class="col-6 col-lg-3 text-center">
+                                <h4
+                                    class="fs-6 fs-lg-4 fw-semibold mb-2 mb-lg-4 text-nowrap">
+                                    志工時數
+                                </h4>
+                                <h3
+                                    class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                    128
+                                </h3>
+                            </div>
+
+                            <div class="col-6 col-lg-3 text-center">
+                                <h4
+                                    class="fs-6 fs-lg-4 fw-semibold mb-2 mb-lg-4">
+                                    完成專案
+                                </h4>
+                                <h3
+                                    class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                    15
+                                </h3>
+                            </div>
+
+                            <div class="col-6 col-lg-3 text-center">
+                                <h4
+                                    class="fs-6 fs-lg-3 fw-semibold mb-2 mb-lg-4">
+                                    累計捐款（NTD）
+                                </h4>
+                                <h3
+                                    class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                    50,000
+                                </h3>
+                            </div>
+
+                            <div class="col-6 col-lg-3 text-center">
+                                <h4
+                                    class="fs-6 fs-lg-3 fw-semibold mb-2 mb-lg-4 text-nowrap">
+                                    受惠人數
+                                </h4>
+                                <h3
+                                    class="fs-2 display-md-6 fw-bold fw-md-semibold text-secondary-600">
+                                    38
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 勳章＆技能樹 -->
+                <div class="row pb-5 pb-lg-2xl row-gap-5">
+                    <!-- 勳章 -->
+                    <div class="col-lg-8">
+                        <div class="rounded-6 bg-white p-lg-2xl p-xl">
+                            <h4
+                                class="fs-5 fs-lg-4 fw-semibold mb-4 mb-lg-5 text-nowrap">
+                                我的勳章
+                            </h4>
+                            <div
+                                class="border-top border-natural-300 mb-5 mb-lg-xxl"></div>
+                            <div
+                                class="d-flex overflow-auto align-items-stretch mb-5 mb-lg-xxl">
+                                <span
+                                    class="fs-7 fs-lg-6 fw-semibold bg-primary-50 text-primary-600 px-3 vertical-text text-center rounded-pill me-5">
+                                    技能志工
+                                </span>
+
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/seedling-beginner-D1vPntQ0.svg"
+                                        alt="seedling-beginner"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        初心者
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/lightbulb-mentor-CXGZF1Gm.svg"
+                                        alt="lightbulb-mentor"
+                                        class="mb-2 flex-shrink-0" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        技能導師
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/medal-100-hours-I4X5u5UU.svg"
+                                        alt="medal-100-hours"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        百小時達人
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/heart-rescuer-BmJLkFL4.svg"
+                                        alt="heart-rescuer"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        救援行動者
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="d-flex overflow-auto align-items-stretch mb-5 mb-lg-xxl">
+                                <span
+                                    class="fs-7 fs-lg-6 fw-semibold bg-primary-50 text-primary-600 px-3 vertical-text text-center rounded-pill me-5">
+                                    金援支持
+                                </span>
+
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/angel-heart-Dj4bhjDu.svg"
+                                        alt="angel-heart"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        愛心天使
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/puzzle-master-CaPgR-Vm.svg"
+                                        alt="puzzle-master"
+                                        class="mb-2 flex-shrink-0" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        跨界高手
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/donation-100k-ChIQPkld.svg"
+                                        alt="donation-100k"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        贊助達到 10 萬
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/donation-300k-BoU6fHwN.svg"
+                                        alt="donation-300k"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        贊助達到 30 萬
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/education-guardian-CVu0weSM.svg"
+                                        alt="education-guardian"
+                                        class="mb-2" />
+                                    <h6
+                                        class="fs-7 text-center fw-normal text-nowrap">
+                                        教育守護者
+                                    </h6>
+                                </div>
+                            </div>
+
+                            <div
+                                class="d-flex overflow-auto align-items-stretch">
+                                <span
+                                    class="fs-7 fs-lg-6 fw-semibold bg-primary-50 text-primary-600 px-3 vertical-text text-center rounded-pill me-5">
+                                    綜合成就
+                                </span>
+
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/graduation-support-30-CN4Rh8AG.svg"
+                                        alt="graduation-support-30"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        幫助學生達到30位
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/influencer-ambassador-EaY_dSUj.svg"
+                                        alt="influencer-ambassador"
+                                        class="mb-2 flex-shrink-0" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        影響力大使
+                                    </p>
+                                </div>
+                                <div class="px-2 me-4 flex-shrink-0">
+                                    <img
+                                        src="/ZoHue/assets/community-spark-DnTY78Bw.svg"
+                                        alt="community-spark"
+                                        class="mb-2" />
+                                    <p class="fs-7 text-center text-nowrap">
+                                        社群火花
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 技能樹 -->
+                    <div class="col-lg-4">
+                        <div class="rounded-6 bg-white p-lg-2xl p-xl h-100">
+                            <h4
+                                class="fs-5 fs-lg-4 fw-semibold mb-4 mb-lg-5 text-nowrap">
+                                技能樹
+                            </h4>
+                            <div
+                                class="border-top border-natural-300 mb-5 mb-lg-xxl"></div>
+                            <div class="d-flex mb-5 mb-lg-xxl">
+                                <p class="fs-7 me-auto text-nowrap">網頁設計</p>
+                                <div
+                                    class="row mx-2 align-items-center flex-nowrap"
+                                    style="width: 215px; gap: 2px">
+                                    <span
+                                        class="col bg-primary-500 rounded-start progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar rounded-end"></span>
+                                </div>
+                                <h6 class="fs-6 text-primary-500 text-nowrap">
+                                    LV 4
+                                </h6>
+                            </div>
+                            <div
+                                class="d-flex mb-5 mb-lg-xxl align-items-center">
+                                <p class="fs-7 me-auto text-nowrap">
+                                    社群內容撰寫
+                                </p>
+                                <div
+                                    class="row mx-2 align-items-center flex-nowrap"
+                                    style="width: 215px; gap: 2px">
+                                    <span
+                                        class="col bg-primary-500 rounded-start progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar rounded-end"></span>
+                                </div>
+                                <h6 class="fs-6 text-primary-500 text-nowrap">
+                                    LV 3
+                                </h6>
+                            </div>
+                            <div class="d-flex mb-5 mb-lg-xxl">
+                                <p class="fs-7 me-auto text-nowrap">英語輔導</p>
+                                <div
+                                    class="row mx-2 align-items-center flex-nowrap"
+                                    style="width: 215px; gap: 2px">
+                                    <span
+                                        class="col bg-primary-500 rounded-start progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar rounded-end"></span>
+                                </div>
+                                <h6 class="fs-6 text-primary-500 text-nowrap">
+                                    LV 2
+                                </h6>
+                            </div>
+                            <div class="d-flex mb-5 mb-lg-xxl">
+                                <p class="fs-7 me-auto text-nowrap">數學輔導</p>
+                                <div
+                                    class="row mx-2 align-items-center flex-nowrap"
+                                    style="width: 215px; gap: 2px">
+                                    <span
+                                        class="col bg-primary-500 rounded-start progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar rounded-end"></span>
+                                </div>
+                                <h6 class="fs-6 text-primary-500 text-nowrap">
+                                    LV 3
+                                </h6>
+                            </div>
+                            <div class="d-flex mb-5 mb-lg-xxl">
+                                <p class="fs-7 me-auto text-nowrap">影片剪輯</p>
+                                <div
+                                    class="row mx-2 align-items-center flex-nowrap"
+                                    style="width: 215px; gap: 2px">
+                                    <span
+                                        class="col bg-primary-500 rounded-start progress-bar"></span>
+                                    <span
+                                        class="col bg-primary-500 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar"></span>
+                                    <span
+                                        class="col bg-natural-200 progress-bar rounded-end"></span>
+                                </div>
+                                <h6 class="fs-6 text-primary-500 text-nowrap">
+                                    LV 2
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 金援贊助者專區 -->
+                <div class="row pb-5 pb-lg-2xl">
+                    <div>
+                        <div class="rounded-6 bg-white p-lg-2xl p-xl">
+                            <div
+                                class="d-flex flex-column flex-lg-row align-items-center mb-4 mb-lg-5 row-gap-4">
+                                <h4
+                                    class="fs-5 fs-lg-4 fw-semibold text-nowrap me-auto">
+                                    金援贊助者專區
+                                </h4>
+                                <div class="me-auto me-lg-0">
+                                    <button
+                                        type="button"
+                                        class="btn btn-tabs fw-semibold active me-1">
+                                        專案贊助進度
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-tabs fw-semibold me-1">
+                                        贊助紀錄
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-tabs fw-semibold me-1">
+                                        成果回顧
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="border-top border-natural-300 mb-5 mb-lg-xxl"></div>
+                            <!-- Accordion -->
+                            <div
+                                class="accordion accordion-project"
+                                id="accordionPanelsStayOpenExample">
+                                <div
+                                    class="accordion-item border-0 mb-5 mb-lg-xxl">
+                                    <h2 class="accordion-header">
+                                        <button
+                                            class="accordion-button fs-6 fw-semibold text-natural-800"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne"
+                                            aria-expanded="true"
+                                            aria-controls="panelsStayOpen-collapseOne">
+                                            贊助中專案
+                                        </button>
+                                    </h2>
+                                    <div
+                                        id="collapseOne"
+                                        class="border-0 collapse show">
+                                        <div class="accordion-body">
+                                            <!-- Accordion Desktop內容 -->
+                                            <div
+                                                class="d-none d-lg-flex text-natural-700 fs-7 mb-4">
+                                                <div
+                                                    class="ms-5"
+                                                    style="width: 360px">
+                                                    專案名稱
+                                                </div>
+                                                <div
+                                                    class="ms-5"
+                                                    style="width: 160px">
+                                                    贊助金額
+                                                </div>
+                                                <div
+                                                    class="ms-5"
+                                                    style="width: 180px">
+                                                    贊助日期
+                                                </div>
+                                                <div
+                                                    class="ms-5"
+                                                    style="width: 120px">
+                                                    受益學生
+                                                </div>
+                                                <div
+                                                    class="mx-5"
+                                                    style="width: 224px">
+                                                    專案執行進度
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="d-none d-lg-flex align-items-center border border-primary-300 border-2 rounded-lg bg-white p-5 mb-4 gap-5">
+                                                <h6 style="width: 360px">
+                                                    災害緊急救援物資募集
+                                                </h6>
+                                                <h6 style="width: 160px">
+                                                    NT$ 10,000
+                                                </h6>
+                                                <h6 style="width: 180px">
+                                                    2025/04/07
+                                                </h6>
+                                                <h6 style="width: 120px">
+                                                    10位
+                                                </h6>
+                                                <div
+                                                    class="d-flex align-items-center gap-2"
+                                                    style="width: 224px">
+                                                    <div
+                                                        class="progress flex-grow-1 me-2"
+                                                        style="height: 12px">
+                                                        <div
+                                                            class="progress-bar"
+                                                            style="
+                                                                width: 85%;
+                                                            "></div>
+                                                    </div>
+                                                    <h6
+                                                        class="text-primary-500 fw-semibold">
+                                                        85%
+                                                    </h6>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="d-none d-lg-flex align-items-center border border-primary-300 border-2 rounded-lg bg-white p-5 mb-4 gap-5">
+                                                <h6 style="width: 360px">
+                                                    山林步道修繕行動
+                                                </h6>
+                                                <h6 style="width: 160px">
+                                                    NT$ 15,000
+                                                </h6>
+                                                <h6 style="width: 180px">
+                                                    2024/11/15
+                                                </h6>
+                                                <h6 style="width: 120px">
+                                                    20位
+                                                </h6>
+                                                <div
+                                                    class="d-flex align-items-center gap-2"
+                                                    style="width: 224px">
+                                                    <div
+                                                        class="progress flex-grow-1 me-2"
+                                                        style="height: 12px">
+                                                        <div
+                                                            class="progress-bar"
+                                                            style="
+                                                                width: 100%;
+                                                            "></div>
+                                                    </div>
+                                                    <h6
+                                                        class="text-primary-500 fw-semibold">
+                                                        100%
+                                                    </h6>
+                                                </div>
+                                            </div>
+
+                                            <!-- Accordion Mobile內容 -->
+                                            <div
+                                                class="d-flex flex-column d-lg-none border border-primary-300 border-2 rounded-lg bg-white p-4 mb-3 gap-4">
+                                                <h6 class="mb-2">
+                                                    災害緊急救援物資募集
+                                                </h6>
+                                                <div
+                                                    class="d-flex justify-content-between">
+                                                    <span
+                                                        class="text-natural-700"
+                                                        >贊助金額</span
+                                                    >
+                                                    <span class="fw-semibold"
+                                                        >NT$ 10,000</span
+                                                    >
+                                                </div>
+
+                                                <div
+                                                    class="d-flex justify-content-between">
+                                                    <span
+                                                        class="text-natural-700"
+                                                        >贊助日期</span
+                                                    >
+                                                    <span class="fw-semibold"
+                                                        >2025/04/07</span
+                                                    >
+                                                </div>
+
+                                                <div
+                                                    class="d-flex justify-content-between">
+                                                    <span
+                                                        class="text-natural-700"
+                                                        >受益學生</span
+                                                    >
+                                                    <span class="fw-semibold"
+                                                        >10位</span
+                                                    >
+                                                </div>
+                                                <div>
+                                                    <div
+                                                        class="text-natural-700 mb-1">
+                                                        專案執行進度
+                                                    </div>
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-between">
+                                                        <div
+                                                            class="progress flex-grow-1 me-4"
+                                                            style="
+                                                                height: 12px;
+                                                            ">
+                                                            <div
+                                                                class="progress-bar"
+                                                                style="
+                                                                    width: 85%;
+                                                                "></div>
+                                                        </div>
+                                                        <h6
+                                                            class="text-primary-500 fw-semibold">
+                                                            85%
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="d-flex flex-column d-lg-none border border-primary-300 border-2 rounded-lg bg-white p-4 mb-3 gap-4">
+                                                <h6 class="mb-2">
+                                                    山林步道修繕行動
+                                                </h6>
+                                                <div
+                                                    class="d-flex justify-content-between">
+                                                    <span
+                                                        class="text-natural-700"
+                                                        >贊助金額</span
+                                                    >
+                                                    <span class="fw-semibold"
+                                                        >NT$ 15,000</span
+                                                    >
+                                                </div>
+
+                                                <div
+                                                    class="d-flex justify-content-between">
+                                                    <span
+                                                        class="text-natural-700"
+                                                        >贊助日期</span
+                                                    >
+                                                    <span class="fw-semibold"
+                                                        >2025/11/15</span
+                                                    >
+                                                </div>
+
+                                                <div
+                                                    class="d-flex justify-content-between">
+                                                    <span
+                                                        class="text-natural-700"
+                                                        >受益學生</span
+                                                    >
+                                                    <span class="fw-semibold"
+                                                        >20位</span
+                                                    >
+                                                </div>
+                                                <div>
+                                                    <div
+                                                        class="text-natural-700 mb-1">
+                                                        專案執行進度
+                                                    </div>
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-between">
+                                                        <div
+                                                            class="progress flex-grow-1 me-4"
+                                                            style="
+                                                                height: 12px;
+                                                            ">
+                                                            <div
+                                                                class="progress-bar"
+                                                                style="
+                                                                    width: 100%;
+                                                                "></div>
+                                                        </div>
+                                                        <h6
+                                                            class="text-primary-500 fw-semibold">
+                                                            100%
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0">
+                                    <h2 class="accordion-header">
+                                        <button
+                                            class="accordion-button fs-6 fw-semibold text-natural-800 disable"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo"
+                                            aria-expanded="true"
+                                            aria-controls="panelsStayOpen-collapseTwo">
+                                            已贊助專案
+                                        </button>
+                                    </h2>
+                                    <div
+                                        id="collapseTwo"
+                                        class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <!-- 已贊助專案  -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="container-fluid">
+    <img src="/ZoHue/assets/Exclude-CI-SP6fK.svg" alt="Exclude" class="Exclude d-none d-md-block">
+    <img src="/ZoHue/assets/Exclude-small-DhFM4DXZ.svg" alt="Exclude" class="Exclude d-block d-md-none">
+    <div class="container mx-312">
+        <div class="row footer-columns">
+            <!-- Logo -->
+            <div class="col-lg-2 col-md-12 mb-4">
+                <a href="index.html">
+                    <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="col-lg-10 col-md-12">
+                <div class="row align-items-start">
+                    <!-- 平台區塊連結 -->
+                    <div class="col-lg-3 col-md-6 col-6 platform">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">平台</h6>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a href="about.html"
+                                    class="footer-nav-link text-decoration-none d-block footer-link ps-4 pe-4">關於我們</a>
+                                <a href="userAgreement.html"
+                                    class="footer-nav-link text-decoration-none d-block footer-link ps-4 pe-4">使用條款</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="privacy.html"
+                                    class="footer-nav-link text-decoration-none d-block footer-link ps-4 pe-4">隱私權政策</a>
+                                <a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">聯絡我們</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 志工區塊連結 -->
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">志工</h6>
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">專案列表</a>
+                            </li>
+                            <li class=""><a href="#" onclick="openLightbox()"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">志工故事</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 提案方區塊連結 -->
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">提案方</h6>
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">感謝牆</a>
+                            </li>
+                            <li class=""><a href="#"
+                                    class="text-natural-950 text-decoration-none link-primary footer-link ps-4 pe-4">成功案例</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 立即追蹤區塊連結 -->
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <h6 class="text-natural-500 fw-normal pb-4 pe-4 ps-4 mb-2 custom-border fs-14">立即追蹤</h6>
+                        <div class="d-flex gap-4 py-2 px-4">
+                            <a href="#"
+                                class="text-primary-500 bg-primary-50 icon-radius d-flex justify-content-center align-items-center p-2">
+                                <i class="fa-brands fa-facebook fa-lg"></i>
+                            </a>
+                            <a href="#"
+                                class="text-primary-500 bg-primary-50 icon-radius d-flex justify-content-center align-items-center p-2">
+                                <i class="ti ti-brand-instagram-filled"></i>
+                            </a>
+                            <a href="#"
+                                class="text-primary-500 bg-primary-50 icon-radius d-flex justify-content-center align-items-center p-2">
+                                <i class="fa-brands fa-line fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 版權聲明 -->
+        <div class="row mb-6">
+            <div class="col-12 text-center">
+                <small class="text-natural-500 bg-natural-50 d-inline-block border-radius py-2 px-4">
+                    Copyright© SparkFund., LTD. All Rights Reserved
+                </small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- 返回頂部按鈕 -->
+<button id="backToTop" class="position-fixed btn-back-to-top border-0 bg-transparent p-0 d-none d-md-block"
+    aria-label="返回頂部">
+    <i class="ti ti-square-rounded-arrow-up-filled text-primary-600 d-block fs-1"></i>
+</button>
+
+<!-- 燈箱 -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="close-button" onclick="closeLightbox()">&times;</button>
+
+        <!-- 志工故事牆內容 -->
+        <div class="story-wall">
+            <!-- 背景裝飾線條 -->
+            <div class="bg-lines">
+                <div class="bg-line bg-line-1"></div>
+                <div class="bg-line bg-line-2"></div>
+                <div class="bg-line bg-line-3"></div>
+                <div class="bg-line bg-line-4"></div>
+                <div class="bg-line bg-line-5"></div>
+            </div>
+
+            <!-- 右側固定頁面指示器 -->
+            <div class="page-indicators d-none d-md-flex" id="pageIndicators">
+                <!-- 動態生成 -->
+            </div>
+
+            <div class="story-container" id="container">
+                <!-- 頂部標題 -->
+                <header class="storyheader">
+                    <div class="header-decoration">
+                        <div class="header-line"></div>
+                        <h1 class="header-title">志工故事牆</h1>
+                        <div class="header-line"></div>
+                    </div>
+                    <p class="header-subtitle">VOLUNTEER STORIES</p>
+                </header>
+
+                <!-- 主要內容區 -->
+                <div class="content">
+                    <!-- 左側故事內容 -->
+                    <div class="story-content" id="storyContent">
+                        <!-- 章節標題 -->
+                        <div class="chapter-title">
+                            <div class="chapter-header">
+                                <h2 class="chapter-name" id="chapterName"></h2>
+                                <span class="chapter-subtitle" id="chapterSubtitle"></span>
+                            </div>
+                            <div class="chapter-line"></div>
+                        </div>
+
+                        <!-- 志工資訊 -->
+                        <div class="volunteer-info">
+                            <div class="volunteer-image" id="volunteerImage"></div>
+                            <div>
+                                <h3 class="volunteer-name" id="volunteerName"></h3>
+                                <p class="volunteer-role" id="volunteerRole"></p>
+                            </div>
+                        </div>
+
+                        <!-- 故事內容 -->
+                        <div class="story-text">
+                            <div class="quote-icon">"</div>
+                            <p class="story-paragraph" id="storyParagraph"></p>
+                            <p class="story-quote" id="storyQuote"></p>
+                        </div>
+
+                        <!-- 統計數據 -->
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statStudents"></p>
+                                <p class="stat-label">位學生</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statHours"></p>
+                                <p class="stat-label">教學時數</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="stat-value" id="statYears"></p>
+                                <p class="stat-label">年資歷</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側圖片框架 -->
+                    <div class="visual-content" id="visualContent">
+                        <div class="visual-frame">
+                            <!-- 外框 -->
+                            <div class="frame-outer"></div>
+                            <!-- 內框 -->
+                            <div class="frame-inner"></div>
+                            <!-- 角落裝飾 -->
+                            <div class="frame-corner frame-corner-tl"></div>
+                            <div class="frame-corner frame-corner-tr"></div>
+                            <div class="frame-corner frame-corner-bl"></div>
+                            <div class="frame-corner frame-corner-br"></div>
+
+                            <!-- 中心內容 -->
+                            <div class="visual-center">
+                                <img src="" alt="Story Image" id="storyImage" class="story-image">
+                                <div class="visual-label">
+                                </div>
+                            </div>
+
+                            <!-- 裝飾線條 -->
+                            <div class="frame-line-h"></div>
+                            <div class="frame-line-v"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部導航控制區 -->
+                <div class="navigation-area">
+                    <!-- 滾動提示 -->
+                    <div class="scroll-hint d-none d-md-flex" id="scrollHint">
+                        <div class="scroll-hint-content">
+                            <p class="scroll-text">SCROLL</p>
+                            <div class="scroll-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- 底部導航 -->
+                    <div class="navigation">
+                        <button class="nav-button" id="prevButton" aria-label="Previous story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="page-counter">
+                            <span class="page-current" id="pageCurrent">1</span>
+                            <span class="page-separator">/</span>
+                            <span class="page-total" id="pageTotal">6</span>
+                        </div>
+
+                        <button class="nav-button" id="nextButton" aria-label="Next story">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 底部裝飾 -->
+                    <div class="storyfooter">
+                        <div class="footer-decoration">
+                            <div class="footer-line"></div>
+                            <p class="footer-text">愛心無界 · 教育無限</p>
+                            <div class="footer-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+    </body>
+</html>

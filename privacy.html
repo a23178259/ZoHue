@@ -5,106 +5,261 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <title>隱私權政策</title>
-  <script type="module" crossorigin src="/ZoHue/assets/main-VGPXj4l2.js"></script>
-  <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-D4z4c2zr.css">
+    <link rel="shortcut icon" href="/ZoHue/assets/favicon-BciZ1AgA.svg" type="image/x-icon" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script type="module" crossorigin src="/ZoHue/assets/main-AR16BBYd.js"></script>
+  <link rel="stylesheet" crossorigin href="/ZoHue/assets/main-7Aj2KbCC.css">
 </head>
 
 <body>
     <!-- header.ejs -->
-<nav class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
+<nav
+    class="navbar navbar-sticky navbar-expand-lg navbar-light bg-light border-bottom border-natural-300 py-3">
     <div class="container d-flex align-items-center">
         <!-- Logo -->
         <a class="navbar-brand logo-picture" href="index.html">
-            <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo">
+            <img src="/ZoHue/assets/logo-DcaTSJQR.svg" alt="logo" />
         </a>
 
         <!-- 手機版登入/註冊按鈕 - 未登入時顯示 -->
         <div id="mobileLoginBtn" class="d-lg-none ms-auto me-2">
-            <button class="btn btn-secondaryM fw-semibold" onclick="openLoginModal()">登入/註冊</button>
+            <button
+                class="btn btn-secondaryM fw-semibold"
+                onclick="openLoginModal()">
+                登入/註冊
+            </button>
         </div>
 
         <!-- 手機版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
-        <a id="mobileNotificationBtn" class="d-lg-none d-none position-relative ms-auto me-3" href="#">
-            <span class="material-symbols-outlined text-natural-700">
+        <a
+            id="mobileNotificationBtn"
+            class="d-lg-none d-none position-relative ms-auto me-3"
+            href="javascript:void(0)"
+            onclick="toggleMobileNotification()">
+            <span class="material-icons-outlined text-natural-700">
                 notifications
             </span>
             <span
-                class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle">3</span>
+                class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle"
+                >3</span
+            >
         </a>
 
         <!-- 漢堡選單  -->
-        <button class="navbar-toggler border-0 d-lg-none" type="button" onclick="toggleMobileDropdown()">
-            <i id="hamburgerIcon" class="fa-solid fa-bars text-natural-700 hamburger-icon"></i>
+        <button
+            class="navbar-toggler border-0 d-lg-none"
+            type="button"
+            onclick="toggleMobileDropdown()">
+            <i
+                id="hamburgerIcon"
+                class="fa-solid fa-bars text-natural-700 hamburger-icon"></i>
         </button>
 
         <!-- 桌面版菜單 -->
-        <div class="collapse navbar-collapse navbarList" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center flex-shrink-0">
+        <div
+            class="collapse navbar-collapse navbarList"
+            id="navbarSupportedContent">
+            <ul
+                class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center flex-shrink-0">
                 <li class="nav-item">
-                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
-                        href="#">專案探索</a>
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="#"
+                        >專案探索</a
+                    >
                 </li>
                 <li class="nav-item">
-                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
-                        href="about.html">關於我們</a>
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="about.html"
+                        >關於我們</a
+                    >
                 </li>
                 <li class="nav-item">
-                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary" href="#"
-                        onclick="openLightbox()">志工故事</a>
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="#"
+                        onclick="openLightbox()"
+                        >志工故事</a
+                    >
                 </li>
                 <li class="nav-item">
-                    <a class="navbarList-link nav-link px-3 text-natural-950 text-decoration-none link-primary"
-                        href="#">常見問題</a>
+                    <a
+                        class="navbarList-link nav-link px-3 text-decoration-none"
+                        href="FAQ.html"
+                        >常見問答</a
+                    >
                 </li>
 
                 <!-- 桌面版鈴鐺通知 - 預設隱藏，登入後才顯示 -->
-                <a id="desktopNotificationBtn"
-                    class="navbarList-link nav-link align-middle px-3 position-relative d-none" href="#">
-                    <span class="material-symbols-outlined text-natural-700">
-                        notifications
-                    </span>
+                <a
+                    id="desktopNotificationBtn"
+                    class="navbarList-link nav-link align-middle p-3 position-relative d-none"
+                    href="#">
+                    <span class="material-icons-outlined text-natural-700"
+                        >notifications</span
+                    >
                     <span
-                        class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle align-text-top">3
+                        class="notification-badge bg-primary-500 text-white fw-bold p-1 d-flex justify-content-center align-items-center rounded-circle align-text-top"
+                        >3
                     </span>
                 </a>
+
+                <!-- 桌面版鈴鐺通知 dropdown -->
+                <div
+                    id="notificationDropdown"
+                    class="notification-dropdown d-none">
+                    <ul class="notification-list">
+                        <li>
+                            <a href="#" class="notification-item">
+                                <div class="notification-content mb-3">
+                                    <h6 class="notification-title mb-1">
+                                        【系統公告】
+                                    </h6>
+                                    <p
+                                        class="notification-text text-natural-800 mb-0 fs-7">
+                                        為提供更穩定的服務，平台將於
+                                        8/5（週一）凌晨
+                                        2:00–4:00進行系統維護。屆時部分功能可能暫時無法使用，敬請見諒。
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100">
+                                    查看詳情 →
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <div class="notification-content">
+                                    <h6 class="notification-title mb-1">
+                                        【志工申請結果通知】
+                                    </h6>
+                                    <p
+                                        class="notification-text text-natural-800 mb-0 fs-7">
+                                        你申請參與的專案「偏鄉小學網站改版」已審核通過！請盡快查看任務詳情與預計時程。
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100">
+                                    查看詳情 →
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-item">
+                                <div class="notification-content">
+                                    <h6 class="notification-title mb-1">
+                                        【專案進度提醒】
+                                    </h6>
+                                    <p
+                                        class="notification-text text-natural-800 mb-0 fs-7">
+                                        你收藏的專案「颱風災後資訊地圖協作」剛剛更新了任務進度。
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100">
+                                    查看詳情 →
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="mt-2 mb-0 mx-0 border-natural-200" />
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="notification-item text-center text-primary"
+                                >查看全部通知</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 背景遮罩 -->
+                <div
+                    id="notificationOverlay"
+                    class="notification-overlay d-none"></div>
 
                 <!-- 桌面版登入/會員中心按鈕 -->
                 <li class="nav-item d-none d-lg-block ms-4">
                     <!-- 未登入狀態 -->
                     <div id="desktopLoginBtn" class="desktop-auth-btn">
-                        <button class="btn btn-secondaryL fw-semibold" onclick="openLoginModal()">登入/註冊</button>
+                        <button
+                            class="btn btn-secondaryL fw-semibold"
+                            onclick="openLoginModal()">
+                            登入/註冊
+                        </button>
                     </div>
 
                     <!-- 已登入狀態 - 桌面版會員中心 -->
                     <div id="desktopMemberBtn" class="desktop-auth-btn d-none">
                         <div class="dropdown">
-                            <button class="btn btn-secondaryL fw-semibold d-flex align-items-center gap-1" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="material-icons align-middle fs-5">
-                                    face
-                                </span>
+                            <button
+                                class="btn btn-secondaryL fw-semibold d-flex align-items-center gap-1"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <span class="material-icons align-middle fs-5"
+                                    >face</span
+                                >
                                 會員中心
                             </button>
                             <ul class="dropdown-menu member-dropdown">
-                                <li><a class="dropdown-item text-natural-950" href="#"><i
-                                            class="fas fa-tasks text-primary text-center me-2"></i>我的參與</a>
-                                </li>
-                                <li><a class="dropdown-item text-natural-950 active" href="#"><i
-                                            class="fas fa-trophy text-warning text-center me-2"></i>我的成就</a></li>
-                                <li><a class="dropdown-item text-natural-950" href="#"><i
-                                            class="fas fa-heart text-danger text-center me-2"></i>收藏與追蹤</a>
-                                </li>
-                                <li><a class="dropdown-item text-natural-950" href="#"><i
-                                            class="fas fa-user-cog text-info text-center me-2"></i>我的帳戶</a>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-natural-950"
+                                        href="participation.html"
+                                        ><i
+                                            class="fas fa-tasks text-primary text-center me-2"></i
+                                        >我的參與</a
+                                    >
                                 </li>
                                 <li>
-                                    <hr class="mt-2 mb-0 mx-0 border-natural-200">
+                                    <a
+                                        class="dropdown-item text-natural-950 active"
+                                        href="#"
+                                        ><i
+                                            class="fas fa-trophy text-warning text-center me-2"></i
+                                        >我的成就</a
+                                    >
                                 </li>
-                                <li><a class="dropdown-item text-danger fw-medium logout-item" href="#"
-                                        onclick="handleLogout()"><i
-                                            class="fas fa-sign-out-alt text-center me-2"></i>登出</a></li>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-natural-950"
+                                        href="#"
+                                        ><i
+                                            class="fas fa-heart text-danger text-center me-2"></i
+                                        >收藏與追蹤</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-natural-950"
+                                        href="#"
+                                        ><i
+                                            class="fas fa-user-cog text-info text-center me-2"></i
+                                        >我的帳戶</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr
+                                        class="mt-2 mb-0 mx-0 border-natural-200" />
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item text-danger fw-medium logout-item"
+                                        href="#"
+                                        onclick="handleLogout()"
+                                        ><i
+                                            class="fas fa-sign-out-alt text-center me-2"></i
+                                        >登出</a
+                                    >
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -114,36 +269,169 @@
     </div>
 </nav>
 
+<!-- 手機版鈴鐺通知 modal - 仿照 mobileDropdown 結構 -->
+<div class="notification-modal d-lg-none" id="mobileNotificationDropdown">
+    <div class="notification-modal-header">
+        <h5 class="mb-0">通知</h5>
+        <button
+            type="button"
+            class="btn-close"
+            onclick="closeMobileNotification()"></button>
+    </div>
+
+    <div class="notification-modal-body">
+        <ul class="notification-list pb-4">
+            <li>
+                <a href="#" class="notification-item">
+                    <div class="notification-content mb-3">
+                        <h6 class="notification-title mb-1">【系統公告】</h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">
+                            為提供更穩定的服務，平台將於 8/5（週一）凌晨
+                            2:00–4:00進行系統維護。屆時部分功能可能暫時無法使用，敬請見諒。
+                        </p>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">
+                        查看詳情 →
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="notification-item">
+                    <div class="notification-content">
+                        <h6 class="notification-title mb-1">
+                            【志工申請結果通知】
+                        </h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">
+                            你申請參與的專案「偏鄉小學網站改版」已審核通過！請盡快查看任務詳情與預計時程。
+                        </p>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">
+                        查看詳情 →
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="notification-item">
+                    <div class="notification-content">
+                        <h6 class="notification-title mb-1">
+                            【專案進度提醒】
+                        </h6>
+                        <p class="notification-text text-natural-800 mb-0 fs-7">
+                            你收藏的專案「颱風災後資訊地圖協作」剛剛更新了任務進度。
+                        </p>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-outline-dark border-natural-200 round-pill bg-white btn-hover-dark py-2 px-4 w-100"
+                        onclick="closeMobileNotification()">
+                        查看詳情 →
+                    </button>
+                </a>
+            </li>
+            <li>
+                <hr class="mt-2 mb-0 mx-0 border-natural-200" />
+            </li>
+            <li>
+                <a
+                    href="#"
+                    class="notification-item text-center text-primary"
+                    onclick="closeMobileNotification()"
+                    >查看全部通知</a
+                >
+            </li>
+        </ul>
+    </div>
+</div>
+
 <!-- 手機版下拉菜單  -->
 <div class="mobile-dropdown-menu d-lg-none" id="mobileDropdown">
     <ul class="mobile-menu-links pb-4">
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown()">專案探索</a></li>
-        <li><a href="about.html" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown()">關於我們</a></li>
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown(); openLightbox()">志工故事</a></li>
-        <li><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown()">常見問題</a></li>
+        <li>
+            <a
+                href="#"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown()"
+                >專案探索</a
+            >
+        </li>
+        <li>
+            <a
+                href="about.html"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown()"
+                >關於我們</a
+            >
+        </li>
+        <li>
+            <a
+                href="#"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown(); openLightbox()"
+                >志工故事</a
+            >
+        </li>
+        <li>
+            <a
+                href="FAQ.html"
+                class="mobile-nav-link text-decoration-none fs-6"
+                onclick="closeMobileDropdown()"
+                >常見問答</a
+            >
+        </li>
 
         <!-- 會員中心 -->
-        <li class="member-only-item d-none my-0 mx-4 border-bottom border-natural-200">
+        <li
+            class="member-only-item d-none my-0 mx-4 border-bottom border-natural-200">
             <p class="text-natural-500 py-4 px-2 small">會員中心</p>
         </li>
         <!-- 會員中心連結 -->
-        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown()">我的參與</a></li>
-        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown()">我的成就</a></li>
-        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown()">收藏與追蹤</a></li>
-        <li class="member-only-item d-none"><a href="#" class="text-natural-950 text-decoration-none link-primary fs-6"
-                onclick="closeMobileDropdown()">我的帳戶</a></li>
+        <li class="member-only-item d-none">
+            <a
+                href="participation.html"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >我的參與</a
+            >
+        </li>
+        <li class="member-only-item d-none">
+            <a
+                href="#"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >我的成就</a
+            >
+        </li>
+        <li class="member-only-item d-none">
+            <a
+                href="#"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >收藏與追蹤</a
+            >
+        </li>
+        <li class="member-only-item d-none">
+            <a
+                href="#"
+                class="text-natural-950 text-decoration-none link-primary fs-6"
+                onclick="closeMobileDropdown()"
+                >我的帳戶</a
+            >
+        </li>
     </ul>
 
     <div class="mobile-menu-footer py-4 px-5 mx-3">
-        <button class="btn btn-secondaryL fw-semibold rounded-pill w-100" id="mobileLogoutBtn"
-            onclick="openLoginModal()">登入/註冊</button>
+        <button
+            class="btn btn-secondaryL fw-semibold rounded-pill w-100"
+            id="mobileLogoutBtn"
+            onclick="openLoginModal()">
+            登入/註冊
+        </button>
     </div>
 </div>
 
@@ -321,13 +609,7 @@
             </div>
         </div>
     </div>
-</div>
-    <!-- login.ejs -->
- 
- <!-- tabler icons -->
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-</head>
+</div> <!-- login.ejs -->
 <!-- 登入註冊模態框 -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" role="dialog"
     aria-modal="true">
@@ -514,26 +796,48 @@
     </div>
 </div>
 
-        <!-- 登出確認 Modal -->
-        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true"
-            data-bs-backdrop="static" data-bs-keyboard="false">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header border-0 pb-0">
-                        <h5 class="modal-title fw-semibold" id="logoutModalLabel">確認登出</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body pt-2">
-                        <p class="text-natural-700 mb-0">確定要登出嗎？</p>
-                    </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-outline-secondary-700 py-2 px-4"
-                            data-bs-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-danger py-2 px-4" id="confirmLogoutBtn">確定登出</button>
-                    </div>
-                </div>
+<!-- 登出確認 Modal -->
+<div
+    class="modal fade"
+    id="logoutModal"
+    tabindex="-1"
+    aria-labelledby="logoutModalLabel"
+    aria-hidden="true"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-semibold" id="logoutModalLabel">
+                    確認登出
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-2">
+                <p class="text-natural-700 mb-0">確定要登出嗎？</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary-700 py-2 px-4"
+                    data-bs-dismiss="modal">
+                    取消
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-danger py-2 px-4"
+                    id="confirmLogoutBtn">
+                    確定登出
+                </button>
             </div>
         </div>
+    </div>
+</div>
+
         <main class="bg-bg-01">
             <div class="container py-lg-7 py-6">
                 <div class="row justify-content-center">
@@ -644,13 +948,13 @@
                         <div class="row g-2">
                             <div class="col-6">
                                 <a href="about.html"
-                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">關於我們</a>
+                                    class="footer-nav-link text-decoration-none d-block footer-link ps-4 pe-4">關於我們</a>
                                 <a href="userAgreement.html"
-                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">使用條款</a>
+                                    class="footer-nav-link text-decoration-none d-block footer-link ps-4 pe-4">使用條款</a>
                             </div>
                             <div class="col-6">
                                 <a href="privacy.html"
-                                    class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">隱私權政策</a>
+                                    class="footer-nav-link text-decoration-none d-block footer-link ps-4 pe-4">隱私權政策</a>
                                 <a href="#"
                                     class="text-natural-950 text-decoration-none link-primary d-block footer-link ps-4 pe-4">聯絡我們</a>
                             </div>
@@ -717,7 +1021,8 @@
 </footer>
 
 <!-- 返回頂部按鈕 -->
-<button id="backToTop" class="position-fixed btn-back-to-top border-0 bg-transparent p-0 d-none d-md-block" aria-label="返回頂部">
+<button id="backToTop" class="position-fixed btn-back-to-top border-0 bg-transparent p-0 d-none d-md-block"
+    aria-label="返回頂部">
     <i class="ti ti-square-rounded-arrow-up-filled text-primary-600 d-block fs-1"></i>
 </button>
 
