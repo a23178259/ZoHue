@@ -9,7 +9,6 @@
     const backToTopBtn = document.getElementById("backToTop");
 
     if (!backToTopBtn) {
-      console.warn("返回頂部按鈕未找到");
       return;
     }
 
@@ -74,7 +73,5 @@
 
     // 初始化時檢查滾動位置
     toggleButtonVisibility();
-
-    console.log("返回頂部按鈕功能已啟用");
   });
 })();

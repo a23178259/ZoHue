@@ -37,7 +37,6 @@ export const loginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
-    console.log("Google 登入成功:", result.user);
     return result;
   } catch (error) {
     console.error("Google 登入失敗:", error);

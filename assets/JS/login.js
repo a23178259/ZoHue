@@ -60,7 +60,7 @@ function showToast(message, type = "info", title = "通知") {
 // 檢查用戶登入狀態
 function checkAuthState() {
   onAuthStateChanged(auth, (user) => {
-    console.log("認證狀態變化:", user);
+    // console.log("認證狀態變化:", user);
     updateAuthUI(!!user, user);
   });
 }
@@ -79,8 +79,6 @@ function updateAuthUI(isLoggedIn, user = null) {
     "#desktopNotificationBtn"
   );
   const memberOnlyItems = document.querySelectorAll(".member-only-item");
-
-  console.log("更新UI，登入狀態:", isLoggedIn);
 
   if (isLoggedIn) {
     // 顯示會員中心按鈕
@@ -119,8 +117,6 @@ function updateAuthUI(isLoggedIn, user = null) {
         el.textContent = user.displayName;
       });
     }
-
-    console.log("UI已切換為登入狀態");
   } else {
     // 顯示登入按鈕
     if (mobileLoginBtn) mobileLoginBtn.classList.remove("d-none");
@@ -150,8 +146,6 @@ function updateAuthUI(isLoggedIn, user = null) {
     memberOnlyItems.forEach((item) => {
       item.classList.add("d-none");
     });
-
-    console.log("UI已切換為未登入狀態");
   }
 }
 
@@ -178,8 +172,6 @@ function handleMemberMenuClick(event, element) {
 
   // 為當前點擊的項目添加選中狀態
   element.classList.add("selected");
-
-  console.log("選中項目:", element.textContent.trim());
 }
 
 // 登出處理函數
@@ -205,9 +197,7 @@ async function confirmLogout() {
     // 執行登出
     await signOut(auth);
     showToast("已成功登出", "success", "登出成功");
-    console.log("登出成功");
   } catch (error) {
-    console.error("登出失敗:", error);
     showToast("登出時發生錯誤", "error", "登出失敗");
   }
 }
@@ -253,10 +243,9 @@ function togglePassword(inputId) {
 
 // Google 登入處理
 async function handleGoogleLogin() {
-  console.log("Google 登入被點擊");
   try {
-    const result = await loginWithGoogle();
-    console.log("Google 登入成功:", result.user);
+    await loginWithGoogle();
+    console.log("Google 登入成功");
     showToast("Google 登入成功！歡迎回來", "success", "登入成功");
 
     const modal = bootstrap.Modal.getInstance(
@@ -268,8 +257,6 @@ async function handleGoogleLogin() {
 
     // UI 更新會自動通過 onAuthStateChanged 處理
   } catch (error) {
-    console.error("Google 登入失敗:", error);
-
     let errorMessage = "Google 登入失敗";
     switch (error.code) {
       case "auth/popup-closed-by-user":
@@ -288,10 +275,9 @@ async function handleGoogleLogin() {
 
 // GitHub 登入處理
 async function handleGithubLogin() {
-  console.log("GitHub 登入被點擊");
   try {
-    const result = await loginWithGithub();
-    console.log("GitHub 登入成功:", result.user);
+    await loginWithGithub();
+    console.log("GitHub 登入成功");
     showToast("GitHub 登入成功！歡迎回來", "success", "登入成功");
 
     const modal = bootstrap.Modal.getInstance(
@@ -303,8 +289,6 @@ async function handleGithubLogin() {
 
     // UI 更新會自動通過 onAuthStateChanged 處理
   } catch (error) {
-    console.error("GitHub 登入失敗:", error);
-
     let errorMessage = "GitHub 登入失敗";
     switch (error.code) {
       case "auth/popup-closed-by-user":
@@ -329,8 +313,6 @@ window.handleLogout = handleLogout;
 
 // DOM 載入完成後的處理
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM 載入完成");
-
   // 檢查登入狀態 - 這是新增的
   checkAuthState();
 
@@ -380,7 +362,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       try {
         const userCredential = await loginUser(email, password);
-        console.log("登入成功:", userCredential.user);
         showToast("登入成功！歡迎回來", "success", "登入成功");
 
         const modal = bootstrap.Modal.getInstance(loginModal);
@@ -390,8 +371,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // UI 更新會自動通過 onAuthStateChanged 處理
       } catch (error) {
-        console.error("登入失敗:", error);
-
         let errorMessage = "登入失敗";
         switch (error.code) {
           case "auth/user-not-found":
@@ -440,7 +419,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       try {
         const userCredential = await registerUser(email, password);
-        console.log("註冊成功:", userCredential.user);
         showToast("註冊成功！現在可以使用此帳號登入", "success", "註冊成功");
 
         const modal = bootstrap.Modal.getInstance(loginModal);
@@ -452,8 +430,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // UI 更新會自動通過 onAuthStateChanged 處理
       } catch (error) {
-        console.error("註冊失敗:", error);
-
         let errorMessage = "註冊失敗";
         switch (error.code) {
           case "auth/email-already-in-use":
@@ -482,45 +458,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (googleLoginBtn) {
     googleLoginBtn.addEventListener("click", handleGoogleLogin);
-    console.log("Google 登入按鈕事件已綁定");
+    // console.log("Google 登入按鈕事件已綁定");
   }
 
   if (githubLoginBtn) {
     githubLoginBtn.addEventListener("click", handleGithubLogin);
-    console.log("GitHub 登入按鈕事件已綁定");
+    // console.log("GitHub 登入按鈕事件已綁定");
   }
 
   if (googleRegisterBtn) {
     googleRegisterBtn.addEventListener("click", handleGoogleLogin);
-    console.log("Google 註冊按鈕事件已綁定");
+    // console.log("Google 註冊按鈕事件已綁定");
   }
 
   if (githubRegisterBtn) {
     githubRegisterBtn.addEventListener("click", handleGithubLogin);
-    console.log("GitHub 註冊按鈕事件已綁定");
+    // console.log("GitHub 註冊按鈕事件已綁定");
   }
 
   // 備用方案
   if (!googleLoginBtn && !googleRegisterBtn) {
-    console.log("使用備用方案綁定 Google 按鈕");
     const googleBtns = document.querySelectorAll(".social-btn .fa-google");
-    googleBtns.forEach((icon, index) => {
+    googleBtns.forEach((icon) => {
       const btn = icon.closest("button");
       if (btn) {
         btn.addEventListener("click", handleGoogleLogin);
-        console.log(`Google 按鈕 ${index + 1} 事件已綁定`);
+        // console.log(`Google 按鈕 ${index + 1} 事件已綁定`);
       }
     });
   }
 
   if (!githubLoginBtn && !githubRegisterBtn) {
-    console.log("使用備用方案綁定 GitHub 按鈕");
     const githubBtns = document.querySelectorAll(".social-btn .fa-github");
-    githubBtns.forEach((icon, index) => {
+    githubBtns.forEach((icon) => {
       const btn = icon.closest("button");
       if (btn) {
         btn.addEventListener("click", handleGithubLogin);
-        console.log(`GitHub 按鈕 ${index + 1} 事件已綁定`);
       }
     });
   }
@@ -549,6 +522,5 @@ document.addEventListener("DOMContentLoaded", function () {
   const confirmLogoutBtn = document.querySelector("#confirmLogoutBtn");
   if (confirmLogoutBtn) {
     confirmLogoutBtn.addEventListener("click", confirmLogout);
-    console.log("登出確認按鈕事件已綁定");
   }
 });
